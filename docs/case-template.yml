@@ -1,0 +1,70 @@
+# Copy to _data/cases/<slug>.yml and fill.
+# null            = applies, not documented    → renders "not documented"
+# not_applicable  = branch never reaches it    → renders "—"
+# Delete keys you have not considered yet only if status: draft.
+
+id: 
+title: 
+status: draft            # draft | complete
+period: { from: , to: }
+jurisdiction: 
+actors: []
+
+# --- Module 1 — Instability -------------------------------------------------
+module_1:
+  object_type:            # physical_goods | access_data | capability | relational
+  collision:              # omit entirely if no collision
+    id:                   # authority_clash | speed_mismatch | compounded
+    side_a: 
+    side_b: 
+  firm_traces: []         # boundary_drift | definitional_contest | competing_clocks | recurring_reset
+
+# --- Module 2 — Formation History -------------------------------------------
+# Independent of Module 1. Do not infer one from the other.
+module_2:
+  event_type:             # enactment | conflict | amendment
+  formation_trace:        # set to `not_applicable` if event_type == enactment
+    summary: 
+    order_began_operating: 
+    markers:
+      # - date: 
+      #   note: 
+      #   source: 
+
+# --- Module 3 — Downstream ---------------------------------------------------
+module_3:
+  transmission_channels: []
+  distribution:
+    source: 
+    bearer: 
+    leverage:             # low | contested | high
+    mechanisms: []
+  reformation:
+    responses: []
+    narrative: 
+    contextual_amplification: []
+
+# --- Quantitative (Module 3 only) -------------------------------------------
+# Omit any field that is undocumented. Every value needs a source ref.
+quantitative:
+  # deadline_gap: { value: , source: }
+  # documentation_burden: { value: , source: }
+  # downstream_reach: { value: , parties: [], source: }
+  # financial_exposure: { amount: , currency: , basis: , source: }
+  # enforcement_amplification_events: { value: , source: }
+  # concurrent_order_load: { value: , refs: [], source: }
+  # time_to_response: { value: , source: }
+  # time_to_normalization:
+  #   stages:
+  #     - { stage: , days: , source: }
+  # contextual_amplification_events: { value: , source: }
+
+# --- Documentary record ------------------------------------------------------
+# Scope limit: published rules, official gazettes, consultation records, court
+# filings, industry comments. Anything outside this is out of reach by method.
+sources:
+  # - id: s1
+  #   kind:              # rule | gazette | consultation | filing | industry_comment | press
+  #   citation: 
+  #   url: 
+  #   retrieved: 
