@@ -1,0 +1,43 @@
+# Worked example carried over from template 4a of the framework doc.
+# Only the three tags the doc actually states are filled. Everything else is
+# left null on purpose — this case is a vocabulary demo, not a researched entry.
+
+id: chip-smuggling
+title: Chip smuggling case
+status: draft
+period: { from: , to: }
+jurisdiction: US
+actors: []
+
+module_1:
+  object_type: capability
+  collision:
+    id: authority_clash
+    # Semiconductor corpus: this side never varied, so the doc records only the
+    # item name. Written out here anyway — the framework asks other domains to.
+    side_a: U.S. jurisdiction
+    side_b: offshore actors
+  firm_traces: []
+
+module_2:
+  event_type: conflict
+  formation_trace:
+    summary: 
+    order_began_operating: 
+    markers: []
+
+module_3:
+  transmission_channels: []
+  distribution:
+    source: 
+    bearer: 
+    leverage: 
+    mechanisms: []
+  reformation:
+    responses: []
+    narrative: 
+    contextual_amplification: []
+
+quantitative: {}
+
+sources: []
