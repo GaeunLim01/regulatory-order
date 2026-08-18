@@ -1,0 +1,88 @@
+# Worked example from template 4b (Post 5 in your corpus), plus the Legion
+# LegalTech downstream figure (Post 6), which the doc records against this order.
+#
+# WARNING: the framework doc gives the Module 3 figures for this case but does
+# NOT state its Object Type or Event Type. Those are left null rather than
+# guessed. Fill from the record before flipping status to `complete` — inferring
+# the Module 2 tag from the Module 3 shape is exactly the dependency that
+# non-rule N1 forbids.
+
+id: anthropic-export-control-shutdown
+title: Anthropic export-control shutdown
+status: draft
+period: { from: , to: }
+jurisdiction: US
+actors:
+  - Anthropic
+  - U.S. Department of Commerce (BIS)
+  - Legion LegalTech
+
+module_1:
+  object_type:            # likely access_data or capability — confirm from record
+  collision:
+    id: 
+    side_a: 
+    side_b: 
+  firm_traces: []
+
+module_2:
+  event_type:             # confirm from record; do not infer from Module 3
+  formation_trace:
+    summary: 
+    order_began_operating: 
+    markers: []
+
+module_3:
+  transmission_channels:
+    - access_restriction   # order materialized as models pulled worldwide
+  distribution:
+    source: Anthropic
+    bearer: Legion LegalTech
+    leverage: 
+    mechanisms:
+      - downstream_propagation
+  reformation:
+    responses: []
+    narrative: >
+      Staged restoration: shutdown → vetted-organization access → public model
+      re-release → broader release of the more capable model held longer.
+    contextual_amplification: []
+
+quantitative:
+  time_to_response:
+    value: 0
+    source: s1
+    note: Models pulled immediately, worldwide.
+
+  # Staged by construction — see schema rule R5. Days left null where the
+  # record gives ordering but not intervals.
+  time_to_normalization:
+    stages:
+      - { stage: vetted-organization access restored, days: , source: s1 }
+      - { stage: public model re-released, days: , source: s1 }
+      - { stage: broader release of the more capable model, days: , source: s1 }
+
+  downstream_reach:
+    value: 1
+    parties: [Legion LegalTech]
+    source: s2
+    note: ">= 1 documented third party; treat as a floor, not a count."
+
+  financial_exposure:
+    amount: 
+    currency: 
+    basis: reported
+    source: s2
+    note: Reported liability from lost API access. Amount not yet extracted.
+
+sources:
+  - id: s1
+    kind: 
+    citation: "Post 5 — Anthropic export-control shutdown"
+    url: 
+    retrieved: 
+  - id: s2
+    kind: 
+    citation: "Post 6 — Legion LegalTech"
+    url: 
+    retrieved: 
