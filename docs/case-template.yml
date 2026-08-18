@@ -1,0 +1,65 @@
+# Framework v4. Copy to _data/cases/<slug>.yml and fill.
+# null           = applies, not documented   → renders "not documented"
+# not_applicable = branch never reaches it   → renders "—"
+
+id:
+title:
+status: draft            # draft | complete
+period: { from: , to: }
+jurisdiction:
+actors: []
+
+# --- Module 1 — Instability -------------------------------------------------
+module_1:
+  object_type:                    # capability | access_data | physical_goods | relational
+  instability_conditions:         # at least one, always. never omit this block.
+    # - id: jurisdictional_overlap    # | speed_mismatch | category_practice_mismatch
+    #   side_a:
+    #   side_b:
+  firm_traces: []                 # boundary_drift | definitional_contest | competing_clocks | recurring_reset
+
+# --- Module 2 — Formation history -------------------------------------------
+# Independent of Module 1. Do not infer one from the other.
+module_2:
+  event_type:                     # enactment | dispute | amendment
+  formation_trace:                # set to `not_applicable` if event_type == enactment
+    summary:
+    order_began_operating:
+    markers:
+      # - { date: , note: , source: }
+
+# --- Module 3 — Downstream ---------------------------------------------------
+module_3:
+  transmission_channels: []       # classification_decision | deadlines | contractual_relations
+                                  # | documentation_systems | supply_chain_position | access_restriction
+  distribution:
+    source:
+    bearer:
+    bearer_type:                  # firm | diffuse
+    leverage:                     # low | contested | high
+    mechanisms: []                # burden_displacement | downstream_propagation | enforcement_amplification
+  reformation:
+    responses: []
+    narrative:
+    contextual_amplification: []
+
+# --- Measured fields (template 4c) ------------------------------------------
+# Omit anything undocumented. Every value needs a source ref.
+measured:
+  numeric:
+    # deadline_gap: { value: , source: }
+    # time_to_response: { value: , source: }
+    # enforcement_amplification_events: { value: , source: }
+  narrative:
+    # financial_exposure: { text: , source: }
+    # downstream_reach: { text: , source: }
+
+# --- Documentary record ------------------------------------------------------
+# Scope limit: published rules, official gazettes, consultation records, court
+# filings, industry comments. Anything outside this is out of reach by method.
+sources:
+  # - id: s1
+  #   kind:                       # rule | gazette | consultation | filing | industry_comment | press
+  #   citation:
+  #   url:
+  #   retrieved:
