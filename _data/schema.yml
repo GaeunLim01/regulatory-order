@@ -1,0 +1,292 @@
+# Case schema for "How Regulatory Order Reaches Actors" — Framework v3
+# Single source of truth. Both the site templates and the CI validator read this file.
+# Editing the framework doc without editing this file is the drift you want to avoid.
+
+framework_version: v3
+
+# ---------------------------------------------------------------------------
+# EMPTY-VALUE SENTINELS
+# The framework distinguishes two kinds of blank (see 2.1 reading note, and the
+# "leave blank if undocumented" instruction in 3.1/3.2/3.3). They must not
+# collapse into one representation.
+# ---------------------------------------------------------------------------
+sentinels:
+  null:
+    meaning: The field applies to this case, but the documentary record does not settle it.
+    render: "not documented"
+    render_style: muted
+  not_applicable:
+    meaning: >
+      The branch never reaches this question. Currently produced only by
+      Event Type = enactment, which exits at Step 1 of 2.1.
+    render: "—"
+    render_tooltip: "Enactment exits the branch at Step 1; this question does not arise."
+    render_style: dash
+
+# ---------------------------------------------------------------------------
+# MODULE 1 — INSTABILITY  (qualitative only; no scoring, per the 3.3 closing note)
+# ---------------------------------------------------------------------------
+module_1:
+  object_type:
+    cardinality: exactly_one
+    required: true
+    values:
+      - id: physical_goods
+        label: Physical goods
+        stays_stable: Object identity; jurisdiction and definitional authority stay separable.
+      - id: access_data
+        label: Access & data
+        stays_stable: Nothing — identity, jurisdiction and definitional authority are entangled.
+      - id: capability
+        label: Capability (physical + access combined)
+        stays_stable: Each layer is legible on its own; the combined regulatory reading splits.
+      - id: relational
+        label: Relational
+        stays_stable: Parties are generally identifiable; scope of the tie and its inheritance rarely settle.
+
+  collision:
+    cardinality: zero_or_one          # 4a says "Collision source, if applicable"
+    required: false
+    note: >
+      A collision typology value exists only where two sides collide. Record the
+      sides, not just the item name — the semiconductor corpus could omit them
+      because one side never varied, which is a property of that corpus, not of
+      the framework.
+    values:
+      - id: authority_clash
+        label: Cross-border authority clash
+        branch: authority_driven
+      - id: speed_mismatch
+        label: Speed mismatch (law vs. tech)
+        branch: structural
+      - id: compounded
+        label: Both at once (compounded)
+        branch: overlap
+    sides:
+      required: false
+      fields: [side_a, side_b]
+      note: >
+        The semiconductor corpus could omit these because one side never varied
+        (always "U.S. jurisdiction" or "legislative cycle"). That constant does not
+        survive contact with other jurisdictions. See rule R9.
+
+  firm_traces:
+    cardinality: zero_or_many
+    values:
+      - id: boundary_drift
+        label: Who's covered keeps shifting
+      - id: definitional_contest
+        label: Different actors, different definitions
+      - id: competing_clocks
+        label: Contract date vs. actual use don't line up
+      - id: recurring_reset
+        label: The threshold keeps getting reset
+
+# ---------------------------------------------------------------------------
+# MODULE 2 — FORMATION HISTORY  (qualitative only)
+# Independent of Module 1. See non_rules below.
+# ---------------------------------------------------------------------------
+module_2:
+  event_type:
+    cardinality: exactly_one
+    required: true
+    structure: two_step_branch
+    values:
+      - id: enactment
+        label: New rule from scratch (Enactment)
+        step: 1
+        exits_at_step_1: true
+      - id: conflict
+        label: Reactive (Conflict)
+        step: 2
+        direct_collision: true
+        timeline_marks: Points where actors collided directly.
+      - id: amendment
+        label: Proactive (Amendment)
+        step: 2
+        direct_collision: false
+        timeline_marks: The path along which burden arises after the amendment.
+
+  formation_trace:
+    required_when: event_type in [conflict, amendment]
+    not_applicable_when: event_type == enactment
+    fields:
+      summary: Prose, traced backward from the present.
+      markers: List of dated points. Meaning depends on event_type (see above).
+      order_began_operating: Date the order began operating; also marked on this timeline.
+
+# ---------------------------------------------------------------------------
+# MODULE 3 — DOWNSTREAM
+# Applies uniformly regardless of Module 1 / Module 2 classification.
+# The only quantified part of the template.
+# ---------------------------------------------------------------------------
+module_3:
+  transmission_channels:
+    cardinality: zero_or_many
+    values:
+      - id: classification_decision
+        label: What you get categorized as
+        diagnostic: What has this object come to be treated as?
+      - id: deadlines
+        label: The real operative deadline
+        diagnostic: Which clock actually governs?
+      - id: contractual_relations
+        label: Passed down through contracts
+        diagnostic: How does the rule travel beyond the named party?
+      - id: documentation_systems
+        label: What you have to prove, and how
+        diagnostic: What must be produced, and who can produce it?
+      - id: supply_chain_dependence
+        label: Exposure depends on your spot in the chain
+        diagnostic: Where in the chain does the burden land?
+      - id: access_restriction
+        label: Access granted, narrowed, or cut off
+        diagnostic: Who can still reach the capability?
+      - id: enforcement_signals
+        label: Investigations, penalties, guidance
+        diagnostic: The rule didn't change — so what became salient?
+
+  distribution:
+    positions:
+      source: Actor producing the underlying capability, asset, demand, or regulatory trigger.
+      bearer: Actor standing where the order actually produces consequences.
+      note: Relational positions, not fixed identities. Recorded per order, never per actor.
+    leverage:
+      cardinality: zero_or_one
+      values: [low, contested, high]
+      note: Qualitative. Do not score.
+    mechanisms:
+      cardinality: zero_or_many
+      values:
+        - id: burden_displacement
+          label: Named party ≠ paying party
+        - id: downstream_propagation
+          label: Costs roll downhill
+        - id: enforcement_amplification
+          label: Enforcement makes it heavier
+          distinct_from: transmission_channels.enforcement_signals
+
+  reformation:
+    cardinality: zero_or_many
+    values:
+      - id: supply_chain_restructuring
+      - id: product_redesign
+      - id: contract_rewriting
+      - id: jurisdictional_relocation
+      - id: lobbying
+      - id: new_intermediaries
+    contextual_amplification:
+      note: >
+        External shocks (war, sanctions realignment, currency shock, political
+        turnover, financial crisis). Distinct from firms' own adaptation because
+        it originates outside the field the order governs.
+
+# ---------------------------------------------------------------------------
+# QUANTITATIVE FIELDS — Module 3 only (template 4b)
+# Every non-null value carries a source ref into the case's own `sources` list.
+# The framework's scope claim is documentary; the schema enforces it.
+# ---------------------------------------------------------------------------
+quantitative:
+  shape:
+    default: { value: <number>, source: <source_id> }
+    note: A bare number without a source ref is rejected.
+
+  fields:
+    - id: deadline_gap
+      module: "3.1"
+      unit: days
+      measures: Formal legal effective date minus the actual preparation / compliance gate date.
+    - id: documentation_burden
+      module: "3.1"
+      unit: count
+      measures: Number of distinct evidence or documentation requirements imposed.
+    - id: downstream_reach
+      module: "3.2"
+      unit: count
+      measures: Number of distinct downstream parties the burden propagated to.
+      extra_fields: { parties: list of named third parties, optional }
+    - id: financial_exposure
+      module: "3.2"
+      unit: amount + currency + basis
+      shape: { amount: <number>, currency: <ISO 4217>, basis: <enum>, source: <source_id> }
+      basis_values: [reported, estimated, modeled]
+      measures: Estimated cost, fine, or revenue loss attributable to the order.
+    - id: enforcement_amplification_events
+      module: "3.2"
+      unit: count
+      measures: Subsequent investigations, penalties, or comparable-case citations tied to this order.
+    - id: concurrent_order_load
+      module: "3.2"
+      unit: count
+      measures: Distinct regulatory orders bearing on the same actor at the same time.
+      extra_fields: { refs: list of case ids, optional }
+    - id: time_to_response
+      module: "3.3"
+      unit: days
+      measures: From the order taking effect to the first documented firm response.
+    - id: time_to_normalization
+      module: "3.3"
+      unit: days
+      shape: { stages: [ { stage: <string>, days: <number>, source: <source_id> } ] }
+      measures: From first response to restored or steady-state operation.
+      note: >
+        Staged by construction. The Anthropic worked example (shutdown → vetted-org
+        access → public model → broader release of the more capable model) explicitly
+        instructs recording each stage separately rather than collapsing to one
+        number, so a scalar is rejected even when only one stage is documented.
+    - id: contextual_amplification_events
+      module: "3.3"
+      unit: count
+      measures: External shocks documented as coinciding with this re-formation.
+
+# ---------------------------------------------------------------------------
+# VALIDATION RULES
+# ---------------------------------------------------------------------------
+rules:
+  - id: R1
+    rule: event_type == enactment → formation_trace must be `not_applicable`, never null.
+    why: 2.1 reading note — Enactment's blank cells are not missing data.
+  - id: R2
+    rule: event_type in [conflict, amendment] → formation_trace must not be `not_applicable`.
+  - id: R3
+    rule: collision.branch is derived from collision.id and must not be set by hand.
+  - id: R4
+    rule: Any non-null quantitative value must carry a `source` id present in `sources`.
+  - id: R5
+    rule: time_to_normalization must be a stage list. A scalar is rejected.
+  - id: R6
+    rule: financial_exposure requires amount, currency, and basis ∈ [reported, estimated, modeled].
+  - id: R7
+    rule: All enum values must appear in this file. Unknown values fail the build.
+    why: An unrecognised tag silently splits a category in two wherever cases are grouped or counted.
+  - id: R8
+    rule: status == complete → every module_1 and module_2 required field is non-null.
+  - id: R9
+    rule: >
+      jurisdiction is not US and collision is present → collision.side_a and
+      collision.side_b must both be written out.
+    why: >
+      The framework's shorthand for collision sides was derived from a US export-control
+      corpus where one side was constant. Outside that corpus it is not, and an item name
+      alone no longer identifies the collision.
+
+non_rules:
+  - id: N1
+    statement: >
+      No rule may make any Module 1 field depend on any Module 2 field, or vice
+      versa. The two axes are independent by design; a validator that enforced a
+      correlation between them would re-impose the tree that v3 removed. If a
+      correlation appears in the data, that is a finding, not a constraint.
+  - id: N2
+    statement: >
+      Module 1 and Module 2 carry no numeric fields, and none may be added.
+      Scoring a classification judgment manufactures false precision.
+
+# ---------------------------------------------------------------------------
+case_status:
+  values: [draft, complete]
+  file_location: >
+    Case files live in _data/cases/ and nothing else does. Jekyll reads that directory
+    recursively, so any stray YAML there is loaded as a case. The blank template is
+    kept at docs/case-template.yml for this reason.
+  note: draft cases render in the library but are excluded wherever cases are counted.
