@@ -1,0 +1,87 @@
+---
+layout: default
+title: Overview
+description: A three-module framework for tracing how regulatory order forms and reaches actors across AI-related value chains.
+---
+
+<section class="hero">
+  <div class="shell">
+    <span class="eyebrow">Framework v3 · Current</span>
+    <h1>How regulatory order reaches actors</h1>
+    <p class="standfirst">Three independent modules for tracing order across AI-related value chains — semiconductors, computing, cloud, data centers.</p>
+    <div class="byline">
+      <div>
+        <b>{{ site.data.author.name }}</b>
+        <span>{{ site.data.author.title }}</span>
+      </div>
+      <ul>
+        {% for link in site.data.author.links %}
+        <li><a href="{{ link.url }}" rel="me noopener">{{ link.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <p class="lede">This framework did not originate as a single top-down taxonomy. It grew out of two separate lines of inquiry, plus a third layer describing what happens once order is in place. Earlier drafts nested all of it under one branching tree with Event Type at the top, which produced recurring friction: items belonging to one inquiry kept showing up as awkward children of the other. This version keeps the three modules explicitly independent.</p>
+
+    <span class="eyebrow" style="margin-top:2.5rem">Two classification axes</span>
+
+    <div class="axes">
+      <div class="axis">
+        <span class="eyebrow eyebrow--accent">Module 1</span>
+        <h2>Instability</h2>
+        <p class="axis__q">Under the novelty of AI as a technology, why is the regulated object itself unstable?</p>
+        <ul class="axis__list">
+          <li>1.1 &nbsp;Object Type</li>
+          <li>1.2 &nbsp;Collision Typology</li>
+          <li>1.3 &nbsp;Firm-Level Traces</li>
+        </ul>
+        <p class="axis__cta"><a href="{{ '/module-1-instability/' | relative_url }}">Read Module 1 →</a></p>
+      </div>
+      <div class="axis">
+        <span class="eyebrow eyebrow--accent">Module 2</span>
+        <h2>Formation History</h2>
+        <p class="axis__q">How did today's regulatory boundary come to take its current shape?</p>
+        <ul class="axis__list">
+          <li>2.1 &nbsp;Event Type</li>
+          <li>2.2 &nbsp;Formation Trace</li>
+        </ul>
+        <p class="axis__cta"><a href="{{ '/module-2-formation-history/' | relative_url }}">Read Module 2 →</a></p>
+      </div>
+    </div>
+    <p class="axes-note">Modules 1 and 2 answer genuinely independent questions. A given case is classified on both axes at the same time, and neither tag determines the other. Every case carries two tags, not a tag and a sub-tag.</p>
+
+    <div class="band">
+      <span class="eyebrow">Module 3 · A process, not a classification</span>
+      <h2>Downstream</h2>
+      <p>Once an order exists — regardless of whether it arose through an Instability-type collision or a Formation-History-type proactive amendment — how does it reach actors, and how are consequences distributed? This module does not classify cases. It describes a common downstream process that applies once an order exists, no matter which module produced it.</p>
+      <ul class="band__list">
+        <li><b>3.1 Transmission</b>Seven channels through which order actually arrives</li>
+        <li><b>3.2 Distribution</b>Who ends up holding the burden, and with what leverage</li>
+        <li><b>3.3 Re-formation</b>How firms reshape the field, and what shocks force it</li>
+      </ul>
+      <p style="margin-top:1.35rem"><a href="{{ '/module-3-downstream/' | relative_url }}">Read Module 3 →</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <span class="eyebrow">Where to go next</span>
+    <div class="axes">
+      <div class="axis">
+        <h3>Method</h3>
+        <p>The tagging template, the two kinds of blank cell, the scope limit, and the rules a case file must satisfy before it counts as complete.</p>
+        <p class="axis__cta"><a href="{{ '/method/' | relative_url }}">Read the method →</a></p>
+      </div>
+      <div class="axis">
+        <h3>Case library</h3>
+        <p>Cases tagged on both axes, with Module 3 observations and numeric fields attached wherever the documentary record supports them.</p>
+        <p class="axis__cta"><a href="{{ '/cases/' | relative_url }}">Browse cases →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
