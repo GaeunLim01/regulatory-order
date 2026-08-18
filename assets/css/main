@@ -1,0 +1,467 @@
+/* ==========================================================================
+   How Regulatory Order Reaches Actors — Framework v4
+
+   Type is deliberately not coded to any jurisdiction. The framework compares
+   regulatory orders across national authorities, so setting it in any one
+   government's civic typeface would put a thumb on the scale. Source Sans 3 is
+   neutral, holds up at small sizes in dense tables, and carries wide Latin,
+   Greek, and Cyrillic coverage. Hangul and CJK fall back to system faces so
+   entity names in case files render in a matched weight rather than a default.
+   ========================================================================== */
+
+:root {
+  /* Ground: cool grey, closer to security paper than to book stock */
+  --paper:       #E7EAEC;
+  --plate:       #FBFCFD;
+  --plate-sunk:  #F1F3F5;
+  --ink:         #14181F;
+  --ink-soft:    #3A424E;
+  --muted:       #69737F;
+  --rule:        #C9CFD6;
+  --rule-faint:  #DEE3E7;
+
+  /* One accent. Deep teal, used for structure and links. */
+  --accent:      #0E5A61;
+  --accent-soft: #D8E6E6;
+  /* Caution only: undocumented values, scope limits, warnings. */
+  --flag:        #8A5A0B;
+  --flag-soft:   #F0E7D3;
+
+  --display: "Newsreader", Georgia, serif;
+  --body:    "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI",
+             "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR",
+             "Hiragino Sans", "Noto Sans SC", sans-serif;
+  --mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --measure: 68ch;
+  --gutter:  clamp(1.25rem, 4vw, 3.5rem);
+  --shell:   1180px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  line-height: 1.62;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------- skip link */
+.skip {
+  position: absolute; left: -9999px;
+  background: var(--ink); color: var(--plate);
+  padding: 0.6rem 1rem; z-index: 100;
+  font: 600 0.8rem/1 var(--mono);
+}
+.skip:focus { left: 1rem; top: 1rem; }
+
+/* -------------------------------------------------------------------- shell */
+.shell {
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------------------------------------------------------------- masthead */
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  background: var(--plate);
+}
+.masthead__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1.75rem;
+  padding-block: 0.85rem;
+}
+.masthead__mark {
+  font: 600 0.8125rem/1 var(--mono);
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.masthead__mark:hover { color: var(--accent); }
+.masthead__ver {
+  font: 500 0.6875rem/1 var(--mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--plate);
+  background: var(--accent);
+  padding: 0.28rem 0.44rem;
+  margin-left: 0.5rem;
+}
+
+.nav { margin-left: auto; }
+.nav ul {
+  display: flex; flex-wrap: wrap; gap: 0.25rem 1.15rem;
+  list-style: none; margin: 0; padding: 0;
+}
+.nav a {
+  font: 500 0.8125rem/1.4 var(--body);
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding-block: 0.2rem;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--accent); border-bottom-color: var(--accent-soft); }
+.nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent); }
+
+/* ------------------------------------------------------------------ typeset */
+h1, h2, h3, h4 { font-family: var(--display); font-weight: 500; line-height: 1.15; margin: 0; }
+
+h1 {
+  font-size: clamp(2.1rem, 1.4rem + 3.1vw, 3.6rem);
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+h2 {
+  font-size: clamp(1.45rem, 1.2rem + 1.1vw, 1.95rem);
+  letter-spacing: -0.012em;
+}
+h3 { font-size: 1.1875rem; letter-spacing: -0.006em; }
+
+p { margin: 0 0 1.05em; max-width: var(--measure); }
+a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+
+/* eyebrow — a section reference, not decoration: it carries the § number */
+.eyebrow {
+  font: 600 0.6875rem/1 var(--mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0.85rem;
+}
+.eyebrow--accent { color: var(--accent); }
+
+.standfirst {
+  font-family: var(--display);
+  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 56ch;
+}
+
+.lede { max-width: 62ch; }
+
+/* --------------------------------------------------------------- structure */
+.section { padding-block: clamp(2.75rem, 6vw, 4.75rem); }
+.section + .section { border-top: 1px solid var(--rule-faint); }
+
+.hero { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(1.25rem, 2.5vw, 1.75rem); }
+.hero + .section { padding-top: clamp(1.5rem, 3vw, 2.25rem); }
+.section--tight { padding-block: clamp(1.75rem, 4vw, 2.75rem); }
+
+.plate {
+  background: var(--plate);
+  border: 1px solid var(--rule);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+/* ------------------------------------------------- change bar (revision rule)
+   Federal Register and EU consolidated texts mark amended passages with a
+   vertical rule in the margin. Used here for notes explaining what v3 changed. */
+.changebar {
+  border-left: 3px solid var(--accent);
+  padding: 0.15rem 0 0.15rem 1.15rem;
+  margin: 1.75rem 0;
+  max-width: var(--measure);
+}
+.changebar__label {
+  font: 600 0.6875rem/1 var(--mono);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.changebar p:last-child { margin-bottom: 0; }
+
+.changebar--flag { border-left-color: var(--flag); }
+.changebar--flag .changebar__label { color: var(--flag); }
+
+/* --------------------------------------------------------- the two axes
+   Modules 1 and 2 are independent classification axes: laid out side by side,
+   equal weight, neither containing the other. */
+.axes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.axis {
+  background: var(--plate);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+}
+.axis__q {
+  font-family: var(--display);
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin: 0.65rem 0 0;
+}
+
+/* the joint between the two axes */
+.axes-note {
+  border: 1px solid var(--rule);
+  border-top: none;
+  background: var(--plate-sunk);
+  padding: 0.95rem clamp(1.25rem, 3vw, 2rem);
+  font: 500 0.875rem/1.55 var(--body);
+  color: var(--ink-soft);
+  max-width: none;
+}
+
+/* ------------------------------------------------------------- module 3 band
+   Different in kind: it runs underneath both axes rather than beside them. */
+.band {
+  margin-top: 1.5rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+.band .eyebrow { color: #8FB6B8; }
+.band h2 { color: var(--plate); }
+.band p { color: #C3CAD2; max-width: 62ch; }
+.band a { color: #9FD3D4; }
+.band__list {
+  list-style: none; margin: 1.15rem 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: #2C333D; border: 1px solid #2C333D;
+}
+.band__list li {
+  background: var(--ink);
+  padding: 0.85rem 1rem;
+  font: 500 0.8125rem/1.45 var(--mono);
+  color: #C3CAD2;
+}
+.band__list b { display: block; color: var(--plate); font-weight: 600; margin-bottom: 0.2rem; }
+
+/* --------------------------------------------------------- the two-step branch
+   2.1 is a two-step branch, not three flat columns. The indent encodes the step. */
+.branch { margin: 1.5rem 0 0; border-left: 1px solid var(--rule); padding-left: 0; }
+.branch__step { padding: 0 0 0 1.4rem; position: relative; margin-bottom: 1.6rem; }
+.branch__step::before {
+  content: "";
+  position: absolute; left: 0; top: 0.85rem;
+  width: 1.05rem; height: 1px; background: var(--rule);
+}
+.branch__step:last-child { margin-bottom: 0; }
+.branch__q {
+  font: 600 0.75rem/1 var(--mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.7rem;
+}
+.branch__outcomes { display: grid; gap: 0.65rem; margin: 0; padding: 0; list-style: none; }
+.branch__outcome {
+  background: var(--plate);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--rule);
+  padding: 0.8rem 1rem;
+  max-width: 60ch;
+}
+.branch__outcome b { font-size: 0.9375rem; }
+.branch__outcome > span { display: block; font-size: 0.875rem; color: var(--muted); margin-top: 0.25rem; }
+.branch__outcome--exit { border-left-color: var(--flag); }
+.branch__outcome--go   { border-left-color: var(--accent); }
+.branch__nest { margin-left: 1.4rem; }
+
+/* -------------------------------------------------------------- subheading
+   The section number carries the reference into the framework document. */
+.sub {
+  display: flex; align-items: baseline; gap: 0.75rem;
+  margin: 3rem 0 0.9rem;
+}
+.sub span {
+  font: 600 0.75rem/1 var(--mono);
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.section > .shell > .sub:first-of-type { margin-top: 2.25rem; }
+
+/* ------------------------------------------------------------ spec tables
+   The source document is a set of definition tables. Kept as tables. */
+.spec {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.1rem 0 0;
+  font-size: 0.9375rem;
+  background: var(--plate);
+  border: 1px solid var(--rule);
+}
+.spec caption {
+  caption-side: top; text-align: left;
+  font: 600 0.6875rem/1.4 var(--mono);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); padding-bottom: 0.65rem;
+}
+.spec th, .spec td {
+  text-align: left; vertical-align: top;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--rule-faint);
+}
+.spec thead th {
+  font: 600 0.6875rem/1.3 var(--mono);
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--muted);
+  background: var(--plate-sunk);
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+.spec tbody th { font-weight: 600; width: 22%; }
+.spec tbody th span {
+  display: block; margin-top: 0.2rem;
+  font: 500 0.6875rem/1.4 var(--mono);
+  color: var(--muted);
+}
+.spec tbody tr:last-child th, .spec tbody tr:last-child td { border-bottom: none; }
+.spec--q tbody th { width: 26%; }
+.spec--q td:first-of-type { font: 500 0.8125rem/1.5 var(--mono); color: var(--muted); white-space: nowrap; }
+.spec--form td { background: repeating-linear-gradient(var(--plate-sunk) 0 100%); min-height: 2rem; }
+.spec--form tbody th { width: 40%; font-weight: 500; }
+
+/* footnote-weight text: these are marginal notes in the source, not callouts */
+.note {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 66ch;
+  margin: 0.9rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--rule);
+}
+
+@media (max-width: 720px) {
+  .spec, .spec thead, .spec tbody, .spec tr, .spec th, .spec td { display: block; width: auto; }
+  .spec thead { display: none; }
+  .spec tbody tr { border-bottom: 1px solid var(--rule); padding: 0.35rem 0; }
+  .spec tbody tr:last-child { border-bottom: none; }
+  .spec tbody th { width: auto; padding-bottom: 0.25rem; }
+  .spec td { padding-top: 0.25rem; color: var(--ink-soft); }
+  .spec--form td { min-height: 1.75rem; }
+}
+
+/* ------------------------------------------------------- quantitative fields */
+.qtable { width: 100%; border-collapse: collapse; margin-top: 1.25rem; font-size: 0.9375rem; }
+.qtable caption {
+  caption-side: top; text-align: left;
+  font: 600 0.6875rem/1 var(--mono);
+  letter-spacing: 0.11em; text-transform: uppercase;
+  color: var(--muted); padding-bottom: 0.7rem;
+}
+.qtable th, .qtable td {
+  border-bottom: 1px solid var(--rule-faint);
+  padding: 0.7rem 0.9rem 0.7rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+.qtable thead th {
+  font: 600 0.6875rem/1 var(--mono);
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--muted);
+  border-bottom-color: var(--rule);
+}
+.qtable td:first-child { font: 500 0.8125rem/1.5 var(--mono); white-space: nowrap; }
+.qtable td:nth-child(2) { font: 500 0.8125rem/1.5 var(--mono); color: var(--muted); white-space: nowrap; }
+
+/* ------------------------------------------------------------------- tokens */
+.tag {
+  display: inline-block;
+  font: 500 0.75rem/1 var(--mono);
+  padding: 0.3rem 0.45rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  white-space: nowrap;
+}
+.tag--flag { background: var(--flag-soft); color: var(--flag); }
+.tag--dash { background: var(--plate-sunk); color: var(--muted); }
+
+/* ---------------------------------------------------------------- callout */
+.callout {
+  background: var(--plate-sunk);
+  border: 1px solid var(--rule);
+  padding: clamp(1.1rem, 2.5vw, 1.6rem);
+  margin: 1.75rem 0;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout__label {
+  font: 600 0.6875rem/1 var(--mono);
+  letter-spacing: 0.11em; text-transform: uppercase;
+  color: var(--muted); display: block; margin-bottom: 0.6rem;
+}
+
+/* ------------------------------------------------------------ empty states */
+.empty {
+  border: 1px dashed var(--rule);
+  background: var(--plate);
+  padding: clamp(1.75rem, 5vw, 3rem);
+  text-align: left;
+  max-width: 60ch;
+}
+.empty h3 { margin-bottom: 0.6rem; }
+.empty p { color: var(--muted); }
+
+/* ----------------------------------------------------------------- footer */
+.foot {
+  border-top: 1px solid var(--rule);
+  background: var(--plate);
+  padding-block: 2.25rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.foot p { max-width: 62ch; }
+.foot p:last-child { margin-bottom: 0; }
+
+/* ------------------------------------------------------------- responsive */
+@media (max-width: 820px) {
+  .axes { grid-template-columns: 1fr; }
+  .band__list { grid-template-columns: 1fr; }
+  .nav { margin-left: 0; width: 100%; }
+}
+
+/* --------------------------------------------------------- a11y baseline */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* ------------------------------------------------------------------ details
+   Progressive disclosure. Material kept for completeness but not on the main
+   reading path: unexercised vocabulary, dropped fields, secondary caveats. */
+details {
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--rule-faint);
+  padding-top: 0.9rem;
+}
+details > summary {
+  cursor: pointer;
+  font: 600 0.75rem/1.4 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  list-style: none;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "+ "; color: var(--accent); }
+details[open] > summary::before { content: "− "; }
+details > summary:hover { color: var(--accent); }
+details[open] > summary { margin-bottom: 0.6rem; }
