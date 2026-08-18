@@ -1,0 +1,23 @@
+title: How Regulatory Order Reaches Actors
+description: >-
+  A three-module framework for tracing how regulatory order forms and reaches
+  actors across AI-related value chains: semiconductors, computing, cloud, data centers.
+lang: en
+
+# Framework v4. Project site at gaeunlim01.github.io/regulatory-order — baseurl must match the
+# repo name exactly, with a leading slash and no trailing slash.
+baseurl: /regulatory-order
+url: https://gaeunlim01.github.io
+
+# GitHub Pages builds this with its own Jekyll. No Actions workflow required.
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+exclude:
+  - README.md
+  - docs/
+  - scripts/
+
+framework_version: v4

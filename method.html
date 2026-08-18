@@ -1,0 +1,91 @@
+---
+layout: default
+title: Case tagging template
+permalink: /method/
+description: Three blocks — classification tags, downstream observations, measured fields.
+---
+
+<section class="hero">
+  <div class="shell">
+    <span class="eyebrow eyebrow--accent">4</span>
+    <h1>Case tagging template</h1>
+    <p class="standfirst">Three blocks. They fail differently, so blanks mean different things in each.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+
+    <h3 class="sub"><span>4a</span> Classification tags — every case</h3>
+    <table class="spec spec--form">
+      <thead><tr><th>Field</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Object type (1.1)</th><td></td></tr>
+        <tr><th scope="row">Instability conditions (1.2) — one or more, never blank</th><td></td></tr>
+        <tr><th scope="row">Firm-level traces (1.3)</th><td></td></tr>
+        <tr><th scope="row">Event type (2.1)</th><td></td></tr>
+        <tr><th scope="row">Formation trace (2.2) — <span class="tag tag--dash">—</span> if Enactment</th><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub"><span>4b</span> Downstream observations — where documented</h3>
+    <table class="spec spec--form">
+      <thead><tr><th>Field</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Transmission channels (3.1)</th><td></td></tr>
+        <tr><th scope="row">Source / Bearer / Bearer type (3.2)</th><td></td></tr>
+        <tr><th scope="row">Distribution mechanism (3.2)</th><td></td></tr>
+        <tr><th scope="row">Re-formation response (3.3)</th><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub"><span>4c</span> Measured fields</h3>
+    <p>Defined once, here — not scattered through Module 3. Leave blank if undocumented.</p>
+
+    <table class="qtable">
+      <caption>Numeric — a field earns a number only if two fixed points in the record determine it</caption>
+      <thead><tr><th>Field</th><th>Unit</th><th>Two points</th></tr></thead>
+      <tbody>
+        <tr><td>Deadline gap</td><td>days</td><td>Formal effective date ↔ actual preparation or compliance gate</td></tr>
+        <tr><td>Time to response</td><td>days</td><td>Order taking effect ↔ first documented firm response</td></tr>
+        <tr><td>Enforcement amplification events</td><td>count</td><td>The original order ↔ subsequent investigations, penalties, comparable-case citations</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Anything requiring a judgment about where to stop counting measures reporting density, not the phenomenon. The scope limit is documentary, so a field that scales with coverage is measuring the coverage.</p>
+
+    <table class="qtable">
+      <caption>Narrative — recorded in prose, not comparable across cases</caption>
+      <thead><tr><th>Field</th><th></th><th>What to record</th></tr></thead>
+      <tbody>
+        <tr><td>Financial exposure</td><td>prose</td><td>Cost, fine, or revenue loss attributable to the order. State whether reported, estimated, or modeled.</td></tr>
+        <tr><td>Downstream reach</td><td>prose</td><td>Parties the burden propagated to. Name them where identifiable; where the bearer is diffuse, describe its character instead of counting.</td></tr>
+      </tbody>
+    </table>
+
+    <details>
+      <summary>Fields dropped from v3, and why</summary>
+      <table class="spec">
+        <tbody>
+          <tr><th scope="row">Documentation burden</th><td>No counting rule. A single form with five schedules is 1 or 5 depending on who fills it in.</td></tr>
+          <tr><th scope="row">Concurrent order load</th><td>Value depends entirely on how wide the analyst draws "bearing on the same actor".</td></tr>
+          <tr><th scope="row">Time to normalization</th><td>Broke on first application. The Anthropic case already required staged recording rather than one number.</td></tr>
+          <tr><th scope="row">Contextual amplification events</th><td>Counts co-occurrence; widen the window and the number grows.</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Modules 1 and 2 carry no numeric fields and none may be added. Scoring a classification judgment manufactures precision rather than adding information.</p>
+    </details>
+
+    <h3 class="sub"><span>5</span> Worked examples</h3>
+    <table class="spec">
+      <thead><tr><th>Case</th><th>Tags</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Semiconductor smuggling</th><td>Capability · jurisdictional overlap + speed mismatch · Dispute</td></tr>
+        <tr><th scope="row">Anthropic–U.S. government</th><td>Access &amp; data · jurisdictional overlap · Dispute · time to response ≈ 0 days</td></tr>
+        <tr><th scope="row">EU AI Act watermarking</th><td>Access &amp; data (output) · category–practice mismatch · Enactment · definitional contest + boundary drift · Bearer type <span class="tag">diffuse</span></td></tr>
+      </tbody>
+    </table>
+    <p class="note">The third case is the reason 1.2 applies to every case. It is an Enactment, so under v3 it would have carried an Object type and nothing else — losing the definitional contest between a provider defining AI-generated output by word-choice pattern and users defining it by authorial contribution.</p>
+
+    <p style="margin-top:2.5rem"><a href="{{ '/cases/' | relative_url }}">Case library →</a></p>
+  </div>
+</section>
