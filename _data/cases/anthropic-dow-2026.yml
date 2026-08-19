@@ -1,0 +1,239 @@
+id: anthropic-dow-2026
+title: Anthropic supply chain risk designation
+status: draft
+period: { from: 2025-07, to: }
+jurisdiction: [US]
+actors:
+  - name: Anthropic PBC
+    role: Contractor. Designated. Plaintiff in two suits.
+  - name: US Department of War (formerly Defense)
+    role: Contracting agency. Made the designation.
+  - name: Pete Hegseth
+    role: Secretary. Issued the ultimatum, the social-media post, and the 3 March letter.
+  - name: Emil Michael
+    role: Under Secretary for Research and Engineering. Authored the risk-analysis memo of 2 March.
+  - name: Rita Lin
+    role: US District Judge, Northern District of California. Granted the preliminary injunction.
+  - name: Palantir
+    role: Prime contractor through which Claude reached classified networks.
+  - name: Treasury, State, and other federal agencies
+    role: Named in the suit after ordering staff to stop using Claude.
+  - name: Third-party defence contractors
+    role: Covered by the secondary boycott as announced, not as written in the 3 March letter.
+
+# --- Module 1, Instability ---------------------------------------------------
+module_1:
+  object_type: relational
+  object_note: >
+    The regulated object is the contractual tie itself, not a good or a dataset.
+    The parties are plainly identifiable and the scope of the tie is not: whether
+    the designation reaches contractors doing unrelated business with Anthropic
+    was argued at length and is still unsettled. First case in the library to use
+    this value, which v4 had folded away as unexercised.
+
+  instability_conditions:
+    - id: object_opacity
+      status: new_value          # not in schema.yml. Flagged under R6, not rejected.
+      side_a: an object that cannot be opened and checked against a specification
+      side_b: a procurement regime built to verify what it buys
+      note: >
+        The government's stated ground is that frontier AI is opaque by nature,
+        that it cannot be taken apart the way a rifle can, and that every model
+        update is a fresh opportunity for an undisclosed guardrail. The judge put
+        drones to them as a comparison and the government answered that AI differs
+        fundamentally from hardware and from ordinary software alike. None of the
+        three existing conditions covers this. It is the closest thing in the
+        library so far to the novelty question Module 1 was written to ask.
+    - id: category_practice_mismatch
+      side_a: supply chain risk as the statutes define it
+      side_b: a domestic contractor in a policy disagreement
+      note: >
+        The designation is an instrument built for foreign-linked suppliers and had
+        not been used against a US company before. Anthropic's own filing calls the
+        action unprecedented.
+
+  conditions_blank_reason:
+
+  firm_traces:
+    - id: boundary_drift
+      note: >
+        Who the designation covers moved. The Secretary's post said no contractor,
+        supplier, or partner doing business with the US military could deal with
+        Anthropic. The 3 March letter, on the government's own reading at the
+        hearing, reaches only customers using Claude as a direct part of a
+        department contract. Both remain in the record and the government would not
+        give the court a categorical answer on the wider version.
+    - id: definitional_contest
+      note: >
+        Two statutes, two courts, two readings. The department invoked 10 USC 3252
+        and 41 USC 4713 at about the same time, which is why there are two suits.
+        Separately, the department reads responsible AI as any lawful use, and
+        Anthropic reads it as excluding two cases.
+    - id: competing_clocks
+      note: >
+        The wind-down runs on a fixed schedule while the litigation that could void
+        the designation runs on its own. Related: the directives issued on
+        27 February, the risk-analysis memo supporting them is dated 2 March.
+
+# --- Module 2, Formation history ---------------------------------------------
+module_2:
+  event_type: dispute
+  formation_trace:
+    summary: >
+      Traced backward from the summary-judgment hearing. The boundary at issue is
+      the reach of 10 USC 3252, and what is being decided is not whether Anthropic
+      crossed a line but whether the line was lawfully drawn. The remedy argument
+      is explicitly about whether it gets erased or redrawn: vacate and remand
+      against remand without vacatur.
+    order_began_operating: 2026-03-03
+    markers:
+      - { date: 2024-07, note: Palantir announces the partnership bringing Claude into government intelligence and defence work, source: s1 }
+      - { date: 2025-07, note: $200m contract with the department, with acceptable-use terms excluding mass domestic surveillance and fully autonomous weapons, source: s1 }
+      - { date: 2026-01-03, note: reporting that the technology was used in the Maduro operation, source: s2 }
+      - { date: 2026-02-24, note: department demands agreement to all lawful uses, source: s2 }
+      - { date: 2026-02-27, note: "ultimatum expires 17:01 ET; presidential directive to all federal agencies; Secretary's designation post 13 minutes later; six-month phase-out announced", source: s2 }
+      - { date: 2026-03-02, note: Under Secretary's risk-analysis memo, produced after the directives, source: s5 }
+      - { date: 2026-03-03, note: formal designation letter under 10 USC 3252, source: s5 }
+      - { date: 2026-03-09, note: two suits filed, Northern District of California and the DC Circuit, on the two statutes, source: s3 }
+      - { date: 2026-03-26, note: preliminary injunction granted, source: s6 }
+      - { date: 2026-07-30, note: hearing on cross-motions for summary judgment; taken under submission, source: s5 }
+      - { date: 2026-08-30, note: agency pilot programmes slated to expire, per the government at the hearing, source: s5 }
+      - { date: 2026-09-30, note: department wind-down of Anthropic products scheduled to complete, per the government at the hearing, source: s5 }
+
+# --- Module 3, Downstream ----------------------------------------------------
+module_3:
+  transmission_channels:
+    - { id: classification_decision, note: the designation is the order. Being placed in the category is the whole of what reached the firm }
+    - { id: deadlines, note: "wind-down completing 30 September, pilots expiring 30 August, both stated to the court rather than published" }
+    - { id: contractual_relations, note: the use policy was written into the contract, so a policy dispute became a contract dispute and then a security designation }
+    - { id: supply_chain_position, note: several agencies reached Claude through third-party cloud providers rather than directly, which the government argued put those decisions beyond review }
+    - { id: access_restriction, note: federal staff directed to stop using the product; two agencies paused contracts }
+
+  distribution:
+    source: >
+      The department, as the actor producing the designation. Anthropic is the
+      source of the capability but not of the order.
+    bearer: >
+      Anthropic. Under the boycott as announced the bearers would also include
+      contractors with no connection to the department's own systems, which is
+      what the court pressed the government on and what it would not answer
+      categorically.
+    bearer_type: firm
+    leverage: contested
+    mechanisms:
+      - { id: burden_displacement, note: the announced secondary boycott would land on third parties who neither held the contract nor said anything }
+      - { id: downstream_propagation, note: reached agencies with no direct contractual relationship, including some using Claude through cloud vendors }
+      - { id: enforcement_amplification, note: the designation itself did not change, but directives spread from the department to the whole federal government, and agencies beyond the department ordered staff to stop. See the measured note on why this is not counted }
+
+  reformation:
+    responses: [contract_rewriting, lobbying]
+    sources: [s3, s5]
+    narrative: >
+      Anthropic litigated rather than complied, filing two suits eleven days after
+      the directives and winning a preliminary injunction. It says it built a
+      government-specific model so that the guardrail problem the department cites
+      from the CDC example would not arise. It has also kept supplying the
+      department at nominal cost during the wind-down. On the other side, a
+      competitor took a department contract within hours of the designation,
+      reportedly with comparable safeguards written in, which is a re-formation of
+      the market rather than of the firm.
+    contextual_amplification: []
+
+# --- Measured fields ---------------------------------------------------------
+measured:
+  numeric:
+    deadline_gap:
+      value: 34
+      source: s5
+      note: >
+        Announced six-month phase-out from 27 February lands about 27 August. The
+        department told the court the wind-down completes 30 September. Sign is
+        inverted against the field definition, see D6.
+    time_to_response: { value: 10, source: s3, note: "directives 2026-02-27, suits filed 2026-03-09" }
+    enforcement_amplification_events: null
+  narrative:
+    financial_exposure:
+      text: >
+        The department contract was worth up to $200 million against company
+        revenue reported at a far higher order of magnitude, so the direct contract
+        loss is small. What the filings put at issue instead is the designation
+        itself, which Anthropic calls stigmatising and unprecedented against a US
+        company. No figure has been placed on that.
+      basis: reported
+      source: s4
+    downstream_reach:
+      text: >
+        Federal agencies beyond the department, named in the suit as including
+        Treasury and State. Two agencies paused contracts. Third-party defence
+        contractors were covered by the boycott as announced but not as written.
+        The record says including rather than listing, so the set is open.
+      source: s3
+
+# --- Deviations --------------------------------------------------------------
+deviations:
+  - id: D5
+    field: 1.2 instability_conditions
+    observed: >
+      The government's central ground is that the object cannot be inspected: not
+      like a rifle, not like ordinary software, and different again at every model
+      update.
+    why_it_does_not_fit: >
+      None of the three existing values covers an object that resists definition
+      because it cannot be opened. Jurisdictional overlap needs two authorities,
+      speed mismatch needs two cycles, category-practice mismatch needs a category
+      that misreads a practice. This is a property of the thing itself.
+    workaround: >
+      Recorded as object_opacity and flagged as a new value under R6. Not added to
+      schema.yml. Held for batch review, and worth checking against the Fable 5
+      case before deciding.
+
+  - id: D6
+    field: measured.numeric.deadline_gap
+    observed: >
+      The announced horizon was six months from 27 February. The operative
+      completion date given to the court is 30 September, which is later.
+    why_it_does_not_fit: >
+      The field is defined as the formal effective date minus the actual
+      preparation gate, on the assumption that the real gate falls earlier than the
+      formal one. Here it falls later, so the value is positive for the opposite
+      reason and is not comparable with a gap measured the usual way.
+    workaround: Recorded as 34 with the sign noted. The field may need a direction.
+
+  - id: D7
+    field: measured.numeric.enforcement_amplification_events
+    observed: >
+      Directives spread from one department to the whole federal government, and
+      the filings name agencies including Treasury and State.
+    why_it_does_not_fit: >
+      The word including means the set is open, so any count is a floor rather than
+      a measurement. This is the case the field's own selection rule was meant to
+      exclude.
+    workaround: Left null. The spread is recorded in narrative form instead.
+
+# --- Record ------------------------------------------------------------------
+sources:
+  - id: s1
+    kind: press
+    citation: The Conversation, Anthropic v the US military, on the Palantir partnership and the 2025 contract terms
+  - id: s2
+    kind: press
+    citation: Reporting on the February ultimatum, the presidential directive, and the Secretary's designation post
+    date: 2026-02-27
+  - id: s3
+    kind: filing
+    citation: Anthropic PBC v. US Department of War, complaint and related filings, ND Cal
+    url: https://www.courtlistener.com/docket/72379655/anthropic-pbc-v-us-department-of-war/
+    date: 2026-03-09
+  - id: s4
+    kind: statement
+    citation: Anthropic public statements on the two use exclusions and on continuing to supply the department during transition
+  - id: s5
+    kind: filing
+    citation: Cross-motions for summary judgment and the hearing of 30 July 2026, as recorded in Lawfare's hearing diary with links to the filed papers
+    url: https://www.lawfaremedia.org/article/anthropic-v.-u.s.-department-of-war--a-hearing-diary
+    date: 2026-07-30
+  - id: s6
+    kind: filing
+    citation: Preliminary injunction order, ND Cal
+    url: https://storage.courtlistener.com/recap/gov.uscourts.cand.465515/gov.uscourts.cand.465515.134.0_1.pdf
+    date: 2026-03-26
