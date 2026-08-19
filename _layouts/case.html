@@ -1,0 +1,194 @@
+---
+layout: default
+---
+{% assign case = site.data.cases[page.case_id] %}
+
+<section class="hero">
+  <div class="shell">
+    <span class="eyebrow eyebrow--accent">Case · {{ case.status | capitalize }}</span>
+    <h1>{{ case.title }}</h1>
+    <p class="standfirst">{{ case.jurisdiction | join: ", " }} · {{ case.period.from }}{% if case.period.to %} to {{ case.period.to }}{% else %} to present{% endif %}</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="shell">
+    <h3 class="sub"><span>Actors</span></h3>
+    <table class="spec">
+      <tbody>
+        {% for actor in case.actors %}
+        <tr><th scope="row">{{ actor.name }}</th><td>{{ actor.role }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <h3 class="sub"><span>A</span> Classification</h3>
+    <table class="spec">
+      <tbody>
+        <tr><th scope="row">Object type</th><td>{% include label.html id=case.layer_a.object_type %}</td></tr>
+      </tbody>
+    </table>
+    {% if case.layer_a.object_note %}<p class="note">{{ case.layer_a.object_note }}</p>{% endif %}
+
+    {% if case.layer_a.instability_conditions %}
+    <table class="spec">
+      <thead><tr><th>Condition</th><th>What it shows</th></tr></thead>
+      <tbody>
+      {% for c in case.layer_a.instability_conditions %}
+        <tr>
+          <th scope="row">{% include label.html id=c.id %}{% if c.status == "new_value" %}<br><span class="tag tag--flag">flagged, not in schema</span>{% endif %}</th>
+          <td>
+            {% if c.side_a %}<b>{{ c.side_a }}</b> vs. <b>{{ c.side_b }}</b><br>{% endif %}
+            {{ c.note }}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="note">{{ case.layer_a.conditions_blank_reason }}</p>
+    {% endif %}
+    {% if case.layer_a.conditions_note %}<p class="note">{{ case.layer_a.conditions_note }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <h3 class="sub"><span>B</span> Formation</h3>
+    <table class="spec">
+      <tbody>
+        <tr><th scope="row">Event type</th><td>{% include label.html id=case.layer_b.event_type %}</td></tr>
+      </tbody>
+    </table>
+    {% if case.layer_b.formation_trace == "not_applicable" %}
+      <p class="note">Not applicable: an Enactment carries no prior-state timeline.{% if case.layer_b.order_began_operating %} Order began operating {{ case.layer_b.order_began_operating | date: "%-d %B %Y" }}.{% endif %}</p>
+      {% if case.layer_b.order_began_operating_note %}<p class="note">{{ case.layer_b.order_began_operating_note }}</p>{% endif %}
+    {% else %}
+      <p>{{ case.layer_b.formation_trace.summary }}</p>
+      {% if case.layer_b.formation_trace.order_began_operating %}<p class="note">Order began operating {{ case.layer_b.formation_trace.order_began_operating | date: "%-d %B %Y" }}.</p>{% endif %}
+      {% if case.layer_b.formation_trace.order_began_operating_note %}<p class="note">{{ case.layer_b.formation_trace.order_began_operating_note }}</p>{% endif %}
+      {% if case.layer_b.formation_trace.markers %}
+      <table class="qtable">
+        <thead><tr><th>Date</th><th>Marker</th></tr></thead>
+        <tbody>
+        {% for m in case.layer_b.formation_trace.markers %}
+          <tr><td>{{ m.date }}</td><td>{{ m.note }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <h3 class="sub"><span>C</span> Manifestation</h3>
+    <table class="spec">
+      <tbody>
+      {% for m in case.layer_c.manifestation %}
+        <tr><th scope="row">{% include label.html id=m.id %}</th><td>{{ m.note }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <h3 class="sub"><span>D</span> Distribution</h3>
+    <table class="spec">
+      <tbody>
+        <tr><th scope="row">Source</th><td>{{ case.layer_d.distribution.source }}</td></tr>
+        <tr><th scope="row">Bearer</th><td>{{ case.layer_d.distribution.bearer }}</td></tr>
+        <tr><th scope="row">Bearer type</th><td>
+          {% assign bt = case.layer_d.distribution.bearer_type %}
+          {% if bt.first %}{% for b in bt %}<span class="tag">{{ b }}</span> {% endfor %}{% else %}<span class="tag">{{ bt }}</span>{% endif %}
+        </td></tr>
+        {% if case.layer_d.distribution.leverage %}<tr><th scope="row">Leverage</th><td>{{ case.layer_d.distribution.leverage | capitalize }}</td></tr>{% endif %}
+      </tbody>
+    </table>
+    {% if case.layer_d.distribution.mechanisms %}
+    <table class="spec">
+      <thead><tr><th>Mechanism</th><th>How it showed up</th></tr></thead>
+      <tbody>
+      {% for mech in case.layer_d.distribution.mechanisms %}
+        <tr><th scope="row">{% include label.html id=mech.id %}</th><td>{{ mech.note }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <h3 class="sub"><span>E</span> Re-formation</h3>
+    {% if case.layer_e.reformation.responses.size > 0 %}
+    <p class="note">Responses: {% for r in case.layer_e.reformation.responses %}{% include label.html id=r %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+    {% endif %}
+    <p>{{ case.layer_e.reformation.narrative }}</p>
+    {% for ca in case.layer_e.reformation.contextual_amplification %}
+      <p class="note">{{ ca.note }}</p>
+    {% endfor %}
+  </div>
+</section>
+
+{% if case.measured.numeric.deadline_gap or case.measured.numeric.time_to_response or case.measured.numeric.enforcement_amplification_events or case.measured.narrative.financial_exposure.text or case.measured.narrative.downstream_reach.text %}
+<section class="section">
+  <div class="shell">
+    <h3 class="sub"><span>Measured</span></h3>
+    {% if case.measured.numeric.deadline_gap or case.measured.numeric.time_to_response or case.measured.numeric.enforcement_amplification_events %}
+    <table class="qtable">
+      <tbody>
+        {% if case.measured.numeric.deadline_gap %}<tr><td>Deadline gap</td><td>{{ case.measured.numeric.deadline_gap.value }} days</td></tr>{% endif %}
+        {% if case.measured.numeric.time_to_response %}<tr><td>Time to response</td><td>{{ case.measured.numeric.time_to_response.value }} days</td></tr>{% endif %}
+        {% if case.measured.numeric.enforcement_amplification_events %}<tr><td>Enforcement amplification events</td><td>{{ case.measured.numeric.enforcement_amplification_events.value }}</td></tr>{% endif %}
+      </tbody>
+    </table>
+    {% endif %}
+    {% if case.measured.narrative.financial_exposure.text %}<p><b>Financial exposure.</b> {{ case.measured.narrative.financial_exposure.text }}</p>{% endif %}
+    {% if case.measured.narrative.downstream_reach.text %}<p><b>Downstream reach.</b> {{ case.measured.narrative.downstream_reach.text }}</p>{% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% if case.deviations.size > 0 %}
+<section class="section">
+  <div class="shell">
+    <h3 class="sub"><span>Deviations</span></h3>
+    <table class="spec">
+      <tbody>
+      {% for d in case.deviations %}
+        <tr>
+          <th scope="row">{{ d.id }}<br><span class="tag tag--dash">{{ d.field }}</span></th>
+          <td>
+            <b>Observed.</b> {{ d.observed }}<br>
+            <b>Why it does not fit.</b> {{ d.why_it_does_not_fit }}<br>
+            {% if d.workaround %}<b>Workaround.</b> {{ d.workaround }}{% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="shell">
+    <h3 class="sub"><span>Sources</span></h3>
+    <table class="spec">
+      <tbody>
+      {% for s in case.sources %}
+        <tr><th scope="row">{{ s.id }}</th><td>{{ s.citation }}{% if s.date %}, {{ s.date }}{% endif %}{% if s.url %} · <a href="{{ s.url }}">link</a>{% endif %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <p style="margin-top:2.5rem"><a href="{{ '/cases/' | relative_url }}">Case library →</a></p>
+  </div>
+</section>
