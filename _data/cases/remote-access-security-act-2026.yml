@@ -1,0 +1,212 @@
+id: remote-access-security-act-2026
+title: Remote Access Security Act (RASA) formation trace
+status: draft
+period: { from: 2009, to: }
+jurisdiction: [US]
+actors:
+  - name: US Bureau of Industry and Security (BIS)
+    role: Commerce Department agency administering the EAR. Would gain remote-access authority under RASA.
+  - name: Dave McCormick and Ron Wyden
+    role: Senate sponsors of S.3519, the companion bill.
+  - name: Tom Cotton and Chris Coons
+    role: Senate cosponsors of S.3519.
+  - name: US House of Representatives
+    role: Passed H.R.2683 369-22 on 12 January 2026.
+  - name: Senate Committee on Banking, Housing, and Urban Affairs
+    role: Holds S.3519 as of this record; no committee action reported yet.
+  - name: Cloud and compute providers (AWS, Microsoft, Google and similar)
+    role: Would become licensable parties for foreign remote access to controlled items under RASA.
+
+# --- Layer A, Classification ---------------------------------------------------
+layer_a:
+  object_type: access_data
+  object_note: >
+    The object RASA would regulate is remote access itself, not the hardware.
+    Current law reaches export, reexport, and in-country transfer of an item;
+    RASA adds a fourth category for foreign persons reaching a controlled item
+    over a network without the item ever moving.
+
+  instability_conditions:
+    - id: category_practice_mismatch
+      side_a: the EAR's existing categories, export, reexport, transfer, defined around physical or in-country movement of an item
+      side_b: renting compute time on a chip that never leaves its data centre
+      note: >
+        Sponsors describe this directly as a loophole closure: a foreign customer
+        can rent access to a controlled chip sitting in an allowed jurisdiction's
+        data centre without triggering any export event under current law, because
+        nothing crosses a border. The Super Micro case in this library shows the
+        same gap from the supply side, chips reachable legally by one route and
+        only by diversion through another because the category is drawn on where
+        the hardware sits, not on who is using it.
+    - id: speed_mismatch
+      side_a: the seventeen-year span from the first reform push to this specific fix
+      side_b: how fast cloud and AI compute access patterns changed over that span
+      note: >
+        The 2018 ANPRM already named AI and machine learning as an emerging
+        technology category. The specific remote-access gap it left uncovered
+        was not addressed in statute until 2025-2026, and is not closed yet.
+
+  conditions_blank_reason:
+
+# --- Layer B, Formation history -------------------------------------------------
+layer_b:
+  event_type: amendment
+  formation_trace:
+    summary: >
+      Traced forward from 2009 because this case is the reference corpus itself,
+      not a cut from it. The trace runs from the first push to rebuild the export
+      control system, through the statute that gave BIS its current authority, to
+      the bill that would extend that authority to remote access. As of this
+      record RASA has passed the House but has not passed the Senate and is not
+      law. The trace is therefore incomplete by construction: it shows formation
+      still in progress rather than a completed order.
+    order_began_operating: null
+    order_began_operating_note: >
+      Not applicable in the usual sense. RASA has not been enacted, so there is
+      no date on which it began operating. Recorded as null rather than
+      not_applicable because this is not an Enactment with no prior state; it is
+      an Amendment still mid-formation. See deviations.
+    markers:
+      - { date: 2009, note: Obama administration announces a comprehensive review of the export control system, source: s8 }
+      - { date: 2010, note: Export Control Reform Initiative formally launched; Consolidated Screening List created, source: s8 }
+      - { date: 2018-08-13, note: Export Control Reform Act (ECRA) signed as part of the FY2019 NDAA, giving BIS permanent statutory authority over the EAR and creating the emerging-and-foundational-technologies review process, source: s1 }
+      - { date: 2018-11-19, note: BIS publishes an ANPRM seeking comment on criteria for identifying emerging technologies under ECRA Section 1758, naming AI and machine learning, computer vision, and natural language processing as example categories, source: s2 }
+      - { date: 2022-10-07, note: BIS creates ECCNs 3A090 and 4A090 under the Advanced Computing FDP rule, the same rule at issue in the Super Micro case in this library, source: s2b }
+      - { date: 2025-01, note: AI Diffusion interim final rule extends the FDP destination scope worldwide, source: s2b }
+      - { date: 2025-12-17, note: S.3519, the Senate companion bill, introduced and referred to the Committee on Banking, Housing, and Urban Affairs, source: s4 }
+      - { date: 2026-01-12, note: H.R.2683 passes the House 369-22, source: s3 }
+      - { date: 2026-08-19, note: "record cutoff: S.3519 remains in Senate Banking Committee with no reported committee action", source: s5 }
+
+# --- Layer C, Manifestation ------------------------------------------------------
+layer_c:
+  manifestation:
+    - id: classification_decision
+      note: >
+        The entire bill is a classification move: adding "remote access" as a
+        fourth regulated activity alongside export, reexport, and transfer.
+    - id: competing_clocks
+      note: >
+        A near-two-decade reform effort running alongside a compute market that
+        restructured around cloud access in a fraction of that time.
+    - id: documentation_systems
+      note: >
+        The formal rulemaking record itself, ANPRM, comment period, committee
+        referral, is the visible trace of this case; there is no dispute filing
+        or directive to point to instead.
+
+# --- Layer D, Distribution --------------------------------------------------------
+layer_d:
+  distribution:
+    source: >
+      Congress, as the body producing the statutory change; BIS would be the
+      agency implementing it once enacted.
+    bearer: >
+      Anticipated rather than observed, since the bill is not law. Legal
+      commentary identifies cloud and compute providers as the parties who would
+      hold new licensing obligations, with foreign customers of US cloud
+      infrastructure as the population the restriction targets.
+    bearer_type: firm
+    leverage: contested
+    mechanisms:
+      - { id: burden_displacement, note: "anticipated: licensing and screening obligations would fall on cloud providers who did not create the underlying chip-export regime they would now have to police" }
+
+# --- Layer E, Re-formation ----------------------------------------------------------
+layer_e:
+  reformation:
+    responses: []
+    narrative: >
+      Not yet observed. Industry commentary (Latham & Watkins, Freshfields, and
+      others) treats RASA as reasonably likely to become law and advises clients
+      to prepare compliance programmes now, but no firm-level restructuring tied
+      to this specific bill is documented as of this record.
+    contextual_amplification: []
+
+# --- Measured fields ---------------------------------------------------------
+measured:
+  numeric:
+    deadline_gap: null
+    time_to_response: null
+    enforcement_amplification_events: null
+  narrative:
+    financial_exposure:
+      text: Not documented. The bill has not taken effect, so no exposure has been reported.
+      basis: not_applicable
+    downstream_reach:
+      text: >
+        Legal alerts name cloud and compute providers broadly (AWS, Microsoft,
+        Google and similar named as the category, not individually assessed) as
+        the anticipated bearers. No case-specific enforcement or compliance
+        action has been reported.
+      source: s6
+
+# --- Deviations --------------------------------------------------------------
+deviations:
+  - id: D10
+    field: layer_b.formation_trace.order_began_operating
+    observed: >
+      RASA has passed the House but not the Senate and is not enacted as of this
+      record.
+    why_it_does_not_fit: >
+      Every other case in this library traces formation up to a point where an
+      order exists and can be dated. This case was chosen specifically to show
+      the formation process itself, per the request that produced it, so the
+      trace legitimately ends mid-flight. The template assumes a completed
+      order; this one is not.
+    workaround: >
+      order_began_operating recorded as null rather than a date or
+      not_applicable, with a note explaining why. Layer D and Layer E are marked
+      anticipated rather than observed for the same reason.
+
+  - id: D11
+    field: layer_b.event_type
+    observed: >
+      The House vote was 369-22, an overwhelming bipartisan margin, not a
+      contested floor fight.
+    why_it_does_not_fit: >
+      Tagged as Amendment on the two-step branch (prior state exists, no direct
+      opposition between actors), which fits the vote margin. Worth flagging
+      because it is the first case in the library where Layer B is not Dispute,
+      which the case library's own open questions had noted as a gap.
+
+# --- Record ------------------------------------------------------------------
+sources:
+  - id: s1
+    kind: statement
+    citation: Export Control Reform Act of 2018, Wikipedia summary of the NDAA FY2019 signing and ECRA's statutory effect
+    url: https://en.wikipedia.org/wiki/Export_Control_Reform_Act_of_2018
+    date: 2018-08-13
+  - id: s2
+    kind: rule
+    citation: BIS, Review of Controls for Certain Emerging Technologies (ANPRM), Federal Register 83 FR 58201
+    url: https://www.federalregister.gov/documents/2018/11/19/2018-25221/review-of-controls-for-certain-emerging-technologies
+    date: 2018-11-19
+  - id: s2b
+    kind: rule
+    citation: BIS Advanced Computing FDP rule and AI Diffusion interim final rule, as cited in the Super Micro case in this library
+  - id: s3
+    kind: filing
+    citation: H.R.2683, Remote Access Security Act, 119th Congress
+    url: https://www.congress.gov/bill/119th-congress/house-bill/2683
+    date: 2026-01-12
+  - id: s4
+    kind: filing
+    citation: S.3519, Remote Access Security Act, 119th Congress
+    url: https://www.congress.gov/bill/119th-congress/senate-bill/3519
+    date: 2025-12-17
+  - id: s5
+    kind: press
+    citation: Global Sanctions and Export Controls Blog (Baker McKenzie), US House Passes Remote Access Security Act
+    url: https://sanctionsnews.bakermckenzie.com/us-house-passes-remote-access-security-act/
+  - id: s6
+    kind: industry_comment
+    citation: Latham & Watkins client alert, What the Remote Access Security Act Means for Export Controls Compliance Programs
+    url: https://www.lw.com/en/insights/what-the-remote-access-security-act-means-for-export-controls-compliance-programs
+    date: 2026-03-20
+  - id: s7
+    kind: press
+    citation: Introl, Remote Access Security Act and the cloud loophole in export controls
+    url: https://introl.com/blog/remote-access-security-act-cloud-loophole-export-controls-2026
+  - id: s8
+    kind: press
+    citation: Institute for Science and International Security, U.S. Export Control Reform, Impacts and Implications
+    url: https://isis-online.org/isis-reports/u.s.-export-control-reform-impacts-and-implications
