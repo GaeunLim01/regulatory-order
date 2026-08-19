@@ -21,15 +21,15 @@ actors:
   - name: Third-party defence contractors
     role: Covered by the secondary boycott as announced, not as written in the 3 March letter.
 
-# --- Module 1, Instability ---------------------------------------------------
-module_1:
+# --- Layer A, Classification ---------------------------------------------------
+layer_a:
   object_type: relational
   object_note: >
     The regulated object is the contractual tie itself, not a good or a dataset.
     The parties are plainly identifiable and the scope of the tie is not: whether
     the designation reaches contractors doing unrelated business with Anthropic
     was argued at length and is still unsettled. First case in the library to use
-    this value, which v4 had folded away as unexercised.
+    this value, which was folded away as unexercised through v4.
 
   instability_conditions:
     - id: object_opacity
@@ -43,7 +43,7 @@ module_1:
         drones to them as a comparison and the government answered that AI differs
         fundamentally from hardware and from ordinary software alike. None of the
         three existing conditions covers this. It is the closest thing in the
-        library so far to the novelty question Module 1 was written to ask.
+        library so far to the novelty question Layer A was written to ask.
     - id: category_practice_mismatch
       side_a: supply chain risk as the statutes define it
       side_b: a domestic contractor in a policy disagreement
@@ -54,29 +54,8 @@ module_1:
 
   conditions_blank_reason:
 
-  firm_traces:
-    - id: boundary_drift
-      note: >
-        Who the designation covers moved. The Secretary's post said no contractor,
-        supplier, or partner doing business with the US military could deal with
-        Anthropic. The 3 March letter, on the government's own reading at the
-        hearing, reaches only customers using Claude as a direct part of a
-        department contract. Both remain in the record and the government would not
-        give the court a categorical answer on the wider version.
-    - id: definitional_contest
-      note: >
-        Two statutes, two courts, two readings. The department invoked 10 USC 3252
-        and 41 USC 4713 at about the same time, which is why there are two suits.
-        Separately, the department reads responsible AI as any lawful use, and
-        Anthropic reads it as excluding two cases.
-    - id: competing_clocks
-      note: >
-        The wind-down runs on a fixed schedule while the litigation that could void
-        the designation runs on its own. Related: the directives issued on
-        27 February, the risk-analysis memo supporting them is dated 2 March.
-
-# --- Module 2, Formation history ---------------------------------------------
-module_2:
+# --- Layer B, Formation history -------------------------------------------------
+layer_b:
   event_type: dispute
   formation_trace:
     summary: >
@@ -100,15 +79,41 @@ module_2:
       - { date: 2026-08-30, note: agency pilot programmes slated to expire, per the government at the hearing, source: s5 }
       - { date: 2026-09-30, note: department wind-down of Anthropic products scheduled to complete, per the government at the hearing, source: s5 }
 
-# --- Module 3, Downstream ----------------------------------------------------
-module_3:
-  transmission_channels:
-    - { id: classification_decision, note: the designation is the order. Being placed in the category is the whole of what reached the firm }
-    - { id: deadlines, note: "wind-down completing 30 September, pilots expiring 30 August, both stated to the court rather than published" }
-    - { id: contractual_relations, note: the use policy was written into the contract, so a policy dispute became a contract dispute and then a security designation }
-    - { id: supply_chain_position, note: several agencies reached Claude through third-party cloud providers rather than directly, which the government argued put those decisions beyond review }
-    - { id: access_restriction, note: federal staff directed to stop using the product; two agencies paused contracts }
+# --- Layer C, Manifestation (merged v4 firm_traces + transmission_channels) -----
+layer_c:
+  manifestation:
+    - id: boundary_drift
+      note: >
+        Who the designation covers moved. The Secretary's post said no contractor,
+        supplier, or partner doing business with the US military could deal with
+        Anthropic. The 3 March letter, on the government's own reading at the
+        hearing, reaches only customers using Claude as a direct part of a
+        department contract. Both remain in the record and the government would not
+        give the court a categorical answer on the wider version.
+    - id: definitional_contest
+      note: >
+        Two statutes, two courts, two readings. The department invoked 10 USC 3252
+        and 41 USC 4713 at about the same time, which is why there are two suits.
+        Separately, the department reads responsible AI as any lawful use, and
+        Anthropic reads it as excluding two cases.
+    - id: competing_clocks
+      note: >
+        The wind-down runs on a fixed schedule while the litigation that could void
+        the designation runs on its own. Related: the directives issued on
+        27 February, the risk-analysis memo supporting them is dated 2 March.
+    - id: classification_decision
+      note: the designation is the order. Being placed in the category is the whole of what reached the firm
+    - id: deadlines
+      note: "wind-down completing 30 September, pilots expiring 30 August, both stated to the court rather than published"
+    - id: contractual_relations
+      note: the use policy was written into the contract, so a policy dispute became a contract dispute and then a security designation
+    - id: supply_chain_position
+      note: several agencies reached Claude through third-party cloud providers rather than directly, which the government argued put those decisions beyond review
+    - id: access_restriction
+      note: federal staff directed to stop using the product; two agencies paused contracts
 
+# --- Layer D, Distribution -------------------------------------------------------
+layer_d:
   distribution:
     source: >
       The department, as the actor producing the designation. Anthropic is the
@@ -125,6 +130,8 @@ module_3:
       - { id: downstream_propagation, note: reached agencies with no direct contractual relationship, including some using Claude through cloud vendors }
       - { id: enforcement_amplification, note: the designation itself did not change, but directives spread from the department to the whole federal government, and agencies beyond the department ordered staff to stop. See the measured note on why this is not counted }
 
+# --- Layer E, Re-formation ---------------------------------------------------------
+layer_e:
   reformation:
     responses: [contract_rewriting, lobbying]
     sources: [s3, s5]
@@ -172,7 +179,7 @@ measured:
 # --- Deviations --------------------------------------------------------------
 deviations:
   - id: D5
-    field: 1.2 instability_conditions
+    field: layer_a instability_conditions
     observed: >
       The government's central ground is that the object cannot be inspected: not
       like a rifle, not like ordinary software, and different again at every model

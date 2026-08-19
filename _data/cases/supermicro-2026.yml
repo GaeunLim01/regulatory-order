@@ -23,8 +23,8 @@ actors:
   - name: Alibaba
     role: Named in reporting as an end customer. Denies involvement. Not charged.
 
-# --- Module 1, Instability ---------------------------------------------------
-module_1:
+# --- Layer A, Classification ---------------------------------------------------
+layer_a:
   object_type: capability
   instability_conditions:
     - id: jurisdictional_overlap
@@ -49,22 +49,9 @@ module_1:
         route and only by diversion through another, because the category is drawn
         on where the hardware sits.
   conditions_blank_reason:
-  firm_traces:
-    - id: boundary_drift
-      note: >
-        The status of the hardware moved during and after the conduct period:
-        HBM stacks added to 3A090 in December 2024, destination scope extended
-        worldwide in January 2025, a relaxation announced in December 2025, and
-        H200 sales to China approved under conditions in January 2026.
-    - id: competing_clocks
-      note: >
-        Shipment and contract dates run against a rule revised repeatedly across
-        the same window.
-    - id: recurring_reset
-      note: The 3A090 threshold itself was reset by successive interim final rules.
 
-# --- Module 2, Formation history ---------------------------------------------
-module_2:
+# --- Layer B, Formation history -------------------------------------------------
+layer_b:
   event_type: dispute
   formation_trace:
     summary: >
@@ -83,15 +70,35 @@ module_2:
       - { date: 2026-06-29, note: Taiwan search of 12 locations; people under investigation grow from three to nine, source: s8 }
       - { date: 2026-07-28, note: Nvidia employee detained in Taiwan; Taipei office searched, source: s2 }
 
-# --- Module 3, Downstream ----------------------------------------------------
-module_3:
-  transmission_channels:
-    - { id: classification_decision, note: ECCN assignment is what makes the servers licensable at all }
-    - { id: contractual_relations, note: procurement channels and compliance-team approvals; a distributor and a data-centre operator drawn in }
-    - { id: documentation_systems, note: end-user certifications and shipping paperwork; the entire Taiwanese case rests here rather than on the export }
-    - { id: supply_chain_position, note: exposure reached Albatron as distributor and Chief Telecom as operator without either being the named party }
-    - { id: access_restriction, note: licence requirement, plus Nvidia's statement that diverted chips receive no service, support or updates, source: s11 }
+# --- Layer C, Manifestation (merged v4 firm_traces + transmission_channels) -----
+layer_c:
+  manifestation:
+    - id: boundary_drift
+      note: >
+        The status of the hardware moved during and after the conduct period:
+        HBM stacks added to 3A090 in December 2024, destination scope extended
+        worldwide in January 2025, a relaxation announced in December 2025, and
+        H200 sales to China approved under conditions in January 2026.
+    - id: competing_clocks
+      note: >
+        Shipment and contract dates run against a rule revised repeatedly across
+        the same window.
+    - id: recurring_reset
+      note: The 3A090 threshold itself was reset by successive interim final rules.
+    - id: classification_decision
+      note: ECCN assignment is what makes the servers licensable at all
+    - id: contractual_relations
+      note: procurement channels and compliance-team approvals; a distributor and a data-centre operator drawn in
+    - id: documentation_systems
+      note: end-user certifications and shipping paperwork; the entire Taiwanese case rests here rather than on the export
+    - id: supply_chain_position
+      note: exposure reached Albatron as distributor and Chief Telecom as operator without either being the named party
+    - id: access_restriction
+      note: licence requirement, plus Nvidia's statement that diverted chips receive no service, support or updates
+      source: s11
 
+# --- Layer D, Distribution -------------------------------------------------------
+layer_d:
   distribution:
     source: >
       Nvidia produces the capability; BIS produces the regulatory trigger.
@@ -106,6 +113,8 @@ module_3:
       - { id: downstream_propagation, note: reached a distributor, a data-centre operator, and the chip producer's local staff }
       - { id: enforcement_amplification, note: the Taiwanese proceeding widened from three people to nine and then to detentions, without any change to the US rule. See deviation D4 }
 
+# --- Layer E, Re-formation ---------------------------------------------------------
+layer_e:
   reformation:
     responses: [supply_chain_restructuring, contract_rewriting]
     sources: [s3, s11]
@@ -150,7 +159,7 @@ measured:
 # --- Deviations --------------------------------------------------------------
 deviations:
   - id: D1
-    field: R5 and instability_conditions.sides
+    field: R5 and layer_a instability_conditions.sides
     observed: >
       At least three authorities bear on this conduct: the US under ECRA and the
       EAR, Taiwan under criminal-code document offences, and Thailand through
@@ -162,7 +171,7 @@ deviations:
     workaround: Two sides recorded, the third described in this entry.
 
   - id: D2
-    field: 1.2 jurisdictional_overlap
+    field: layer_a jurisdictional_overlap
     observed: >
       Taiwan does not criminalise unauthorised AI-chip export to China. Its
       prosecutors charge falsification of business documents and breach of trust
@@ -175,13 +184,13 @@ deviations:
     workaround: Tagged jurisdictional_overlap anyway, with the mismatch recorded here.
 
   - id: D3
-    field: 3.3 re-formation
+    field: layer_e reformation
     observed: >
       Taipei is reported to be weighing legislation restricting AI-chip sales to
       all customers in China, which would give its prosecutors the export hook they
       currently lack.
     why_it_does_not_fit: >
-      3.3 treats re-formation as feedback into the next round of Module 2 within
+      Layer E treats re-formation as feedback into the next round of Layer B within
       the field the order governs. Here the legislative response is in a different
       jurisdiction from the one that formed the order.
     workaround: Recorded in the re-formation narrative with the jurisdiction shift noted.

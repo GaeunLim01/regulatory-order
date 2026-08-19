@@ -21,8 +21,8 @@ actors:
   - name: Signatories of the Open Letter on Transparent AI Cyber Protections
     role: Information-security leaders who published at freefable.org on 14 June.
 
-# --- Module 1, Instability ---------------------------------------------------
-module_1:
+# --- Layer A, Classification ---------------------------------------------------
+layer_a:
   object_type: access_data
   object_note: >
     The controlled thing is access to a model, and the control is drawn on the
@@ -69,26 +69,8 @@ module_1:
     contests it. Worldwide reach and overlapping claims are different things, and
     the vocabulary currently has a value only for the second.
 
-  firm_traces:
-    - id: boundary_drift
-      note: >
-        Who was covered moved three times in eighteen days. All foreign nationals
-        on 12 June, then about a hundred vetted organisations regained Mythos 5 on
-        26 June while Fable 5 stayed restricted, then everyone on 30 June. The
-        underlying authority cited did not change across any of it.
-    - id: definitional_contest
-      note: >
-        What counts as a jailbreak severe enough to justify control. The reporting
-        researchers, the company, and the administration each applied a different
-        threshold to the same finding.
-    - id: competing_clocks
-      note: >
-        Enterprise contracts and their force majeure clauses run on fixed terms and
-        did not anticipate an instantaneous government-mandated cutoff of a live
-        service.
-
-# --- Module 2, Formation history ---------------------------------------------
-module_2:
+# --- Layer B, Formation history -------------------------------------------------
+layer_b:
   event_type: dispute
   formation_trace:
     summary: >
@@ -108,15 +90,38 @@ module_2:
       - { date: 2026-06-30, note: "full lift. Secretary's letter states no export licence is required, the company having agreed to proactively detect and address security risks", source: s6 }
       - { date: 2026-07-01, note: access restored, source: s3 }
 
-# --- Module 3, Downstream ----------------------------------------------------
-module_3:
-  transmission_channels:
-    - { id: classification_decision, note: the models were treated as controlled items, which is the whole of the order }
-    - { id: deadlines, note: none. The directive was effective on receipt and the suspension ran the same evening }
-    - { id: contractual_relations, note: the order reached customers through their service agreements, and force majeure language written for other kinds of interruption did not cover it }
-    - { id: supply_chain_position, note: arrival differed by platform. Bedrock, Google Cloud, Foundry, Snowflake, Box, and direct API users lost the models simultaneously but through different vendors }
-    - { id: access_restriction, note: the order is an access decision and nothing else. Other Claude models were unaffected }
+# --- Layer C, Manifestation (merged v4 firm_traces + transmission_channels) -----
+layer_c:
+  manifestation:
+    - id: boundary_drift
+      note: >
+        Who was covered moved three times in eighteen days. All foreign nationals
+        on 12 June, then about a hundred vetted organisations regained Mythos 5 on
+        26 June while Fable 5 stayed restricted, then everyone on 30 June. The
+        underlying authority cited did not change across any of it.
+    - id: definitional_contest
+      note: >
+        What counts as a jailbreak severe enough to justify control. The reporting
+        researchers, the company, and the administration each applied a different
+        threshold to the same finding.
+    - id: competing_clocks
+      note: >
+        Enterprise contracts and their force majeure clauses run on fixed terms and
+        did not anticipate an instantaneous government-mandated cutoff of a live
+        service.
+    - id: classification_decision
+      note: the models were treated as controlled items, which is the whole of the order
+    - id: deadlines
+      note: none. The directive was effective on receipt and the suspension ran the same evening
+    - id: contractual_relations
+      note: the order reached customers through their service agreements, and force majeure language written for other kinds of interruption did not cover it
+    - id: supply_chain_position
+      note: arrival differed by platform. Bedrock, Google Cloud, Foundry, Snowflake, Box, and direct API users lost the models simultaneously but through different vendors
+    - id: access_restriction
+      note: the order is an access decision and nothing else. Other Claude models were unaffected
 
+# --- Layer D, Distribution -------------------------------------------------------
+layer_d:
   distribution:
     source: >
       Commerce, as the actor issuing the directive. Amazon supplied the finding it
@@ -132,6 +137,8 @@ module_3:
       - { id: burden_displacement, note: the directive named one company; the cost fell on customers who had no part in the dispute and no way to contest it }
       - { id: downstream_propagation, note: reached six named distribution platforms and everything built on them within hours }
 
+# --- Layer E, Re-formation ---------------------------------------------------------
+layer_e:
   reformation:
     responses: [product_redesign, supply_chain_restructuring, lobbying]
     sources: [s4, s6]
@@ -148,7 +155,7 @@ module_3:
           Competition with Chinese open-source developers is reported to have
           shaped the reversal, on the argument that the freeze handed them time.
           Background geopolitical conditions raising the stakes on an order already
-          in place, which is what 3.3 describes. First case in the library where
+          in place, which is what Layer E describes. First case in the library where
           this fires.
         source: s6
 
@@ -189,7 +196,7 @@ measured:
 # --- Deviations --------------------------------------------------------------
 deviations:
   - id: D8
-    field: 3.2 bearer_type
+    field: layer_d distribution.bearer_type
     observed: >
       The burden fell simultaneously on identifiable firms with contracts, on a
       federal agency, and on an unbounded population of public users.
@@ -211,8 +218,8 @@ deviations:
       zero because there was no interval to measure. The definition assumes an
       interval exists and runs one way.
     workaround: >
-      Recorded as 0. Reinforces D6. The field needs either a direction or a
-      companion field saying which kind of gap it is.
+      Recorded as 0. Reinforces D6 (anthropic-dow-2026). The field needs either a
+      direction or a companion field saying which kind of gap it is.
 
 # --- Record ------------------------------------------------------------------
 sources:
