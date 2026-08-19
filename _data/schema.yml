@@ -1,4 +1,4 @@
-# Case schema — Framework v4
+# Case schema, Framework v4
 # Controlled vocabulary. Single source of truth for enum values.
 # Editing the framework pages without editing this file is the drift to avoid.
 
@@ -13,7 +13,7 @@ sentinels:
     meaning: The branch never reaches this question. Produced only by event_type = enactment.
     render: "—"
 
-# --- Module 1 — Instability (qualitative only) -------------------------------
+# --- Module 1, Instability (qualitative only) -------------------------------
 module_1:
   object_type:
     cardinality: exactly_one
@@ -25,12 +25,13 @@ module_1:
       - { id: relational,     label: Relational,     exercised: false }
 
   instability_conditions:
-    cardinality: one_or_many
-    required: true          # every case carries at least one — no `if applicable`
+    cardinality: zero_or_many
+    required: false         # blank is allowed, but must carry conditions_blank_reason (R3)
+    always_considered: true # never skipped because of the Module 2 value, see N1
     values:
       - { id: jurisdictional_overlap, label: Jurisdictional overlap, sides_required: true }
       - { id: speed_mismatch,         label: Speed mismatch,         sides_required: true }
-      - { id: category_practice_mismatch, label: Category–practice mismatch, sides_required: false }
+      - { id: category_practice_mismatch, label: Category-practice mismatch, sides_required: false }
     sides:
       fields: [side_a, side_b]
       note: >
@@ -46,7 +47,7 @@ module_1:
       - { id: competing_clocks,     label: Competing clocks }
       - { id: recurring_reset,      label: Recurring reset }
 
-# --- Module 2 — Formation history (qualitative only) -------------------------
+# --- Module 2, Formation history (qualitative only) -------------------------
 module_2:
   event_type:
     cardinality: exactly_one
@@ -76,7 +77,7 @@ module_2:
       markers: Dated points. Meaning depends on event_type.
       order_began_operating: Date the order began operating.
 
-# --- Module 3 — Downstream ---------------------------------------------------
+# --- Module 3, Downstream ---------------------------------------------------
 module_3:
   transmission_channels:
     cardinality: zero_or_many
@@ -116,7 +117,7 @@ module_3:
              jurisdictional_relocation, lobbying, new_intermediaries]
     contextual_amplification:
       note: >
-        External shocks — war, sanctions realignment, currency shock, political
+        External shocks, war, sanctions realignment, currency shock, political
         turnover, financial crisis. Distinct from firms' own adaptation because it
         originates outside the field the order governs.
 
@@ -162,20 +163,149 @@ rules:
   - id: R2
     rule: event_type in [dispute, amendment] → formation_trace must not be `not_applicable`.
   - id: R3
-    rule: instability_conditions must contain at least one value on every case.
+    rule: >
+      instability_conditions blank → `conditions_blank_reason` must say why.
+      The case is still valid. A blank is an observation, not a failure.
     why: >
       These are conditions, not events. They hold whether or not anyone came into
-      opposition. A blank here would make Module 2 determine Module 1.
+      opposition, so a blank is worth explaining rather than forbidding. The
+      explanation is what later shows whether the vocabulary is too narrow.
+      What must never happen is a blank *because* Module 2 says enactment.
+      That would let Module 2 determine Module 1. See N1.
   - id: R4
     rule: Any non-null measured value must carry a `source` id present in `sources`.
   - id: R5
     rule: >
       jurisdiction is not US and instability_conditions includes jurisdictional_overlap
-      or speed_mismatch → side_a and side_b must both be written out.
+      or speed_mismatch → write out the sides. Where the case has more than two, or
+      where a party's legal hook attaches to something other than the object, record
+      it in `deviations` rather than forcing it into the pair.
   - id: R6
-    rule: All enum values must appear in this file. Unknown values fail the build.
+    rule: >
+      Unknown enum values are flagged, not rejected. They render with a marker and
+      are listed on the case. The build does not fail.
+    why: >
+      This is a framework for reading cases, not a form cases must fit. A value that
+      does not exist yet is the most informative thing a case can produce; failing the
+      build on it would discard exactly the signal the library is being built to catch.
+      Vocabulary changes are made in batches once several cases are in, never one case
+      at a time, otherwise the framework ends up shaped by whichever case came last.
   - id: R7
     rule: status == complete → every module_1 and module_2 required field is non-null.
+
+# --- Open questions ----------------------------------------------------------
+# Questions about the framework itself that argument cannot settle and tagging can.
+# Each carries the observation that would decide it. Distinct from `deviations`:
+# a deviation is one case failing to fit the vocabulary, an open question is a
+# doubt about whether two parts of the vocabulary are doing separate work at all.
+open_questions:
+  - id: Q1
+    question: >
+      Do 1.3 firm traces and 3.1 transmission channels describe separate things,
+      or has the same phenomenon been given two names?
+    overlap: >
+      3.1 classification_decision covers what 1.3 calls boundary_drift and
+      definitional_contest. 3.1 deadlines covers what 1.3 calls competing_clocks.
+      Only recurring_reset has no counterpart on the 3.1 side.
+    decides_it: >
+      A case where 3.1 classification_decision is checked and neither
+      boundary_drift nor definitional_contest is. If that never occurs across the
+      library, one of the two lists is redundant and should be folded into the other.
+    status: open
+    evidence:
+      - case: supermicro-2026
+        result: >
+          Does not separate on the classification pair. 3.1 classification_decision
+          and 1.3 boundary_drift both fire. But the deadlines pair does separate:
+          1.3 competing_clocks fires and 3.1 deadlines does not, because no
+          preparation gate is documented for this order while the shipment dates
+          still run against a rule being revised. One pair is not enough to decide;
+          the deadlines split is the first sign the two lists are not identical.
+      - case: anthropic-dow-2026
+        result: >
+          Classification pair fires together again, second time in a row. The
+          deadlines pair fires together here, so the split seen in the first case
+          does not repeat. Reading across both: the classification pair has never
+          separated and is the stronger candidate for folding; the deadlines pair
+          separates when an order has no published compliance gate.
+      - case: fable-mythos-2026
+        result: >
+          Classification pair together, three for three. Deadlines pair together.
+          Standing count: the classification pair has never separated across the
+          library, so 1.3 boundary_drift and definitional_contest are not earning
+          their place beside 3.1 classification_decision on current evidence. The
+          deadlines pair has separated once, which is enough to keep it.
+
+  - id: Q2
+    question: >
+      Is an enforcement action its own Module 2 event, or a Module 3 observation
+      attached to the case for the rule being enforced?
+    overlap: >
+      Module 2 asks how the boundary reached its current shape. A prosecution
+      enforces a boundary rather than forming one, yet enforcement here is visibly
+      changing the boundary: a second jurisdiction is weighing legislation in
+      response, and firms are redesigning products around it.
+    decides_it: >
+      Whether the enforcement cases in the library produce formation traces that
+      differ from the traces of the rules they enforce. If they duplicate, they
+      are Module 3 observations.
+    status: open
+    evidence:
+      - case: anthropic-dow-2026
+        result: >
+          Points toward Module 2. The court is not deciding whether the firm crossed
+          a line but whether the line was lawfully drawn, and the remedy argument is
+          openly about erasing it against redrawing it: vacate and remand against
+          remand without vacatur. That is formation, not transmission. It does not
+          settle the Super Micro case, where a prosecution enforces a boundary
+          nobody is contesting the drawing of.
+      - case: fable-mythos-2026
+        result: >
+          Points toward Module 2, and harder than the previous case. There was no
+          published rule requiring a licence for foreign-national access to a
+          frontier model. The directive created the obligation, the eighteen-day
+          standoff set its terms, and the lifting letter recorded the settlement.
+          Enforcement and formation are the same event here, so treating the
+          directive as a Module 3 observation on some prior order would leave
+          nothing to attach it to.
+
+
+  - id: Q4
+    question: >
+      Is object opacity a fourth instability condition, or a species of one already
+      in the list?
+    overlap: >
+      Raised by anthropic-dow-2026, where the government's stated ground is that
+      frontier AI cannot be inspected against a specification the way hardware can,
+      and that every update reopens the question. The three existing values each
+      need two things to hold between: two authorities, two cycles, or a category
+      and a practice. This one is a property of the object on its own.
+    decides_it: >
+      Whether it recurs. Check it against the Fable 5 release case and the EU
+      watermarking case, both of which turn on what can be known about a model from
+      outside it. Recurrence across cases makes it a value; a single appearance
+      makes it a feature of this dispute.
+    status: threshold_met
+    evidence:
+      - case: anthropic-dow-2026
+        result: >
+          First appearance. The government's ground for the designation is that
+          frontier AI cannot be checked against a specification and that every
+          update reopens the question.
+      - case: fable-mythos-2026
+        result: >
+          Second appearance, and in a dispute with nothing else in common with the
+          first: different agency, different statute, different object, no
+          contract at issue. The whole standoff is over whether a reported bypass
+          was severe enough to control, and it ends without anyone settling that.
+          The settlement is an undertaking about process rather than a finding
+          about the model.
+    note: >
+      Two independent appearances meets the bar set for calling something a
+      vocabulary problem rather than a case feature. Held for the batch review
+      rather than added on the spot, and worth checking against the EU
+      watermarking case first, since that one also turns on what can be known
+      about a model from outside it.
 
 non_rules:
   - id: N1
@@ -187,6 +317,25 @@ non_rules:
     statement: >
       Module 1 and Module 2 carry no numeric fields, and none may be added.
       Scoring a classification judgment manufactures false precision.
+
+# --- Deviations --------------------------------------------------------------
+# Where a case does not fit the vocabulary, the case is right and the vocabulary
+# is provisional. Record the misfit here rather than stretching a value to cover
+# it or inventing one on the spot.
+deviations:
+  cardinality: zero_or_many
+  shape:
+    field: Which field or rule the case strained (e.g. "1.2 jurisdictional_overlap", "R5").
+    observed: What the case actually shows.
+    why_it_does_not_fit: The specific way the current definition fails to cover it.
+    workaround: How it was recorded in the meantime. Optional.
+  review:
+    note: >
+      Reviewed in batches, never per case. A deviation appearing once is a property
+      of that case. The same deviation across two or more cases is a property of the
+      vocabulary, and only then is the vocabulary changed.
+    open: []          # deviation ids not yet reviewed
+    resolved: []      # { deviation, framework_version, change }
 
 case_status:
   values: [draft, complete]
