@@ -2,33 +2,33 @@
 layout: default
 title: Case tagging template
 permalink: /method/
-description: Three blocks — classification tags, downstream observations, measured fields.
+description: Three blocks: classification tags, downstream observations, and measured fields.
 ---
 
 <section class="hero">
   <div class="shell">
     <span class="eyebrow eyebrow--accent">4</span>
     <h1>Case tagging template</h1>
-    <p class="standfirst">Three blocks. They fail differently, so blanks mean different things in each.</p>
+    <p class="standfirst">Three blocks. A blank means something different in each one.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="shell">
 
-    <h3 class="sub"><span>4a</span> Classification tags — every case</h3>
+    <h3 class="sub"><span>4a</span> Classification tags: every case</h3>
     <table class="spec spec--form">
       <thead><tr><th>Field</th><th>Value</th></tr></thead>
       <tbody>
         <tr><th scope="row">Object type (1.1)</th><td></td></tr>
-        <tr><th scope="row">Instability conditions (1.2) — one or more, never blank</th><td></td></tr>
+        <tr><th scope="row">Instability conditions (1.2), with a reason if blank</th><td></td></tr>
         <tr><th scope="row">Firm-level traces (1.3)</th><td></td></tr>
         <tr><th scope="row">Event type (2.1)</th><td></td></tr>
-        <tr><th scope="row">Formation trace (2.2) — <span class="tag tag--dash">—</span> if Enactment</th><td></td></tr>
+        <tr><th scope="row">Formation trace (2.2), or <span class="tag tag--dash">&#8212;</span> if Enactment</th><td></td></tr>
       </tbody>
     </table>
 
-    <h3 class="sub"><span>4b</span> Downstream observations — where documented</h3>
+    <h3 class="sub"><span>4b</span> Downstream observations: where documented</h3>
     <table class="spec spec--form">
       <thead><tr><th>Field</th><th>Value</th></tr></thead>
       <tbody>
@@ -40,10 +40,10 @@ description: Three blocks — classification tags, downstream observations, meas
     </table>
 
     <h3 class="sub"><span>4c</span> Measured fields</h3>
-    <p>Defined once, here — not scattered through Module 3. Leave blank if undocumented.</p>
+    <p>Defined here rather than scattered through Module 3. Leave blank if undocumented.</p>
 
     <table class="qtable">
-      <caption>Numeric — a field earns a number only if two fixed points in the record determine it</caption>
+      <caption>Numeric: a field earns a number only if two fixed points in the record determine it</caption>
       <thead><tr><th>Field</th><th>Unit</th><th>Two points</th></tr></thead>
       <tbody>
         <tr><td>Deadline gap</td><td>days</td><td>Formal effective date ↔ actual preparation or compliance gate</td></tr>
@@ -51,10 +51,10 @@ description: Three blocks — classification tags, downstream observations, meas
         <tr><td>Enforcement amplification events</td><td>count</td><td>The original order ↔ subsequent investigations, penalties, comparable-case citations</td></tr>
       </tbody>
     </table>
-    <p class="note">Anything requiring a judgment about where to stop counting measures reporting density, not the phenomenon. The scope limit is documentary, so a field that scales with coverage is measuring the coverage.</p>
+    <p class="note">A field that needs a judgment about where to stop counting ends up measuring how much was reported rather than what happened. The scope limit here is documentary, so that judgment is unavoidable once a field scales with coverage.</p>
 
     <table class="qtable">
-      <caption>Narrative — recorded in prose, not comparable across cases</caption>
+      <caption>Narrative: recorded in prose, not comparable across cases</caption>
       <thead><tr><th>Field</th><th></th><th>What to record</th></tr></thead>
       <tbody>
         <tr><td>Financial exposure</td><td>prose</td><td>Cost, fine, or revenue loss attributable to the order. State whether reported, estimated, or modeled.</td></tr>
@@ -80,11 +80,11 @@ description: Three blocks — classification tags, downstream observations, meas
       <thead><tr><th>Case</th><th>Tags</th></tr></thead>
       <tbody>
         <tr><th scope="row">Semiconductor smuggling</th><td>Capability · jurisdictional overlap + speed mismatch · Dispute</td></tr>
-        <tr><th scope="row">Anthropic–U.S. government</th><td>Access &amp; data · jurisdictional overlap · Dispute · time to response ≈ 0 days</td></tr>
-        <tr><th scope="row">EU AI Act watermarking</th><td>Access &amp; data (output) · category–practice mismatch · Enactment · definitional contest + boundary drift · Bearer type <span class="tag">diffuse</span></td></tr>
+        <tr><th scope="row">Anthropic v. U.S. government</th><td>Access &amp; data · jurisdictional overlap · Dispute · time to response ≈ 0 days</td></tr>
+        <tr><th scope="row">EU AI Act watermarking</th><td>Access &amp; data (output) · category-practice mismatch · Enactment · definitional contest + boundary drift · Bearer type <span class="tag">diffuse</span></td></tr>
       </tbody>
     </table>
-    <p class="note">The third case is the reason 1.2 applies to every case. It is an Enactment, so under v3 it would have carried an Object type and nothing else — losing the definitional contest between a provider defining AI-generated output by word-choice pattern and users defining it by authorial contribution.</p>
+    <p class="note">The third case is why 1.2 is worked through on every case. It is an Enactment, so under v3 it would have carried an Object type and nothing else, and the definitional contest at its centre would never have been written down: the provider defines AI-generated output by word-choice pattern, users by authorial contribution.</p>
 
     <p style="margin-top:2.5rem"><a href="{{ '/cases/' | relative_url }}">Case library →</a></p>
   </div>
