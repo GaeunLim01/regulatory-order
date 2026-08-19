@@ -2,20 +2,22 @@
 # directly and cannot read Jekyll data. Change both together.
 cff-version: 1.2.0
 message: If you use this framework, please cite it.
-title: "How Regulatory Order Reaches Actors: A Three-Module Framework"
+title: "How Regulatory Order Reaches Actors: A Five-Layer Framework"
 abstract: >-
-  A framework for tracing how regulatory order forms and reaches actors across
-  AI-related value chains. Two independent classification axes — Instability (conditions) and
-  Formation History (events) — plus a downstream module describing transmission,
-  distribution, and re-formation once an order exists.
+  A five-layer framework for tracing how regulatory order forms and reaches
+  actors across AI-related value chains: semiconductors, computing, cloud,
+  data centers. Layer A reads conditions and Layer B reads events as two
+  independent classification axes; Layer C is downstream of both, describing
+  how they leave a trace in the record; Layer D and Layer E describe
+  distribution and re-formation once an order exists.
 type: software
 authors:
   - family-names: Lim
     given-names: Gaeun
     orcid: "https://orcid.org/0009-0001-1332-9206"
     affiliation: Independent researcher
-version: "4.0"
-date-released: 2026-08-18
+version: "5.0"
+date-released: 2026-08-19
 license: CC-BY-4.0
 url: "https://gaeunlim01.github.io/regulatory-order/"
 repository-code: "https://github.com/GaeunLim01/regulatory-order"
