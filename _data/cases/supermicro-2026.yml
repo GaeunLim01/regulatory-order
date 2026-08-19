@@ -1,0 +1,248 @@
+id: supermicro-2026
+title: Super Micro server diversion (Operation Gatekeeper)
+status: draft
+period: { from: 2024, to: }
+jurisdiction: [US, TW, TH]
+actors:
+  - name: 'Yih-Shyan "Wally" Liaw'
+    role: Super Micro co-founder, SVP and board member. Charged in the US.
+  - name: 'Ruei-Tsang "Steven" Chang'
+    role: General manager, Super Micro Taiwan office. Charged in the US, fugitive.
+  - name: 'Ting-Wei "Willy" Sun'
+    role: Outside contractor, described by US authorities as a fixer. Charged in the US.
+  - name: Super Micro Computer
+    role: Employer. Not named as a defendant.
+  - name: OBON Corp
+    role: Bangkok intermediary, "Company-1" in the indictment. Not charged.
+  - name: Nvidia
+    role: Chip producer. Taipei office searched, one employee detained in Taiwan.
+  - name: Albatron Technology
+    role: Super Micro distributor. A vice president detained in Taiwan.
+  - name: Chief Telecom
+    role: Data-centre operator. Premises searched in Taiwan.
+  - name: Alibaba
+    role: Named in reporting as an end customer. Denies involvement. Not charged.
+
+# --- Module 1, Instability ---------------------------------------------------
+module_1:
+  object_type: capability
+  instability_conditions:
+    - id: jurisdictional_overlap
+      side_a: US, asserting over the object through ECRA and the EAR, including foreign-produced items reached by the FDP rule
+      side_b: Taiwan, asserting over the conduct through criminal-code document offences, having no export offence to charge
+      note: >
+        A third party is involved and does not fit the pair. See deviations D1 and D2.
+    - id: speed_mismatch
+      side_a: Taiwan's criminal statutes as they currently stand
+      side_b: the conduct the US controls target
+      note: >
+        Prosecutors are reported to be building the case on liberal readings of
+        existing statutes because unauthorised AI-chip export to China is not a
+        crime under Taiwanese law. Taipei is reported to be weighing legislation
+        that would close that gap.
+    - id: category_practice_mismatch
+      side_a: the control, drawn on physical movement of the hardware
+      side_b: the practice, which is access to compute
+      note: >
+        Renting chips physically located outside China is generally permitted, and
+        Alibaba is reported to do so. The same compute is reachable legally by one
+        route and only by diversion through another, because the category is drawn
+        on where the hardware sits.
+  conditions_blank_reason:
+  firm_traces:
+    - id: boundary_drift
+      note: >
+        The status of the hardware moved during and after the conduct period:
+        HBM stacks added to 3A090 in December 2024, destination scope extended
+        worldwide in January 2025, a relaxation announced in December 2025, and
+        H200 sales to China approved under conditions in January 2026.
+    - id: competing_clocks
+      note: >
+        Shipment and contract dates run against a rule revised repeatedly across
+        the same window.
+    - id: recurring_reset
+      note: The 3A090 threshold itself was reset by successive interim final rules.
+
+# --- Module 2, Formation history ---------------------------------------------
+module_2:
+  event_type: dispute
+  formation_trace:
+    summary: >
+      Traced backward from the prosecutions. The boundary the conduct crossed was
+      built in stages from October 2022, widened twice, then loosened while the
+      enforcement was still running.
+    order_began_operating: 2022-10-07
+    markers:
+      - { date: 2022-10-07, note: ECCNs 3A090 and 4A090 created; Advanced Computing FDP rule at 734.9(h), source: s5 }
+      - { date: 2024-12, note: HBM stacks added as 3A090.c; non-US HBM pulled in through the FDP rule, source: s6 }
+      - { date: 2025-01, note: AI Diffusion IFR extends the FDP destination scope worldwide, source: s7 }
+      - { date: 2025-12, note: relaxation of export rules announced for the same class of chips, source: s4 }
+      - { date: 2026-01, note: H200 sales to China approved under conditions, source: s4 }
+      - { date: 2026-03-19, note: US indictment unsealed, source: s1 }
+      - { date: 2026-05-08, note: Company-1 identified in reporting as OBON Corp, source: s4 }
+      - { date: 2026-06-29, note: Taiwan search of 12 locations; people under investigation grow from three to nine, source: s8 }
+      - { date: 2026-07-28, note: Nvidia employee detained in Taiwan; Taipei office searched, source: s2 }
+
+# --- Module 3, Downstream ----------------------------------------------------
+module_3:
+  transmission_channels:
+    - { id: classification_decision, note: ECCN assignment is what makes the servers licensable at all }
+    - { id: contractual_relations, note: procurement channels and compliance-team approvals; a distributor and a data-centre operator drawn in }
+    - { id: documentation_systems, note: end-user certifications and shipping paperwork; the entire Taiwanese case rests here rather than on the export }
+    - { id: supply_chain_position, note: exposure reached Albatron as distributor and Chief Telecom as operator without either being the named party }
+    - { id: access_restriction, note: licence requirement, plus Nvidia's statement that diverted chips receive no service, support or updates, source: s11 }
+
+  distribution:
+    source: >
+      Nvidia produces the capability; BIS produces the regulatory trigger.
+    bearer: >
+      Super Micro. Not named as a defendant, yet carrying the market and governance
+      consequence. Exposure then spread to Albatron, Chief Telecom, and Nvidia's
+      Taiwan staff, none of them party to the US proceeding.
+    bearer_type: firm
+    leverage: contested
+    mechanisms:
+      - { id: burden_displacement, note: the rule named three individuals; the firm that absorbed the share-price and governance cost was not charged }
+      - { id: downstream_propagation, note: reached a distributor, a data-centre operator, and the chip producer's local staff }
+      - { id: enforcement_amplification, note: the Taiwanese proceeding widened from three people to nine and then to detentions, without any change to the US rule. See deviation D4 }
+
+  reformation:
+    responses: [supply_chain_restructuring, contract_rewriting]
+    sources: [s3, s11]
+    narrative: >
+      Liaw stepped down from the board and left the company; another employee was
+      placed on administrative leave and ties with the charged contractor were cut.
+      An internal review by the audit committee is open-ended, and the company has
+      said it will reassess customer concentration in its Southeast Asia segment.
+      Nvidia has said smuggling is a nonstarter and that diverted chips receive no
+      service, support or updates; a software layer for real-time monitoring and
+      remote disabling has been reported but not confirmed by the company.
+      Separately, Taipei is reported to be weighing legislation restricting AI-chip
+      sales to all customers in China rather than only blacklisted entities. That
+      last response is legislative, and it is in a different jurisdiction from the
+      one that formed the order. See deviation D3.
+    contextual_amplification: []
+
+# --- Measured fields ---------------------------------------------------------
+measured:
+  numeric:
+    deadline_gap: null          # no preparation gate documented for this order
+    time_to_response: null      # Super Micro issued a statement on the action; exact date to confirm from s3
+    enforcement_amplification_events: { value: 3, source: s8, note: "Taiwan search 2026-06-29, court-approved detentions 2026-07-01, Nvidia employee detained 2026-07-28. Counting rule contested, see D4" }
+  narrative:
+    financial_exposure:
+      text: >
+        At least $2.5 billion in US AI technology alleged to have moved, including
+        more than $500 million between late April and mid-May 2025. Super Micro
+        shares fell roughly 33% over the months following the March arrests, and
+        about 8% again after the June search. The Taiwanese proceeding is reported
+        at NT$700 million, roughly US$22 million, a different order of magnitude
+        from the US figure and measuring a different thing.
+      basis: reported
+      source: s9
+    downstream_reach:
+      text: >
+        Albatron Technology, Chief Telecom, OBON Corp, and Nvidia's Taiwan office.
+        Alibaba is named in reporting as an end customer and denies any business
+        relationship with Super Micro, OBON, or any broker cited in the indictment.
+      source: s10
+
+# --- Deviations --------------------------------------------------------------
+deviations:
+  - id: D1
+    field: R5 and instability_conditions.sides
+    observed: >
+      At least three authorities bear on this conduct: the US under ECRA and the
+      EAR, Taiwan under criminal-code document offences, and Thailand through
+      allocation eligibility under the US tiered framework.
+    why_it_does_not_fit: >
+      The sides field is a pair. Three claimants cannot be written as side_a and
+      side_b, and pairing them off would imply each pair is the same kind of
+      opposition when they are not.
+    workaround: Two sides recorded, the third described in this entry.
+
+  - id: D2
+    field: 1.2 jurisdictional_overlap
+    observed: >
+      Taiwan does not criminalise unauthorised AI-chip export to China. Its
+      prosecutors charge falsification of business documents and breach of trust
+      under existing statutes, not export violations.
+    why_it_does_not_fit: >
+      The value is defined as two or more authorities claiming definitional
+      authority over the same object. Taiwan claims over the paperwork, not the
+      object. This is convergent enforcement without overlapping claims, which is
+      close to the opposite shape from what the value describes.
+    workaround: Tagged jurisdictional_overlap anyway, with the mismatch recorded here.
+
+  - id: D3
+    field: 3.3 re-formation
+    observed: >
+      Taipei is reported to be weighing legislation restricting AI-chip sales to
+      all customers in China, which would give its prosecutors the export hook they
+      currently lack.
+    why_it_does_not_fit: >
+      3.3 treats re-formation as feedback into the next round of Module 2 within
+      the field the order governs. Here the legislative response is in a different
+      jurisdiction from the one that formed the order.
+    workaround: Recorded in the re-formation narrative with the jurisdiction shift noted.
+
+  - id: D4
+    field: measured.numeric.enforcement_amplification_events
+    observed: >
+      The events being counted are steps in a Taiwanese proceeding brought under
+      different law, and prosecutors there have said no connection to the US
+      proceedings has been established.
+    why_it_does_not_fit: >
+      The field counts investigations and penalties tied to this order. Whether a
+      separate proceeding under different law, over overlapping conduct, counts as
+      amplification of the same order is not settled. Counting it inflates the
+      figure; excluding it hides the pattern the field exists to catch.
+    workaround: Counted, with the ambiguity recorded here rather than resolved.
+
+# --- Documentary record ------------------------------------------------------
+sources:
+  - id: s1
+    kind: filing
+    citation: US DOJ, Three Charged with Conspiring to Unlawfully Divert Cutting Edge US Artificial Intelligence
+    url: https://www.justice.gov/opa/pr/three-charged-conspiring-unlawfully-divert-cutting-edge-us-artificial-intelligence
+    date: 2026-03-19
+  - id: s2
+    kind: filing
+    citation: Keelung District Prosecutors Office, statement on the third wave of enforcement in the illegal high-end server export case
+    url: https://www.klc.moj.gov.tw/media/447330/
+    date: 2026-07-28
+  - id: s3
+    kind: industry_comment
+    citation: Super Micro Computer, Statement on Action by U.S. Attorney's Office
+    url: https://ir.supermicro.com/news/news-details/2026/Super-Micro-Computer-Issues-Statement-on-Action-by-U-S--Attorneys-Office/default.aspx
+    date: 2026-03
+  - id: s4
+    kind: press
+    citation: Bloomberg, identification of Company-1 as OBON Corp and Alibaba as an end customer
+    date: 2026-05-08
+  - id: s8
+    kind: press
+    citation: Reporting on the Keelung search of 29 June 2026 and the widening of the Taiwanese proceeding
+    date: 2026-06-30
+  - id: s9
+    kind: press
+    citation: Reporting on Super Micro share movement after the March indictment and the June search
+  - id: s10
+    kind: statement
+    citation: Alibaba statement to Reuters denying any relationship with Super Micro, OBON, or brokers named in the indictment
+    date: 2026-05-08
+  - id: s11
+    kind: statement
+    citation: Nvidia statement to Reuters on partner compliance and on diverted chips receiving no service, support or updates
+  - id: s5
+    kind: rule
+    citation: BIS, Implementation of Additional Export Controls, Certain Advanced Computing and Semiconductor Manufacturing Items
+    date: 2022-10-13
+  - id: s6
+    kind: rule
+    citation: BIS, Foreign-Produced Direct Product Rule Additions and Refinements (HBM controls)
+    date: 2024-12-05
+  - id: s7
+    kind: rule
+    citation: BIS, AI Diffusion interim final rule
+    date: 2025-01
