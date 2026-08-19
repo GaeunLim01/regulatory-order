@@ -3,7 +3,7 @@
 A five-layer framework for tracing how regulatory order forms and reaches actors
 across AI-related value chains: semiconductors, computing, cloud, data centers.
 
-Layer A reads conditions, Layer B reads events — two independent classification axes.
+Layer A reads conditions, Layer B reads events: two independent classification axes.
 Layer C is downstream of both: how A and B actually leave a trace in the record. Layer D
 and Layer E work differently again. They do not classify a case at all, they describe
 what happens to an order once it exists, regardless of what produced it.
@@ -31,7 +31,7 @@ Every internal link goes through `relative_url`, so nothing else needs changing.
     _layouts/default.html  page chrome
     assets/css/main.css    design tokens and components
     index.html             overview: methodology entry point, case library entry point
-    method.html            Layers A–E and worked examples
+    method.html            Layers A-E and worked examples
     cases/                 case library, waiting on entries
 
 One page carries the whole methodology (Layers A through E as sections, `#layer-b` through
@@ -96,10 +96,10 @@ definitional contest at its centre would never have been written down.
 
 | v4 | v5 |
 |---|---|
-| Module 1 / 2 / 3, three pages, module number as the primary structure | **Layer A–E**, one page, "kind of question" as the primary structure |
+| Module 1 / 2 / 3, three pages, module number as the primary structure | **Layer A-E**, one page, "kind of question" as the primary structure |
 | 1.3 firm-level traces (module 1) and 3.1 transmission channels (module 3), tracked separately | Merged into **Layer C**, one checklist. Resolves open question Q1: the two fired together in all three registered cases and never once separated |
 | 3.2 / 3.3 kept their module-3 numbering | Renamed Layer D / Layer E, content unchanged |
-| A "split Layer 3 by upstream module" (1+3 / 2+3) proposal | Considered and rejected. burden_displacement and downstream_propagation appear across cases with different Layer A object types (Capability, Relational, Access & data) — the mechanisms don't vary by what produced the order, so splitting them would duplicate content rather than clarify it |
+| A "split Layer 3 by upstream module" (1+3 / 2+3) proposal | Considered and rejected. burden_displacement and downstream_propagation appear across cases with different Layer A object types (Capability, Relational, Access & data). The mechanisms don't vary by what produced the order, so splitting them would duplicate content rather than clarify it |
 | Case-type routing (classify the case first, then decide which layer applies) | Rejected outright. This is the same failure v3→v4 already fixed once, generalized: the EU AI Act case is a Layer B Enactment yet carries the richest Layer A content in the library. Gating a layer on another layer's value would have hidden that finding again |
 
 Layer C's merge is the first vocabulary change made by the batch-review process R6
@@ -128,7 +128,7 @@ entity names in case files render in a matched weight.
 
 The landing page carries exactly two entry points, styled deliberately unlike each other:
 Methodology as a plain card matching the rest of the site, Case library as the one
-non-white panel on the page. That asymmetry is intentional — the case library is the next
+non-white panel on the page. That asymmetry is intentional: the case library is the next
 step for most readers, not a fourth peer of the layers, so it gets a different visual
 register rather than another spot in a row.
 
