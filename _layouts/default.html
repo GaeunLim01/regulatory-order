@@ -16,7 +16,7 @@
 <header class="masthead">
   <div class="shell masthead__inner">
     <a class="masthead__mark" href="{{ '/' | relative_url }}">
-      REGULATORY&nbsp;ORDER<span class="masthead__ver">v4</span>
+      REGULATORY&nbsp;ORDER<span class="masthead__ver">{{ site.framework_version }}</span>
     </a>
     <nav class="nav" aria-label="Framework sections">
       <ul>
@@ -45,7 +45,7 @@
         {% endfor %}
       </ul>
     </div>
-    <p><b>Framework v4.</b> Content CC BY 4.0; site code MIT.</p>
+    <p><b>Framework {{ site.framework_version }}.</b> Content CC BY 4.0; site code MIT.</p>
   </div>
 </footer>
 </body>
