@@ -240,6 +240,18 @@ a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickne
   color: var(--ink-soft);
   max-width: none;
 }
+.layer-index {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.layer-index li { padding: 0; }
+.layer-index li span {
+  font: 600 0.75rem/1 var(--mono);
+  color: var(--accent);
+  margin-right: 0.6rem;
+}
 
 /* -------------------------------------------------------------- spotlight
    Case library call-to-action: the one box on the page that isn't white,
