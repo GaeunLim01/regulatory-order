@@ -1,0 +1,151 @@
+_site/
+.jekyll-cache/
+.sass-cache/
+Gemfile.lock
+.DS_Store
+
+# Values here are duplicated from _data/author.yml because GitHub parses this file
+# directly and cannot read Jekyll data. Change both together.
+cff-version: 1.2.0
+message: If you use this framework, please cite it.
+title: "How Regulatory Order Reaches Actors: A Three-Module Framework"
+abstract: >-
+  A framework for tracing how regulatory order forms and reaches actors across
+  AI-related value chains. Two independent classification axes — Instability (conditions) and
+  Formation History (events) — plus a downstream module describing transmission,
+  distribution, and re-formation once an order exists.
+type: software
+authors:
+  - family-names: Lim
+    given-names: Gaeun
+    orcid: "https://orcid.org/0009-0001-1332-9206"
+    affiliation: Independent researcher
+version: "4.0"
+date-released: 2026-08-18
+license: CC-BY-4.0
+url: "https://gaeunlim01.github.io/regulatory-order/"
+repository-code: "https://github.com/GaeunLim01/regulatory-order"
+keywords:
+  - regulatory analysis
+  - export control
+  - AI governance
+  - semiconductors
+  - value chains
+
+
+---
+layout: default
+title: Overview
+description: Five layers for tracing how regulatory order forms and reaches actors across AI-related value chains.
+---
+
+<section class="hero" id="overview">
+  <div class="shell">
+    <span class="eyebrow">Framework v5</span>
+    <h1>How regulatory order reaches actors</h1>
+    <p class="standfirst">One methodology, five layers. One library of real cases tagged against it.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="shell">
+    <div class="axes axes--one">
+      <a class="axis" href="{{ '/method/' | relative_url }}">
+        <span class="eyebrow eyebrow--accent">Methodology</span>
+        <p class="axis__q">How does regulatory order form, and how does it reach the actors standing under it?</p>
+      </a>
+    </div>
+    <ul class="axes-note layer-index">
+      <li><span>A</span> Classification: why is the object unstable</li>
+      <li><span>B</span> Formation: how the boundary reached its current shape</li>
+      <li><span>C</span> Manifestation: how it shows up in the record</li>
+      <li><span>D</span> Distribution: who ends up holding it</li>
+      <li><span>E</span> Re-formation: what happens next</li>
+    </ul>
+
+    <a class="spotlight" href="{{ '/cases/' | relative_url }}">
+      <span class="eyebrow">Case library</span>
+      <p class="spotlight__q">Real disputes, tagged against all five layers at once.</p>
+      <p class="spotlight__cases">Super Micro · Anthropic v. DoW · Fable 5 · RASA · EU AI Act</p>
+    </a>
+  </div>
+</section>
+
+MIT License
+
+Copyright (c) 2026 Gaeun Lim
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+This license covers the site code only: stylesheets, Jekyll layouts and config,
+and any scripts. The framework itself — the module structure, the classification
+vocabularies and their definitions, the method text, and the case library — is
+licensed separately under CC BY 4.0. See LICENSE-CONTENT.
+
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Gaeun Lim
+
+The framework content in this repository is licensed under the Creative Commons
+Attribution 4.0 International License.
+
+  Summary:    https://creativecommons.org/licenses/by/4.0/
+  Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+
+WHAT THIS COVERS
+
+  - The three-module structure and the reasoning behind it
+  - Classification vocabularies and their definitions (Object Type, Collision
+    Typology, Firm-Level Traces, Event Type, Transmission, Distribution,
+    Re-formation)
+  - The tagging template and the definitions of the quantitative fields
+  - Method and scope statements
+  - The case library in _data/cases/
+  - _data/schema.yml, insofar as it encodes the above
+
+This is a split by intent, not by file extension. Framework text lives inside
+.html files that are also templates; the prose is CC BY, the markup around it
+is MIT. In practice this matters only if someone reuses one without the other.
+
+
+WHAT THIS DOES NOT COVER
+
+  - Stylesheets, Jekyll layouts, configuration, and scripts — see LICENSE (MIT)
+  - Quoted or cited source material: published rules, gazettes, consultation
+    records, court filings, and industry comments retain their own terms. This
+    license applies to the framework's treatment of those sources, not to the
+    sources themselves.
+
+
+ATTRIBUTION
+
+You are free to share and adapt this material for any purpose, including
+commercially, provided you give appropriate credit, link to the license, and
+indicate whether changes were made. Suggested form:
+
+  Lim, Gaeun. "How Regulatory Order Reaches Actors: Framework v3."
+  https://github.com/GaeunLim01/regulatory-order — CC BY 4.0
+
+If you adapt the framework — adding an Object Type, splitting a Transmission
+channel, changing what a tag means — say so. A modified vocabulary that keeps
+the original tag names while changing their definitions is the one adaptation
+that actively damages the shared record.
