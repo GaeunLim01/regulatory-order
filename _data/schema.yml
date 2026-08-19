@@ -1,8 +1,8 @@
-# Case schema, Framework v4
+# Case schema, Framework v5
 # Controlled vocabulary. Single source of truth for enum values.
 # Editing the framework pages without editing this file is the drift to avoid.
 
-framework_version: v4
+framework_version: v5
 
 # Two kinds of blank. They must not collapse into one representation.
 sentinels:
@@ -13,8 +13,10 @@ sentinels:
     meaning: The branch never reaches this question. Produced only by event_type = enactment.
     render: "—"
 
-# --- Module 1, Instability (qualitative only) -------------------------------
-module_1:
+# --- Layer A, Classification (qualitative only) ------------------------------
+# What kind of thing this is, structurally. Holds regardless of whether any
+# dispute occurred — that question belongs to Layer B.
+layer_a:
   object_type:
     cardinality: exactly_one
     required: true
@@ -27,7 +29,7 @@ module_1:
   instability_conditions:
     cardinality: zero_or_many
     required: false         # blank is allowed, but must carry conditions_blank_reason (R3)
-    always_considered: true # never skipped because of the Module 2 value, see N1
+    always_considered: true # never skipped because of the Layer B value, see N1
     values:
       - { id: jurisdictional_overlap, label: Jurisdictional overlap, sides_required: true }
       - { id: speed_mismatch,         label: Speed mismatch,         sides_required: true }
@@ -39,16 +41,11 @@ module_1:
         side never varied (U.S. jurisdiction; legislative cycle). That constant does
         not survive contact with non-U.S. orders.
 
-  firm_traces:
-    cardinality: zero_or_many
-    values:
-      - { id: boundary_drift,       label: Boundary drift }
-      - { id: definitional_contest, label: Definitional contest }
-      - { id: competing_clocks,     label: Competing clocks }
-      - { id: recurring_reset,      label: Recurring reset }
-
-# --- Module 2, Formation history (qualitative only) -------------------------
-module_2:
+# --- Layer B, Formation (qualitative only) -----------------------------------
+# How this instance's boundary came to take its current shape. Independent of
+# Layer A: an Enactment can still carry a full set of Layer A conditions (the
+# EU AI Act watermarking case is the proof — see non_rules N1).
+layer_b:
   event_type:
     cardinality: exactly_one
     required: true
@@ -77,19 +74,44 @@ module_2:
       markers: Dated points. Meaning depends on event_type.
       order_began_operating: Date the order began operating.
 
-# --- Module 3, Downstream ---------------------------------------------------
-module_3:
-  transmission_channels:
+# --- Layer C, Manifestation (merged in v5) ------------------------------------
+# How Layer A and Layer B actually leave footprints in the documentary record.
+# v4 split this across module_1.firm_traces and module_3.transmission_channels.
+# Resolved open question Q1 (v4): across all three registered cases, the
+# firm-trace pair (boundary_drift / definitional_contest) and the channel
+# classification_decision fired together every time, 3 for 3, and never once
+# separated. Two names for one phenomenon, so v5 merges them into one
+# observation checklist. Held downstream of BOTH Layer A and Layer B — which
+# of the two produced a given footprint is not what this layer answers.
+layer_c:
+  manifestation:
     cardinality: zero_or_many
     note: An observation checklist, not a classification axis. Most cases show several.
     values:
-      - { id: classification_decision, label: Classification decision }
-      - { id: deadlines,               label: Deadlines }
-      - { id: contractual_relations,   label: Contractual relations }
-      - { id: documentation_systems,   label: Documentation systems }
-      - { id: supply_chain_position,   label: Supply-chain position }
-      - { id: access_restriction,      label: Access restriction }
+      # formerly module_1.firm_traces
+      - { id: boundary_drift,       label: Boundary drift,       origin: firm_trace }
+      - { id: definitional_contest, label: Definitional contest, origin: firm_trace }
+      - { id: competing_clocks,     label: Competing clocks,     origin: firm_trace }
+      - { id: recurring_reset,      label: Recurring reset,      origin: firm_trace }
+      # formerly module_3.transmission_channels
+      - { id: classification_decision, label: Classification decision, origin: transmission_channel }
+      - { id: deadlines,               label: Deadlines,               origin: transmission_channel }
+      - { id: contractual_relations,   label: Contractual relations,   origin: transmission_channel }
+      - { id: documentation_systems,   label: Documentation systems,   origin: transmission_channel }
+      - { id: supply_chain_position,   label: Supply-chain position,   origin: transmission_channel }
+      - { id: access_restriction,      label: Access restriction,      origin: transmission_channel }
+    origin_note: >
+      `origin` is kept only as a migration breadcrumb back to the v4 field a
+      value came from. It carries no rule and should not be read as two lists
+      wearing one label — that is exactly the distinction v5 collapsed.
 
+# --- Layer D, Distribution -----------------------------------------------------
+# Position and leverage: who ends up holding the burden. Applies uniformly
+# regardless of Layer A or Layer B — evidenced across all cases so far
+# (burden_displacement and downstream_propagation appear whether the object
+# type is Capability, Relational, or Access & data). An "1+3 / 2+3" split was
+# considered and rejected on this evidence: see README changelog.
+layer_d:
   distribution:
     positions:
       source: Actor producing the underlying capability, asset, demand, or regulatory trigger.
@@ -111,6 +133,8 @@ module_3:
         - { id: downstream_propagation,   label: Downstream propagation }
         - { id: enforcement_amplification, label: Enforcement amplification }
 
+# --- Layer E, Re-formation ------------------------------------------------------
+layer_e:
   reformation:
     cardinality: zero_or_many
     values: [supply_chain_restructuring, product_redesign, contract_rewriting,
@@ -119,7 +143,8 @@ module_3:
       note: >
         External shocks, war, sanctions realignment, currency shock, political
         turnover, financial crisis. Distinct from firms' own adaptation because it
-        originates outside the field the order governs.
+        originates outside the field the order governs. Feeds back into the next
+        round of Layer B.
 
 # --- Measured fields (template 4c) -------------------------------------------
 # Numeric only where two fixed points in the record determine the value.
@@ -170,8 +195,8 @@ rules:
       These are conditions, not events. They hold whether or not anyone came into
       opposition, so a blank is worth explaining rather than forbidding. The
       explanation is what later shows whether the vocabulary is too narrow.
-      What must never happen is a blank *because* Module 2 says enactment.
-      That would let Module 2 determine Module 1. See N1.
+      What must never happen is a blank *because* Layer B says enactment.
+      That would let Layer B determine Layer A. See N1.
   - id: R4
     rule: Any non-null measured value must carry a `source` id present in `sources`.
   - id: R5
@@ -191,7 +216,7 @@ rules:
       Vocabulary changes are made in batches once several cases are in, never one case
       at a time, otherwise the framework ends up shaped by whichever case came last.
   - id: R7
-    rule: status == complete → every module_1 and module_2 required field is non-null.
+    rule: status == complete → every layer_a and layer_b required field is non-null.
 
 # --- Open questions ----------------------------------------------------------
 # Questions about the framework itself that argument cannot settle and tagging can.
@@ -201,17 +226,16 @@ rules:
 open_questions:
   - id: Q1
     question: >
-      Do 1.3 firm traces and 3.1 transmission channels describe separate things,
-      or has the same phenomenon been given two names?
-    overlap: >
-      3.1 classification_decision covers what 1.3 calls boundary_drift and
-      definitional_contest. 3.1 deadlines covers what 1.3 calls competing_clocks.
-      Only recurring_reset has no counterpart on the 3.1 side.
-    decides_it: >
-      A case where 3.1 classification_decision is checked and neither
-      boundary_drift nor definitional_contest is. If that never occurs across the
-      library, one of the two lists is redundant and should be folded into the other.
-    status: open
+      Do 1.3 firm traces (Layer A in v4) and 3.1 transmission channels (Layer D
+      in v4) describe separate things, or has the same phenomenon been given
+      two names?
+    status: resolved_in_v5
+    resolution: >
+      Merged into layer_c.manifestation. Across all three registered cases the
+      firm-trace pair and the classification_decision channel fired together
+      every time and never once separated — 3 for 3. Kept as one history note
+      here rather than deleted, since the evidence trail is what justified the
+      change.
     evidence:
       - case: supermicro-2026
         result: >
@@ -219,41 +243,35 @@ open_questions:
           and 1.3 boundary_drift both fire. But the deadlines pair does separate:
           1.3 competing_clocks fires and 3.1 deadlines does not, because no
           preparation gate is documented for this order while the shipment dates
-          still run against a rule being revised. One pair is not enough to decide;
-          the deadlines split is the first sign the two lists are not identical.
+          still run against a rule being revised.
       - case: anthropic-dow-2026
         result: >
           Classification pair fires together again, second time in a row. The
-          deadlines pair fires together here, so the split seen in the first case
-          does not repeat. Reading across both: the classification pair has never
-          separated and is the stronger candidate for folding; the deadlines pair
-          separates when an order has no published compliance gate.
+          deadlines pair fires together here too.
       - case: fable-mythos-2026
         result: >
-          Classification pair together, three for three. Deadlines pair together.
-          Standing count: the classification pair has never separated across the
-          library, so 1.3 boundary_drift and definitional_contest are not earning
-          their place beside 3.1 classification_decision on current evidence. The
-          deadlines pair has separated once, which is enough to keep it.
+          Classification pair together, three for three. Standing count: the
+          classification pair never separated across the library, which is
+          what decided the merge.
 
   - id: Q2
     question: >
-      Is an enforcement action its own Module 2 event, or a Module 3 observation
+      Is an enforcement action its own Layer B event, or a Layer D observation
       attached to the case for the rule being enforced?
     overlap: >
-      Module 2 asks how the boundary reached its current shape. A prosecution
+      Layer B asks how the boundary reached its current shape. A prosecution
       enforces a boundary rather than forming one, yet enforcement here is visibly
       changing the boundary: a second jurisdiction is weighing legislation in
       response, and firms are redesigning products around it.
     decides_it: >
       Whether the enforcement cases in the library produce formation traces that
       differ from the traces of the rules they enforce. If they duplicate, they
-      are Module 3 observations.
+      are Layer D observations.
     status: open
     evidence:
       - case: anthropic-dow-2026
         result: >
-          Points toward Module 2. The court is not deciding whether the firm crossed
+          Points toward Layer B. The court is not deciding whether the firm crossed
           a line but whether the line was lawfully drawn, and the remedy argument is
           openly about erasing it against redrawing it: vacate and remand against
           remand without vacatur. That is formation, not transmission. It does not
@@ -261,14 +279,13 @@ open_questions:
           nobody is contesting the drawing of.
       - case: fable-mythos-2026
         result: >
-          Points toward Module 2, and harder than the previous case. There was no
+          Points toward Layer B, and harder than the previous case. There was no
           published rule requiring a licence for foreign-national access to a
           frontier model. The directive created the obligation, the eighteen-day
           standoff set its terms, and the lifting letter recorded the settlement.
           Enforcement and formation are the same event here, so treating the
-          directive as a Module 3 observation on some prior order would leave
+          directive as a Layer D observation on some prior order would leave
           nothing to attach it to.
-
 
   - id: Q4
     question: >
@@ -310,12 +327,15 @@ open_questions:
 non_rules:
   - id: N1
     statement: >
-      No rule may make any Module 1 field depend on any Module 2 field, or vice versa.
+      No rule may make any Layer A field depend on any Layer B field, or vice versa.
       The two axes are independent by design. If a correlation appears in the data,
-      that is a finding, not a constraint.
+      that is a finding, not a constraint. Proof this holds: the EU AI Act
+      watermarking case is a Layer B Enactment (no dispute) yet carries the
+      richest Layer A content in the library (a live definitional contest over
+      how AI-generated output is defined). Enactment did not empty out Layer A.
   - id: N2
     statement: >
-      Module 1 and Module 2 carry no numeric fields, and none may be added.
+      Layer A and Layer B carry no numeric fields, and none may be added.
       Scoring a classification judgment manufactures false precision.
 
 # --- Deviations --------------------------------------------------------------
@@ -325,7 +345,7 @@ non_rules:
 deviations:
   cardinality: zero_or_many
   shape:
-    field: Which field or rule the case strained (e.g. "1.2 jurisdictional_overlap", "R5").
+    field: Which field or rule the case strained (e.g. "layer_a instability_conditions", "R5").
     observed: What the case actually shows.
     why_it_does_not_fit: The specific way the current definition fails to cover it.
     workaround: How it was recorded in the meantime. Optional.
@@ -333,9 +353,13 @@ deviations:
     note: >
       Reviewed in batches, never per case. A deviation appearing once is a property
       of that case. The same deviation across two or more cases is a property of the
-      vocabulary, and only then is the vocabulary changed.
+      vocabulary, and only then is the vocabulary changed. Q1's merge into layer_c
+      is the first change made this way.
     open: []          # deviation ids not yet reviewed
-    resolved: []      # { deviation, framework_version, change }
+    resolved:
+      - deviation: Q1
+        framework_version: v5
+        change: merged module_1.firm_traces and module_3.transmission_channels into layer_c.manifestation
 
 case_status:
   values: [draft, complete]
