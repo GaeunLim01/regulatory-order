@@ -31,7 +31,7 @@ Every internal link goes through `relative_url`, so nothing else needs changing.
     _layouts/default.html  page chrome
     assets/css/main.css    design tokens and components
     index.html             overview: methodology entry point, case library entry point
-    method.html            Layers A–E, the case tagging template, and measured fields
+    method.html            Layers A–E and worked examples
     cases/                 case library, waiting on entries
 
 One page carries the whole methodology (Layers A through E as sections, `#layer-b` through
