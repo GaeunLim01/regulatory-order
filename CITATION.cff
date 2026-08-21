@@ -1,12 +1,12 @@
-# Values here are duplicated from _data/author.yml because GitHub parses this file
-# directly and cannot read Jekyll data. Change both together.
+# GitHub parses this file directly and cannot read Jekyll data, so the title and
+# author values here are maintained separately from _config.yml. Change both together.
 cff-version: 1.2.0
 message: If you use this framework, please cite it.
-title: "How Regulatory Order Reaches Actors: A Five-Layer Framework"
+title: "Reading Regulatory Order: A Five-Layer Procedure"
 abstract: >-
-  A five-layer framework for tracing how regulatory order forms and reaches
-  actors across AI-related value chains: semiconductors, computing, cloud,
-  data centers. Layer A reads conditions and Layer B reads events as two
+  A five-layer procedure for reading how regulatory order forms and reaches the
+  firms standing under it, across AI-related value chains: semiconductors,
+  computing, cloud, data centers. Layer A reads conditions and Layer B reads events as two
   independent classification axes; Layer C is downstream of both, describing
   how they leave a trace in the record; Layer D and Layer E describe
   distribution and re-formation once an order exists.
@@ -16,7 +16,7 @@ authors:
     given-names: Gaeun
     orcid: "https://orcid.org/0009-0001-1332-9206"
     affiliation: Independent researcher
-version: "5.0"
+version: "1.0"
 date-released: 2026-08-19
 license: CC-BY-4.0
 url: "https://gaeunlim01.github.io/regulatory-order/"
@@ -28,3 +28,25 @@ keywords:
   - semiconductors
   - value chains
 
+references:
+  - type: article
+    title: "The Cloud Compute Question in U.S. Export Controls, 2009-2026"
+    authors:
+      - family-names: Lim
+        given-names: Gaeun
+    year: 2026
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7242040"
+  - type: article
+    title: "When Governance Cannot Hold Its Object: AI Across Compute, Biotechnology, and Frontier Models"
+    authors:
+      - family-names: Lim
+        given-names: Gaeun
+    year: 2026
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7035179"
+  - type: article
+    title: "How Regulation Becomes Firm-Level Exposure: The Gap Between Exposure and the Cost of Servicing It"
+    authors:
+      - family-names: Lim
+        given-names: Gaeun
+    year: 2026
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7035280"

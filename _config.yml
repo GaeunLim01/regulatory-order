@@ -1,10 +1,11 @@
-title: How Regulatory Order Reaches Actors
+title: Reading Regulatory Order
 description: >-
-  A five-layer framework for tracing how regulatory order forms and reaches
-  actors across AI-related value chains: semiconductors, computing, cloud, data centers.
+  A five-layer procedure for reading how regulatory order forms and reaches the firms
+  standing under it, across AI-related value chains: semiconductors, computing, cloud,
+  data centers.
 lang: en
 
-# Framework v5. Project site at gaeunlim01.github.io/regulatory-order — baseurl must match the
+# Framework v1.0. Project site at gaeunlim01.github.io/regulatory-order — baseurl must match the
 # repo name exactly, with a leading slash and no trailing slash.
 baseurl: /regulatory-order
 url: https://gaeunlim01.github.io
@@ -20,4 +21,4 @@ exclude:
   - docs/
   - scripts/
 
-framework_version: v5
+framework_version: "v1.0"
