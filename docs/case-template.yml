@@ -1,4 +1,4 @@
-# Framework v5. Copy to _data/cases/<slug>.yml and fill.
+# Framework r5. Copy to _data/cases/<slug>.yml and fill.
 # null           = applies, not documented   → renders "not documented"
 # not_applicable = branch never reaches it   → renders ", "
 
@@ -29,7 +29,7 @@ layer_b:
       # - { date: , note: , source: }
 
 # --- Layer C, Manifestation ---------------------------------------------------
-# How Layer A and Layer B show up in the record. Merged in v5 — do not split
+# How Layer A and Layer B show up in the record. Merged in r5 — do not split
 # back into "firm traces" vs "transmission channels".
 layer_c:
   manifestation: []               # boundary_drift | definitional_contest | competing_clocks | recurring_reset
