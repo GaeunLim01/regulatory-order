@@ -1,8 +1,15 @@
-# Case schema, Framework v5
+# Case schema. Released as Framework v1.0.
 # Controlled vocabulary. Single source of truth for enum values.
 # Editing the framework pages without editing this file is the drift to avoid.
 
-framework_version: v5
+release_version: "1.0"
+revision: r6
+version_note: >
+  Two numbers, deliberately. `release_version` is what the site and the citation
+  file carry. `revision` counts the times this vocabulary changed, and it is the
+  number the deviations and open_questions blocks refer to. The revisions before
+  r5 were structural work on the framework itself; r5 and r6 were changes forced
+  by cases, and those are recorded with the evidence that forced them.
 
 # Two kinds of blank. They must not collapse into one representation.
 sentinels:
@@ -33,6 +40,7 @@ layer_a:
     values:
       - { id: jurisdictional_overlap, label: Jurisdictional overlap, sides_required: true }
       - { id: speed_mismatch,         label: Speed mismatch,         sides_required: true }
+      - { id: object_opacity, label: Object opacity, sides_required: true }
       - { id: category_practice_mismatch, label: Category-practice mismatch, sides_required: false }
     sides:
       fields: [side_a, side_b]
@@ -44,7 +52,7 @@ layer_a:
 # --- Layer B, Formation (qualitative only) -----------------------------------
 # How this instance's boundary came to take its current shape. Independent of
 # Layer A: an Enactment can still carry a full set of Layer A conditions (the
-# EU AI Act watermarking case is the proof — see non_rules N1).
+# Article 50 watermarking case is the proof — see non_rules N1).
 layer_b:
   event_type:
     cardinality: exactly_one
@@ -74,13 +82,13 @@ layer_b:
       markers: Dated points. Meaning depends on event_type.
       order_began_operating: Date the order began operating.
 
-# --- Layer C, Manifestation (merged in v5) ------------------------------------
+# --- Layer C, Manifestation (merged in r5) ------------------------------------
 # How Layer A and Layer B actually leave footprints in the documentary record.
-# v4 split this across module_1.firm_traces and module_3.transmission_channels.
-# Resolved open question Q1 (v4): across all three registered cases, the
+# r4 split this across module_1.firm_traces and module_3.transmission_channels.
+# Resolved open question Q1 (r4): across all three registered cases, the
 # firm-trace pair (boundary_drift / definitional_contest) and the channel
 # classification_decision fired together every time, 3 for 3, and never once
-# separated. Two names for one phenomenon, so v5 merges them into one
+# separated. Two names for one phenomenon, so r5 merges them into one
 # observation checklist. Held downstream of BOTH Layer A and Layer B — which
 # of the two produced a given footprint is not what this layer answers.
 layer_c:
@@ -101,9 +109,9 @@ layer_c:
       - { id: supply_chain_position,   label: Supply-chain position,   origin: transmission_channel }
       - { id: access_restriction,      label: Access restriction,      origin: transmission_channel }
     origin_note: >
-      `origin` is kept only as a migration breadcrumb back to the v4 field a
+      `origin` is kept only as a migration breadcrumb back to the r4 field a
       value came from. It carries no rule and should not be read as two lists
-      wearing one label — that is exactly the distinction v5 collapsed.
+      wearing one label — that is exactly the distinction r5 collapsed.
 
 # --- Layer D, Distribution -----------------------------------------------------
 # Position and leverage: who ends up holding the burden. Applies uniformly
@@ -118,10 +126,15 @@ layer_d:
       bearer: Actor standing where the order actually produces consequences.
       note: Relational positions, not fixed identities. Recorded per order, never per actor.
     bearer_type:
-      cardinality: exactly_one
+      cardinality: one_or_many
       values:
         - { id: firm,    label: Identifiable, nameable }
         - { id: diffuse, label: Unbounded population of individuals; cannot be enumerated }
+      note: >
+        Was exactly_one until r6. Two cases carried both at once, with the two
+        groups holding different recourse: named firms had contracts to point at
+        and the diffuse population had nothing. Where both are recorded, say in
+        `bearer` which group holds what. See deviations D8.
     leverage:
       cardinality: zero_or_one
       values: [low, contested, high]
@@ -157,12 +170,36 @@ measured:
       - id: deadline_gap
         unit: days
         points: Formal effective date ↔ actual preparation or compliance gate.
+        shape_required: true
+        shape:
+          values:
+            - { id: gate_before_formal, label: Operative gate falls before the formal date }
+            - { id: gate_after_formal,  label: Operative date falls after the announced horizon }
+            - { id: no_gate,            label: Effective on receipt; no interval to measure }
+            - { id: two_formal_dates,   label: Two statutory dates for the same duty; neither is a gate }
+            - { id: not_applicable,     label: No order in force }
+          note: >
+            Added in r6. The field was defined for the first shape and produced
+            four across five cases, so the number alone does not say what was
+            measured. A value without a shape is not readable. See deviations
+            D6, D9, D12.
       - id: time_to_response
         unit: days
         points: Order taking effect ↔ first documented firm response.
       - id: enforcement_amplification_events
         unit: count
         points: Original order ↔ subsequent investigations, penalties, comparable-case citations.
+        scope_required: true
+        scope:
+          record: >
+            State what is being counted and what is excluded, in one line, before
+            giving a number. Two conditions must hold or the field is null with
+            the reason in the note. First, the set must be closed: a filing that
+            names agencies "including" some list leaves it open and any count is
+            a floor. Second, the events must belong to the same order: a separate
+            proceeding under different law over overlapping conduct is convergent
+            enforcement, not amplification of one order.
+          note: Added in r6. See deviations D4 and D7, and supermicro D2.
 
   narrative:
     shape: { text: <string>, source: <source_id> }
@@ -183,8 +220,18 @@ measured:
 # --- Validation rules --------------------------------------------------------
 rules:
   - id: R1
-    rule: event_type == enactment → formation_trace must be `not_applicable`, never null.
-    why: Enactment exits the branch at Step 1. Its blank is not missing data.
+    rule: >
+      event_type == enactment → the formation_trace summary must not plot a
+      dispute timeline, because there was none. It may still carry markers where
+      the order's own passage into effect, and its arrival at the parties who
+      bear it, are dated in the record. Where neither exists, record
+      `not_applicable`, never null.
+    why: >
+      Enactment exits the branch at Step 1, and its blank is not missing data.
+      Narrowed in r6: the original rule collapsed the whole block, which
+      discarded documented dates in two cases for the sake of a timeline that was
+      never at issue. What R1 excludes is a fabricated dispute history, not a
+      trace. See deviations D10 and D13.
   - id: R2
     rule: event_type in [dispute, amendment] → formation_trace must not be `not_applicable`.
   - id: R3
@@ -226,8 +273,8 @@ rules:
 open_questions:
   - id: Q1
     question: >
-      Do 1.3 firm traces (Layer A in v4) and 3.1 transmission channels (Layer D
-      in v4) describe separate things, or has the same phenomenon been given
+      Do 1.3 firm traces (Layer A in r4) and 3.1 transmission channels (Layer D
+      in r4) describe separate things, or has the same phenomenon been given
       two names?
     status: resolved_in_v5
     resolution: >
@@ -302,7 +349,14 @@ open_questions:
       watermarking case, both of which turn on what can be known about a model from
       outside it. Recurrence across cases makes it a value; a single appearance
       makes it a feature of this dispute.
-    status: threshold_met
+    status: resolved_in_v6
+    resolution: >
+      Registered as a fourth instability condition. Three independent
+      appearances, in three disputes with no actor, statute, or object in
+      common. The common core is that the property at issue shows only in
+      behaviour, so no inspection settles it and the evidence about it sits with
+      one party. What differs between the three is only the counterpart it is
+      held against.
     evidence:
       - case: anthropic-dow-2026
         result: >
@@ -317,22 +371,31 @@ open_questions:
           was severe enough to control, and it ends without anyone settling that.
           The settlement is an undertaking about process rather than a finding
           about the model.
+      - case: claude-watermarking-2026
+        result: >
+          Third appearance, and the one that decided it. An earlier version of
+          this case recorded object_opacity against the durability of marking
+          schemes, which is a different problem and would have registered the
+          value on the wrong fact. What the case actually shows is that the
+          provider states the mark does not change meaning, quality, or
+          readability and carries no identifying information, and has not
+          published the implementation, so no user can check either claim. Same
+          structure as the other two: a behavioural property, evidence held by
+          one side.
     note: >
-      Two independent appearances meets the bar set for calling something a
-      vocabulary problem rather than a case feature. Held for the batch review
-      rather than added on the spot, and worth checking against the EU
-      watermarking case first, since that one also turns on what can be known
-      about a model from outside it.
+      Registered in r6. The value covers a property of the object alone, which
+      is what separates it from the other three: those each need two things to
+      hold between, two authorities, two cycles, or a category and a practice.
 
 non_rules:
   - id: N1
     statement: >
       No rule may make any Layer A field depend on any Layer B field, or vice versa.
       The two axes are independent by design. If a correlation appears in the data,
-      that is a finding, not a constraint. Proof this holds: the EU AI Act
-      watermarking case is a Layer B Enactment (no dispute) yet carries the
-      richest Layer A content in the library (a live definitional contest over
-      how AI-generated output is defined). Enactment did not empty out Layer A.
+      that is a finding, not a constraint. Proof this holds: the Claude output
+      marking case is a Layer B Enactment, with no dispute producing the order,
+      and still carries two Layer A conditions, one of them the condition
+      registered in r6. Enactment did not empty out Layer A.
   - id: N2
     statement: >
       Layer A and Layer B carry no numeric fields, and none may be added.
@@ -349,17 +412,63 @@ deviations:
     observed: What the case actually shows.
     why_it_does_not_fit: The specific way the current definition fails to cover it.
     workaround: How it was recorded in the meantime. Optional.
+    resolved_in: Framework version that acted on it. Absent while still open.
+    resolution: What changed. Required with resolved_in.
   review:
     note: >
       Reviewed in batches, never per case. A deviation appearing once is a property
       of that case. The same deviation across two or more cases is a property of the
       vocabulary, and only then is the vocabulary changed. Q1's merge into layer_c
       is the first change made this way.
-    open: []          # deviation ids not yet reviewed
+    open: [D1, D2, D3, D11, D14]   # one appearance each; not yet a property of the vocabulary
     resolved:
       - deviation: Q1
-        framework_version: v5
+        framework_version: r5
         change: merged module_1.firm_traces and module_3.transmission_channels into layer_c.manifestation
+      - deviation: [Q4, D5]
+        framework_version: r6
+        change: registered object_opacity as a fourth instability condition
+      - deviation: D8
+        framework_version: r6
+        change: bearer_type from exactly_one to one_or_many
+      - deviation: [D6, D9, D12]
+        framework_version: r6
+        change: deadline_gap gains a required shape, since the number alone did not say what was measured
+      - deviation: [D4, D7]
+        framework_version: r6
+        change: enforcement_amplification_events gains a required counting scope, and is null where the set is open or the events belong to another order
+      - deviation: [D10, D13]
+        framework_version: r6
+        change: R1 narrowed to exclude a fabricated dispute history rather than the whole formation_trace block
+    still_open_note: >
+      D1 (three claimants where sides is a pair), D2 (convergent enforcement
+      under non-equivalent law), D3 (re-formation in a different jurisdiction
+      from the one that formed the order), D11 (event_type against an
+      uncontested vote), and D14 (a response that preceded its trigger) have one
+      appearance each. Each is recorded and none is acted on.
+
+sources:
+  shape:
+    id: s1
+    kind: statement | press | filing | rule | statute | industry_comment
+    citation: >-
+      Enough to locate the document. For press, name the outlet, the headline, and
+      the date. "Reporting on X" is not a citation and does not survive review.
+    url: Optional. Present where the document is public and stable.
+    date: <date>
+    verified:
+      status: confirmed | unlocatable | contradicts | pending
+      checked: <date>
+      note: Required for unlocatable and contradicts. Optional otherwise.
+  note: >
+    `pending` is the default and means nobody has looked. `unlocatable` means someone
+    looked and did not find it, which is a different thing and has to be readable as
+    such. `contradicts` means the source exists and does not support what the case
+    says it supports.
+  rule: >
+    A note resting on a source marked unlocatable or contradicts is a candidate for
+    removal, not a claim the case can make. Marking the source is the first step and
+    does not by itself fix the note.
 
 case_status:
   values: [draft, complete]
