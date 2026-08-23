@@ -1,175 +1,47 @@
 ---
 layout: default
 ---
-{% assign case = site.data.cases[page.case_id] %}
-
 <section class="hero case-hero">
   <div class="shell">
-    <span class="eyebrow eyebrow--accent">Selected case</span>
-    <h1>{{ case.title }}</h1>
-    <p class="standfirst">{{ case.jurisdiction | join: ", " }} · {{ case.period.from }}{% if case.period.to %} to {{ case.period.to }}{% else %} to present{% endif %}</p>
-    {% if page.description %}<p class="case-note">{{ page.description }}</p>{% endif %}
-    <div class="case-meta">
-      <span>{{ case.status }}</span>
-      <span>{{ case.period.from }}{% if case.period.to %} → {{ case.period.to }}{% endif %}</span>
-      <span>{{ case.jurisdiction | join: ', ' }}</span>
-    </div>
+    <span class="eyebrow eyebrow--accent">Selected case · frame</span>
+    <h1>{{ page.title | default: "Case study" }}</h1>
   </div>
 </section>
 
-<div class="case-record">
 <section class="section section--tight case-overview">
   <div class="shell">
-    <div class="layer-strip" aria-label="Five parallel analytical layers">
-      <a class="layer-strip__item" href="#layer-a"><span>A</span><b>Classification</b><small>Object type</small></a>
-      <a class="layer-strip__item" href="#layer-b"><span>B</span><b>Formation</b><small>Event type</small></a>
-      <a class="layer-strip__item" href="#layer-c"><span>C</span><b>Manifestation</b><small>Observed traces</small></a>
-      <a class="layer-strip__item" href="#layer-d"><span>D</span><b>Distribution</b><small>Bearer</small></a>
-      <a class="layer-strip__item" href="#layer-e"><span>E</span><b>Re-formation</b><small>Recorded changes</small></a>
+    <div class="layer-strip layer-strip--three" aria-label="Three analytical lenses">
+      <a class="layer-strip__item" href="#ordering"><span>01</span><b>Ordering</b><small>Configuration + change</small></a>
+      <a class="layer-strip__item" href="#manifestation"><span>02</span><b>Manifestation</b><small>Operational form</small></a>
+      <a class="layer-strip__item" href="#distribution"><span>03</span><b>Distribution</b><small>Movement across actors</small></a>
     </div>
-    <p class="layer-strip__note">The five layers are parallel views of the same case; a value in one layer does not determine a value in another.</p>
+    <p class="layer-strip__note">Shared analytical lenses; not a fixed sequence. Case-specific content is intentionally blank in this revision.</p>
   </div>
 </section>
 
-<section class="section section--compact">
+<section class="section case-frame" id="ordering">
   <div class="shell">
-    <h3 class="sub"><span>Case record</span> Actors</h3>
-    <table class="spec">
-      <tbody>
-        {% for actor in case.actors %}
-        <tr><th scope="row">{{ actor.name }}</th><td>{{ actor.role }}</td></tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="frame-heading"><span>01</span><h2>Ordering</h2></div>
+    <div class="frame-blank" aria-label="Ordering content placeholder"></div>
   </div>
 </section>
 
-<section class="section" id="layer-a">
+<section class="section case-frame" id="manifestation">
   <div class="shell">
-    <h3 class="sub"><span>A</span> Classification</h3>
-    <table class="spec">
-      <tbody>
-        <tr><th scope="row">Object type</th><td>{% include label.html id=case.layer_a.object_type %}</td></tr>
-      </tbody>
-    </table>
-    {% if case.layer_a.object_note %}<p class="note">{{ case.layer_a.object_note }}</p>{% endif %}
-    {% if case.layer_a.instability_conditions %}
-    <table class="spec">
-      <thead><tr><th>Condition</th><th>What it shows</th></tr></thead>
-      <tbody>
-      {% for c in case.layer_a.instability_conditions %}
-        <tr>
-          <th scope="row">{% include label.html id=c.id %}{% if c.status == "new_value" %}<br><span class="tag tag--flag">flagged, not in schema</span>{% endif %}</th>
-          <td>{% if c.side_a %}<b>{{ c.side_a }}</b> vs. <b>{{ c.side_b }}</b><br>{% endif %}{{ c.note }}</td>
-        </tr>
-      {% endfor %}
-      </tbody>
-    </table>
-    {% else %}<p class="note">{{ case.layer_a.conditions_blank_reason }}</p>{% endif %}
-    {% if case.layer_a.conditions_note %}<p class="note">{{ case.layer_a.conditions_note }}</p>{% endif %}
+    <div class="frame-heading"><span>02</span><h2>Manifestation</h2></div>
+    <div class="frame-blank" aria-label="Manifestation content placeholder"></div>
   </div>
 </section>
 
-<section class="section" id="layer-b">
+<section class="section case-frame" id="distribution">
   <div class="shell">
-    <h3 class="sub"><span>B</span> Formation</h3>
-    <table class="spec">
-      <tbody>
-        <tr><th scope="row">Event type</th><td>{% include label.html id=case.layer_b.event_type %}</td></tr>
-      </tbody>
-    </table>
-    {% if case.layer_b.formation_trace == "not_applicable" %}
-      <p class="note">Not applicable: an Enactment carries no prior-state timeline.{% if case.layer_b.order_began_operating %} Order began operating {{ case.layer_b.order_began_operating | date: "%-d %B %Y" }}.{% endif %}</p>
-      {% if case.layer_b.order_began_operating_note %}<p class="note">{{ case.layer_b.order_began_operating_note }}</p>{% endif %}
-    {% else %}
-      {% if case.layer_b.formation_trace.summary %}<p>{{ case.layer_b.formation_trace.summary }}</p>{% endif %}
-      {% if case.layer_b.formation_trace.order_began_operating %}<p class="note">Order began operating {{ case.layer_b.formation_trace.order_began_operating | date: "%-d %B %Y" }}.</p>{% endif %}
-      {% if case.layer_b.formation_trace.order_began_operating_note %}<p class="note">{{ case.layer_b.formation_trace.order_began_operating_note }}</p>{% endif %}
-      {% if case.layer_b.formation_trace.markers %}
-      <table class="qtable">
-        <thead><tr><th>Date</th><th>Marker</th></tr></thead>
-        <tbody>{% for m in case.layer_b.formation_trace.markers %}<tr><td>{{ m.date }}</td><td>{{ m.note }}</td></tr>{% endfor %}</tbody>
-      </table>
-      {% endif %}
-    {% endif %}
+    <div class="frame-heading"><span>03</span><h2>Distribution</h2></div>
+    <div class="frame-blank" aria-label="Distribution content placeholder"></div>
   </div>
 </section>
-
-<section class="section" id="layer-c">
-  <div class="shell">
-    <h3 class="sub"><span>C</span> Manifestation</h3>
-    <table class="spec">
-      <tbody>
-      {% for m in case.layer_c.manifestation %}
-        <tr><th scope="row">{% include label.html id=m.id %}</th><td>{{ m.note }}</td></tr>
-      {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section class="section" id="layer-d">
-  <div class="shell">
-    <h3 class="sub"><span>D</span> Distribution</h3>
-    <table class="spec">
-      <tbody>
-        <tr><th scope="row">Source</th><td>{{ case.layer_d.distribution.source }}</td></tr>
-        <tr><th scope="row">Bearer</th><td>{{ case.layer_d.distribution.bearer }}</td></tr>
-        <tr><th scope="row">Bearer type</th><td>{% assign bt = case.layer_d.distribution.bearer_type %}{% if bt.first %}{% for b in bt %}<span class="tag">{{ b }}</span> {% endfor %}{% else %}{% include label.html id=bt %}{% endif %}</td></tr>
-        {% if case.layer_d.distribution.leverage %}<tr><th scope="row">Leverage</th><td>{{ case.layer_d.distribution.leverage | capitalize }}</td></tr>{% endif %}
-      </tbody>
-    </table>
-    {% if case.layer_d.distribution.mechanisms %}
-    <table class="spec">
-      <thead><tr><th>Mechanism</th><th>How it showed up</th></tr></thead>
-      <tbody>{% for mech in case.layer_d.distribution.mechanisms %}<tr><th scope="row">{% include label.html id=mech.id %}</th><td>{{ mech.note }}</td></tr>{% endfor %}</tbody>
-    </table>
-    {% endif %}
-  </div>
-</section>
-
-<section class="section" id="layer-e">
-  <div class="shell">
-    <h3 class="sub"><span>E</span> Re-formation</h3>
-    {% if case.layer_e.reformation.responses and case.layer_e.reformation.responses.size > 0 %}
-    <p class="note">Recorded responses: {% for r in case.layer_e.reformation.responses %}{% include label.html id=r %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
-    {% endif %}
-    {% if case.layer_e.reformation.narrative %}<p>{{ case.layer_e.reformation.narrative }}</p>{% endif %}
-    {% for ca in case.layer_e.reformation.contextual_amplification %}<p class="note">{{ ca.note }}</p>{% endfor %}
-    {% if case.layer_e.reformation.size == 0 and case.layer_e.reformation.narrative == nil and case.layer_e.reformation.responses.size == 0 %}<p class="note">Not recorded.</p>{% endif %}
-  </div>
-</section>
-
-{% if case.deviations.size > 0 %}
-<section class="section open-section">
-  <div class="shell">
-    <h3 class="sub"><span>Open</span></h3>
-    <p class="section-intro">Points the current analytical vocabulary does not yet settle cleanly.</p>
-    <div class="open-list">
-    {% for d in case.deviations %}
-      {% if d.resolved_in == nil %}
-      <article class="open-item">
-        <div class="open-item__body">
-          <p><b>Observed.</b> {{ d.observed }}</p>
-          <p><b>Why open.</b> {{ d.why_it_does_not_fit }}</p>
-        </div>
-      </article>
-      {% endif %}
-    {% endfor %}
-    </div>
-  </div>
-</section>
-{% endif %}
 
 <section class="section">
   <div class="shell">
-    <h3 class="sub"><span>Sources</span></h3>
-    <table class="spec"><tbody>
-    {% for s in case.sources %}
-      <tr><th scope="row">{{ s.id }}</th><td>{{ s.citation }}{% if s.date %}, {{ s.date }}{% endif %}{% if s.url %} · <a href="{{ s.url }}">link</a>{% endif %}</td></tr>
-    {% endfor %}
-    </tbody></table>
-    <p style="margin-top:2.5rem"><a href="{{ '/cases/' | relative_url }}">Case library →</a></p>
+    <p class="frame-footer"><a href="{{ '/cases/' | relative_url }}">Case library →</a></p>
   </div>
 </section>
-</div>
