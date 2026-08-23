@@ -2,14 +2,12 @@
 # author values here are maintained separately from _config.yml. Change both together.
 cff-version: 1.2.0
 message: If you use this framework, please cite it.
-title: "Reading Regulatory Order: A Five-Layer Procedure"
+title: "Reading Regulatory Order: Five Analytical Layers"
 abstract: >-
-  A five-layer procedure for reading how regulatory order forms and reaches the
-  firms standing under it, across AI-related value chains: semiconductors,
-  computing, cloud, data centers. Layer A reads conditions and Layer B reads events as two
-  independent classification axes; Layer C is downstream of both, describing
-  how they leave a trace in the record; Layer D and Layer E describe
-  distribution and re-formation once an order exists.
+  An analytical framework for reading selected AI-governance cases through five
+  parallel layers: Classification, Formation, Manifestation, Distribution, and
+  Re-formation. The layers are read side by side rather than as a process sequence.
+
 type: software
 authors:
   - family-names: Lim
