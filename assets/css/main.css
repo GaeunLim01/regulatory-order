@@ -11,18 +11,18 @@
 
 :root {
   /* Ground: cool grey, closer to security paper than to book stock */
-  --paper:       #E7EAEC;
-  --plate:       #FBFCFD;
-  --plate-sunk:  #F1F3F5;
-  --ink:         #14181F;
-  --ink-soft:    #3A424E;
-  --muted:       #69737F;
-  --rule:        #C9CFD6;
-  --rule-faint:  #DEE3E7;
+  --paper:       #F3F4F1;
+  --plate:       #FFFFFF;
+  --plate-sunk:  #ECEFEC;
+  --ink:         #17211F;
+  --ink-soft:    #3D4946;
+  --muted:       #69736F;
+  --rule:        #CDD4D0;
+  --rule-faint:  #E1E5E2;
 
   /* One accent. Deep teal, used for structure and links. */
-  --accent:      #0E5A61;
-  --accent-soft: #D8E6E6;
+  --accent:      #1C5C63;
+  --accent-soft: #DDEAE9;
   /* Caution only: undocumented values, scope limits, warnings. */
   --flag:        #8A5A0B;
   --flag-soft:   #F0E7D3;
@@ -939,4 +939,70 @@ details[open] > summary { margin-bottom: 0.6rem; }
 @media (max-width: 560px) {
   .layer-strip { grid-template-columns: 1fr; }
   .layer-strip__item:last-child { grid-column: auto; }
+}
+
+
+/* ------------------------------------------------------------- current polish */
+.hero--overview h1 { max-width: 19ch; }
+
+.layer-overview__item { position: relative; border-top: 3px solid var(--rule); }
+.layer-overview__item--a { border-top-color: #557EA0; }
+.layer-overview__item--b { border-top-color: #2F7D73; }
+.layer-overview__item--c { border-top-color: #786B98; }
+.layer-overview__item--d { border-top-color: #A47C38; }
+.layer-overview__item--e { border-top-color: #5C7D63; }
+.layer-overview__item:hover, .layer-overview__item:focus-visible { transform: translateY(-1px); }
+.layer-overview__num { color: var(--ink-soft); }
+.layer-overview__value { color: var(--ink-soft); }
+
+.case-grid-preview { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.case-chip { min-height: 7.2rem; }
+.case-chip strong { color: var(--ink); }
+.case-chip span { color: var(--muted); }
+
+.paper-list { border-top: 1px solid var(--rule); }
+.paper-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+  color: inherit;
+  text-decoration: none;
+}
+.paper-row:hover, .paper-row:focus-visible { background: var(--plate-sunk); }
+.paper-row__kicker {
+  display: block;
+  margin-bottom: .35rem;
+  color: var(--muted);
+  font: 600 .64rem/1.2 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.paper-row h3 { font-size: 1.18rem; margin: 0; }
+.paper-row p { margin: .35rem 0 0; color: var(--muted); font-size: .88rem; }
+.paper-row__arrow { color: var(--accent); font: 600 .95rem/1 var(--mono); }
+
+/* Case pages: keep the record dense but let the data, not the chrome, lead. */
+.case-hero { padding-bottom: .6rem; }
+.case-meta span { background: var(--plate); }
+.case-overview { padding-block: .7rem 1.4rem; }
+.layer-strip__item { min-height: 6rem; }
+.layer-strip__note { font-size: .82rem; }
+.section--compact { padding-block: 1.35rem; }
+.case-hero .standfirst { font-size: 1.05rem; }
+.case-note { display: none; }
+
+.case-record .section { padding-block: 1.7rem; }
+.case-record .sub { margin-bottom: .8rem; }
+.case-record table + table { margin-top: 1rem; }
+.case-record .note { font-size: .9rem; color: var(--muted); }
+
+@media (max-width: 980px) {
+  .case-grid-preview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .case-grid-preview { grid-template-columns: 1fr; }
+  .paper-row { grid-template-columns: 1fr auto; }
 }
