@@ -1006,3 +1006,12 @@ details[open] > summary { margin-bottom: 0.6rem; }
   .case-grid-preview { grid-template-columns: 1fr; }
   .paper-row { grid-template-columns: 1fr auto; }
 }
+
+/* --------------------------------------------------------- open research notes */
+.open-section .section-intro { max-width: 70ch; margin: 0 0 1.1rem; color: var(--muted); }
+.open-list { border-top: 1px solid var(--rule); }
+.open-item { padding: 1.2rem 0; border-bottom: 1px solid var(--rule); }
+.open-item__body { max-width: 78ch; }
+.open-item__body p { margin: 0 0 .65rem; }
+.open-item__body p:last-child { margin-bottom: 0; }
+.open-item__body b { font-weight: 650; color: var(--ink); }
