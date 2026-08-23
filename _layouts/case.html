@@ -140,20 +140,21 @@ layout: default
   </div>
 </section>
 
-{% assign open_deviations = case.deviations | where_exp: "d", "d.resolved_in == nil or d.resolved_in == ''" %}
-{% if open_deviations.size > 0 %}
+{% if case.deviations.size > 0 %}
 <section class="section open-section">
   <div class="shell">
     <h3 class="sub"><span>Open</span></h3>
     <p class="section-intro">Points the current analytical vocabulary does not yet settle cleanly.</p>
     <div class="open-list">
-    {% for d in open_deviations %}
+    {% for d in case.deviations %}
+      {% if d.resolved_in == nil %}
       <article class="open-item">
         <div class="open-item__body">
           <p><b>Observed.</b> {{ d.observed }}</p>
           <p><b>Why open.</b> {{ d.why_it_does_not_fit }}</p>
         </div>
       </article>
+      {% endif %}
     {% endfor %}
     </div>
   </div>
