@@ -5,11 +5,10 @@
 release_version: "1.0"
 revision: r6
 version_note: >
-  Two numbers, deliberately. `release_version` is what the site and the citation
-  file carry. `revision` counts the times this vocabulary changed, and it is the
-  number the deviations and open_questions blocks refer to. The revisions before
-  r5 were structural work on the framework itself; r5 and r6 were changes forced
-  by cases, and those are recorded with the evidence that forced them.
+  The release version identifies the current public vocabulary. The five layers are
+  parallel analytical layers. They are not a process sequence, and no layer may be
+  inferred from or used to suppress another layer. Revision history is maintained
+  as internal provenance rather than as the research architecture.
 
 # Two kinds of blank. They must not collapse into one representation.
 sentinels:
@@ -31,7 +30,7 @@ layer_a:
       - { id: capability,     label: Capability }
       - { id: access_data,    label: Access & data }
       - { id: physical_goods, label: Physical goods, exercised: false }
-      - { id: relational,     label: Relational,     exercised: false }
+      - { id: relational,     label: Relational }
 
   instability_conditions:
     cardinality: zero_or_many
@@ -82,19 +81,14 @@ layer_b:
       markers: Dated points. Meaning depends on event_type.
       order_began_operating: Date the order began operating.
 
-# --- Layer C, Manifestation (merged in r5) ------------------------------------
-# How Layer A and Layer B actually leave footprints in the documentary record.
-# r4 split this across module_1.firm_traces and module_3.transmission_channels.
-# Resolved open question Q1 (r4): across all three registered cases, the
-# firm-trace pair (boundary_drift / definitional_contest) and the channel
-# classification_decision fired together every time, 3 for 3, and never once
-# separated. Two names for one phenomenon, so r5 merges them into one
-# observation checklist. Held downstream of BOTH Layer A and Layer B — which
-# of the two produced a given footprint is not what this layer answers.
+# --- Layer C, Manifestation ----------------------------------------------------
+# A parallel layer for the manifestations recorded in the case. It is not defined
+# as a consequence of Layer A or Layer B; it records which manifestations are
+# present in the case record.
 layer_c:
   manifestation:
     cardinality: zero_or_many
-    note: An observation checklist, not a classification axis. Most cases show several.
+    note: A case may carry several manifestation values. They are recorded alongside the other layers.
     values:
       # formerly module_1.firm_traces
       - { id: boundary_drift,       label: Boundary drift,       origin: firm_trace }
@@ -114,11 +108,8 @@ layer_c:
       wearing one label — that is exactly the distinction r5 collapsed.
 
 # --- Layer D, Distribution -----------------------------------------------------
-# Position and leverage: who ends up holding the burden. Applies uniformly
-# regardless of Layer A or Layer B — evidenced across all cases so far
-# (burden_displacement and downstream_propagation appear whether the object
-# type is Capability, Relational, or Access & data). An "1+3 / 2+3" split was
-# considered and rejected on this evidence: see README changelog.
+# Positions, bearer characteristics, leverage, and mechanisms recorded for the
+# case. This is a parallel analytical layer, not a downstream stage.
 layer_d:
   distribution:
     positions:
@@ -147,6 +138,8 @@ layer_d:
         - { id: enforcement_amplification, label: Enforcement amplification }
 
 # --- Layer E, Re-formation ------------------------------------------------------
+# Re-formation responses and contextual amplification recorded for the case.
+# This layer does not imply a required feedback path into Layer B.
 layer_e:
   reformation:
     cardinality: zero_or_many
@@ -156,8 +149,8 @@ layer_e:
       note: >
         External shocks, war, sanctions realignment, currency shock, political
         turnover, financial crisis. Distinct from firms' own adaptation because it
-        originates outside the field the order governs. Feeds back into the next
-        round of Layer B.
+        originates outside the field the order governs. Recorded here as a contextual
+        condition; it does not define a required relationship with another layer.
 
 # --- Measured fields (template 4c) -------------------------------------------
 # Numeric only where two fixed points in the record determine the value.
@@ -314,7 +307,11 @@ open_questions:
       Whether the enforcement cases in the library produce formation traces that
       differ from the traces of the rules they enforce. If they duplicate, they
       are Layer D observations.
-    status: open
+    status: resolved_in_current
+    resolution: >
+      Under the current framework, enforcement may be recorded in Layer B and/or
+      Layer D as warranted by the case. The layers are parallel and the framework
+      does not require enforcement to be attached to a prior layer as a consequence.
     evidence:
       - case: anthropic-dow-2026
         result: >
@@ -390,12 +387,10 @@ open_questions:
 non_rules:
   - id: N1
     statement: >
-      No rule may make any Layer A field depend on any Layer B field, or vice versa.
-      The two axes are independent by design. If a correlation appears in the data,
-      that is a finding, not a constraint. Proof this holds: the Claude output
-      marking case is a Layer B Enactment, with no dispute producing the order,
-      and still carries two Layer A conditions, one of them the condition
-      registered in r6. Enactment did not empty out Layer A.
+      No rule may make any layer depend on another layer. The five layers are
+      parallel analytical layers. If a correlation appears in the data, that is a
+      finding, not a constraint. A case may be rich in one layer and sparse in
+      another without the layers becoming conditionally linked.
   - id: N2
     statement: >
       Layer A and Layer B carry no numeric fields, and none may be added.
