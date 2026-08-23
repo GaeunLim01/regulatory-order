@@ -29,7 +29,7 @@ layer_b:
       # - { date: , note: , source: }
 
 # --- Layer C, Manifestation ---------------------------------------------------
-# How Layer A and Layer B show up in the record. Merged in r5 — do not split
+# Parallel manifestation values recorded for the case.
 # back into "firm traces" vs "transmission channels".
 layer_c:
   manifestation: []               # boundary_drift | definitional_contest | competing_clocks | recurring_reset
