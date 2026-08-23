@@ -3,8 +3,6 @@ description: >-
   A research framework for studying AI governance through regulatory order and five parallel analytical layers across selected cases.
 lang: en
 
-# Framework v1.0. Project site at gaeunlim01.github.io/regulatory-order — baseurl must match the
-# repo name exactly, with a leading slash and no trailing slash.
 baseurl: /regulatory-order
 url: https://gaeunlim01.github.io
 
