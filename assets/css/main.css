@@ -525,3 +525,284 @@ details > summary::before { content: "+ "; color: var(--accent); }
 details[open] > summary::before { content: "− "; }
 details > summary:hover { color: var(--accent); }
 details[open] > summary { margin-bottom: 0.6rem; }
+
+/* --------------------------------------------------------------- home framing
+   The landing page exposes two equal research coordinates: the AI-governance
+   problem space and the regulatory-order analytical lens. The method then
+   sits visibly between those coordinates and the cases. */
+.hero--dual {
+  padding-bottom: clamp(1.75rem, 4vw, 3rem);
+}
+.hero--dual h1 {
+  max-width: 18ch;
+}
+.orientation-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.orientation-card {
+  background: var(--plate);
+  padding: clamp(1.35rem, 3vw, 2.25rem);
+  min-height: 100%;
+}
+.orientation-card h2 {
+  margin-bottom: 0.8rem;
+}
+.orientation-card p:last-of-type {
+  margin-bottom: 0;
+}
+.orientation-card__signal {
+  margin-top: 1.5rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule-faint);
+  font: 500 0.78rem/1.5 var(--mono);
+  color: var(--muted);
+}
+.orientation-card--ai {
+  border-top: 3px solid var(--accent);
+}
+.orientation-card--order {
+  border-top: 3px solid var(--ink);
+}
+.orientation-bridge {
+  min-width: 9rem;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background: var(--plate-sunk);
+  padding: 1rem;
+}
+.orientation-bridge span {
+  font: 600 0.62rem/1.2 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.orientation-bridge b {
+  margin-top: 0.7rem;
+  font: 600 0.78rem/1.25 var(--mono);
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.method-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.method-head h2 {
+  margin: 0;
+}
+.method-head__link {
+  font: 500 0.78rem/1 var(--mono);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.method-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.method-node {
+  position: relative;
+  min-height: 10.5rem;
+  padding: 1.15rem;
+  background: var(--plate);
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+.method-node:hover,
+.method-node:focus-visible {
+  background: var(--plate-sunk);
+}
+.method-node__num {
+  font: 600 0.72rem/1 var(--mono);
+  color: var(--accent);
+}
+.method-node__label {
+  display: block;
+  margin-top: 0.9rem;
+  font: 600 0.68rem/1.25 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.method-node__q {
+  display: block;
+  margin-top: 0.55rem;
+  font-family: var(--display);
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+.method-flow__arrow {
+  display: none;
+}
+.record-grid {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(2rem, 7vw, 6rem);
+  align-items: start;
+}
+.record-grid h2 {
+  max-width: 14ch;
+}
+
+@media (max-width: 900px) {
+  .orientation-grid {
+    grid-template-columns: 1fr;
+  }
+  .orientation-bridge {
+    min-width: 0;
+    min-height: 5rem;
+  }
+  .orientation-bridge b br {
+    display: none;
+  }
+  .method-flow {
+    grid-template-columns: 1fr;
+  }
+  .method-node {
+    min-height: auto;
+  }
+  .method-flow__arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .method-head,
+  .record-grid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+  .method-head {
+    align-items: start;
+  }
+  .method-head__link {
+    margin-top: -0.5rem;
+  }
+  .record-grid {
+    gap: 1.5rem;
+  }
+}
+
+
+.masthead__slash { color: var(--muted); padding-inline: 0.12rem; }
+[id^="layer-"] { scroll-margin-top: 5rem; }
+
+/* ------------------------------------------------------------ overview v2 */
+.hero--overview { padding-bottom: clamp(1.25rem, 3vw, 2.25rem); }
+.hero--overview h1 { max-width: 15ch; margin-bottom: 1.25rem; }
+.hero-kicker {
+  display: flex; align-items: center; gap: 0.55rem;
+  margin-bottom: 1.1rem;
+  font: 600 0.68rem/1.2 var(--mono);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.hero-kicker__slash { color: var(--muted); }
+.hero-rail {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.8rem 0;
+  font: 500 0.72rem/1.3 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+.hero-rail i { color: var(--accent); font-style: normal; }
+
+.coord-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 10rem minmax(0, 1fr);
+  border: 1px solid var(--rule);
+  background: var(--rule);
+  gap: 1px;
+}
+.coord-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 1.25rem;
+  min-height: 13rem;
+  padding: clamp(1.15rem, 2.4vw, 1.8rem);
+  background: var(--plate);
+  color: inherit;
+  text-decoration: none;
+}
+.coord-card:hover, .coord-card:focus-visible { background: var(--plate-sunk); }
+.coord-card--ai { border-top: 3px solid var(--accent); }
+.coord-card--order { border-top: 3px solid var(--ink); }
+.coord-card__index { font: 600 0.72rem/1 var(--mono); color: var(--muted); }
+.coord-card h2 { margin: 0.2rem 0 0; }
+.coord-tags { grid-column: 2; display: flex; flex-wrap: wrap; gap: 0.4rem; align-self: end; }
+.coord-tags span {
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.5rem;
+  font: 500 0.66rem/1 var(--mono);
+  color: var(--muted);
+}
+.coord-link {
+  display: grid; place-content: center; text-align: center;
+  background: var(--plate-sunk);
+  padding: 1rem;
+}
+.coord-link span {
+  font: 600 0.6rem/1.2 var(--mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.coord-link strong {
+  margin-top: 0.55rem;
+  font: 600 0.74rem/1.25 var(--mono);
+  letter-spacing: 0.07em;
+  color: var(--accent);
+}
+
+.compact-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
+.compact-head h2 { margin: 0; }
+.compact-head > a { font: 500 0.72rem/1 var(--mono); text-decoration:none; white-space:nowrap; }
+.method-strip {
+  display: grid; grid-template-columns: repeat(5, minmax(0,1fr));
+  border: 1px solid var(--rule); background: var(--rule); gap: 1px;
+}
+.method-strip a {
+  min-height: 6.1rem; padding: 0.9rem; background: var(--plate); color: inherit; text-decoration:none;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.method-strip a:hover, .method-strip a:focus-visible { background: var(--plate-sunk); }
+.method-strip b { font: 600 0.72rem/1 var(--mono); color: var(--accent); }
+.method-strip span { font: 600 0.69rem/1.2 var(--mono); letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); }
+
+.case-grid-preview { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); }
+.case-chip { min-height:6rem; background:var(--plate); padding:1rem; color:inherit; text-decoration:none; display:flex; flex-direction:column; justify-content:space-between; }
+.case-chip:hover, .case-chip:focus-visible { background:var(--plate-sunk); }
+.case-chip strong { font: 600 0.82rem/1.25 var(--display); }
+.case-chip span { font: 500 0.68rem/1.25 var(--mono); color:var(--muted); }
+.thesis-line { max-width: 62rem; margin: 0; font: 400 clamp(1.15rem, 2vw, 1.55rem)/1.5 var(--display); color: var(--ink-soft); }
+.thesis-line strong { color: var(--ink); }
+
+@media (max-width: 900px) {
+  .coord-grid { grid-template-columns: 1fr; }
+  .coord-link { min-height: 4.5rem; }
+  .coord-link strong br { display:none; }
+  .method-strip { grid-template-columns: repeat(5,minmax(8rem,1fr)); overflow-x:auto; }
+  .case-grid-preview { grid-template-columns:1fr; }
+}
+@media (max-width: 640px) {
+  .hero-kicker { flex-wrap: wrap; }
+  .hero-rail { gap:0.45rem; }
+  .coord-card { grid-template-columns: auto 1fr; min-height:11rem; }
+  .coord-tags { grid-column: 2; }
+}
