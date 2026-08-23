@@ -140,32 +140,22 @@ layout: default
   </div>
 </section>
 
-{% if case.measured.numeric.deadline_gap or case.measured.numeric.time_to_response or case.measured.numeric.enforcement_amplification_events or case.measured.narrative.financial_exposure.text or case.measured.narrative.downstream_reach.text %}
-<section class="section">
+{% assign open_deviations = case.deviations | where_exp: "d", "d.resolved_in == nil or d.resolved_in == ''" %}
+{% if open_deviations.size > 0 %}
+<section class="section open-section">
   <div class="shell">
-    <h3 class="sub"><span>Measured</span></h3>
-    {% if case.measured.numeric.deadline_gap or case.measured.numeric.time_to_response or case.measured.numeric.enforcement_amplification_events %}
-    <table class="qtable"><tbody>
-      {% if case.measured.numeric.deadline_gap %}<tr><td>Deadline gap</td><td>{{ case.measured.numeric.deadline_gap.value }} days</td></tr>{% endif %}
-      {% if case.measured.numeric.time_to_response %}<tr><td>Time to response</td><td>{{ case.measured.numeric.time_to_response.value }} days</td></tr>{% endif %}
-      {% if case.measured.numeric.enforcement_amplification_events %}<tr><td>Enforcement amplification events</td><td>{{ case.measured.numeric.enforcement_amplification_events.value }}</td></tr>{% endif %}
-    </tbody></table>
-    {% endif %}
-    {% if case.measured.narrative.financial_exposure.text %}<p><b>Financial exposure.</b> {{ case.measured.narrative.financial_exposure.text }}</p>{% endif %}
-    {% if case.measured.narrative.downstream_reach.text %}<p><b>Downstream reach.</b> {{ case.measured.narrative.downstream_reach.text }}</p>{% endif %}
-  </div>
-</section>
-{% endif %}
-
-{% if case.deviations.size > 0 %}
-<section class="section">
-  <div class="shell">
-    <h3 class="sub"><span>Deviations</span></h3>
-    <table class="spec"><tbody>
-    {% for d in case.deviations %}
-      <tr><th scope="row">{{ d.id }}<br><span class="tag tag--dash">{{ d.field }}</span></th><td><b>Observed.</b> {{ d.observed }}<br><b>Why it does not fit.</b> {{ d.why_it_does_not_fit }}{% if d.workaround %}<br><b>Workaround.</b> {{ d.workaround }}{% endif %}</td></tr>
+    <h3 class="sub"><span>Open</span></h3>
+    <p class="section-intro">Points the current analytical vocabulary does not yet settle cleanly.</p>
+    <div class="open-list">
+    {% for d in open_deviations %}
+      <article class="open-item">
+        <div class="open-item__body">
+          <p><b>Observed.</b> {{ d.observed }}</p>
+          <p><b>Why open.</b> {{ d.why_it_does_not_fit }}</p>
+        </div>
+      </article>
     {% endfor %}
-    </tbody></table>
+    </div>
   </div>
 </section>
 {% endif %}
