@@ -1,41 +1,45 @@
 ---
 layout: default
-title: Case library
+title: Cases
 permalink: /cases/
-description: Cases read through all five layers, with distribution and re-formation observations attached.
+description: Selected cases classified across five parallel analytical layers.
 ---
 
 <section class="hero">
   <div class="shell">
-    <span class="eyebrow eyebrow--accent">Case library</span>
+    <span class="eyebrow eyebrow--accent">Selected cases</span>
     <h1>Cases</h1>
-    <p class="standfirst">Each case carries two independent classification tags (Layer A, Layer B) and, where the record supports them, Layer C/D/E observations and measured fields.</p>
+    <p class="standfirst">Selected research material, read across the same five analytical layers. The library is not a complete dataset.</p>
   </div>
 </section>
 
-<section class="section">
+<section class="section section--tight">
   <div class="shell">
-    <p class="lede">Worked examples rather than a dataset. Five is enough to show the procedure applied, not enough to support a claim about how regulatory orders behave in general. They were chosen to sit across object types and event types, so that what the layers do is visible on a designation dispute, a statute, a bill, a diversion prosecution, and an export directive alike, rather than on five instances of one kind.</p>
-    <p class="lede">All five are tagged as drafts. Each carries what the framework asked for and, where it did not fit, a record of the misfit rather than a stretched value.</p>
-    <table class="spec">
-      <thead><tr><th>Case</th><th>A.1</th><th>B.1</th><th>Deviations</th></tr></thead>
-      <tbody>
-        <tr><th scope="row"><a href="{{ '/cases/supermicro/' | relative_url }}">Super Micro server diversion</a></th><td>Capability</td><td>Dispute</td><td>D1 to D4</td></tr>
-        <tr><th scope="row"><a href="{{ '/cases/anthropic-dow/' | relative_url }}">Anthropic supply chain risk designation</a></th><td>Relational</td><td>Dispute</td><td>D5 to D7</td></tr>
-        <tr><th scope="row"><a href="{{ '/cases/fable-mythos/' | relative_url }}">Fable 5 and Mythos 5 directive</a></th><td>Access &amp; data</td><td>Dispute</td><td>D8, D9</td></tr>
-        <tr><th scope="row"><a href="{{ '/cases/remote-access-security-act/' | relative_url }}">Remote Access Security Act formation trace</a></th><td>Access &amp; data</td><td>Amendment</td><td>D10, D11</td></tr>
-        <tr><th scope="row"><a href="{{ '/cases/claude-watermarking/' | relative_url }}">Claude output marking under Article 50</a></th><td>Access &amp; data</td><td>Enactment</td><td>D12, D13, D14</td></tr>
-      </tbody>
-    </table>
+    <div class="case-list">
+      <a class="case-row" href="{{ '/cases/supermicro/' | relative_url }}"><span class="case-row__id">01</span><div><h2>Super Micro server diversion</h2><p>Compute / cloud · Physical goods · Dispute</p></div><span class="case-row__arrow">→</span></a>
+      <a class="case-row" href="{{ '/cases/remote-access-security-act/' | relative_url }}"><span class="case-row__id">02</span><div><h2>Remote Access Security Act formation trace</h2><p>Compute / cloud · Access &amp; data · Amendment</p></div><span class="case-row__arrow">→</span></a>
+      <a class="case-row" href="{{ '/cases/anthropic-dow/' | relative_url }}"><span class="case-row__id">03</span><div><h2>Anthropic supply chain risk designation</h2><p>Frontier models · Relational · Dispute</p></div><span class="case-row__arrow">→</span></a>
+      <a class="case-row" href="{{ '/cases/fable-mythos/' | relative_url }}"><span class="case-row__id">04</span><div><h2>Fable 5 and Mythos 5 export control directive</h2><p>Frontier models · Access &amp; data · Dispute</p></div><span class="case-row__arrow">→</span></a>
+      <a class="case-row" href="{{ '/cases/claude-watermarking/' | relative_url }}"><span class="case-row__id">05</span><div><h2>Claude output marking under EU AI Act Article 50</h2><p>AI regulation · Access &amp; data · Enactment</p></div><span class="case-row__arrow">→</span></a>
+      <a class="case-row" href="{{ '/cases/eu-ai-act-watermarking/' | relative_url }}"><span class="case-row__id">06</span><div><h2>EU AI Act Article 50 watermarking obligation</h2><p>AI regulation · Access &amp; data · Enactment</p></div><span class="case-row__arrow">→</span></a>
+    </div>
+  </div>
+</section>
 
-    <h3 class="sub"><span>Open</span> questions the library is being read for</h3>
-    <table class="spec">
-      <tbody>
-        <tr><th scope="row">Q2</th><td>Is an enforcement action its own Layer B event, or a Layer D observation on the rule being enforced? Two cases now point to Layer B.</td></tr>
-        <tr><th scope="row">Q5</th><td>Does formation_trace cover both ends of the timeline it describes: an order still being formed, and an order already in effect but carrying no dispute to plot against? The Remote Access Security Act case has no date because nothing is enacted yet; the EU AI Act case has a date the sentinel would otherwise erase.</td></tr>
-      </tbody>
-    </table>
-
-    <p style="margin-top:2rem"><a href="{{ '/method/' | relative_url }}">Methodology →</a></p>
+<section class="section section--tight">
+  <div class="shell">
+    <div class="record-grid">
+      <div>
+        <span class="eyebrow">How the cases are read</span>
+        <h2>One case, five parallel layers.</h2>
+      </div>
+      <div class="layer-mini-list">
+        <div><b>A</b><span>Classification</span></div>
+        <div><b>B</b><span>Formation</span></div>
+        <div><b>C</b><span>Manifestation</span></div>
+        <div><b>D</b><span>Distribution</span></div>
+        <div><b>E</b><span>Re-formation</span></div>
+      </div>
+    </div>
   </div>
 </section>
