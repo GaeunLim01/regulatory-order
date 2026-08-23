@@ -1,29 +1,29 @@
 # AI Governance / Regulatory Order
 
-A research repository for studying AI governance through **regulatory order**, using five parallel analytical layers to read selected cases.
+A research repository for studying AI governance through **regulatory order**, using three recurring analytical lenses across selected cases.
 
-## Five analytical layers
+## Three analytical lenses
 
-Each case is read across the same five layers:
+Each case may be read through:
 
-- **A — Classification:** object type and instability conditions
-- **B — Formation:** event type and formation trace
-- **C — Manifestation:** recorded manifestations such as boundary drift, classification decision, or documentation systems
-- **D — Distribution:** source, bearer, bearer type, leverage, and distribution mechanisms
-- **E — Re-formation:** re-formation responses and contextual amplification
+- **Ordering:** how the regulatory order is configured and changes over time
+- **Manifestation:** how the order becomes operational in concrete measures, obligations, restrictions, technical implementations, or practices
+- **Distribution:** how norms, information, documents, authority, obligations, or burdens move across actors
 
-The five layers are **parallel analytical layers, not a sequence or causal chain**. A value in one layer does not determine, suppress, or overwrite a value in another.
+The lenses are **parallel analytical views, not a fixed sequence**. A case may make one lens central and leave another at background level.
 
-## Repository role
+## What is not a universal classification
 
-The site brings together the AI-governance problem space, the regulatory-order question, selected cases, and the current analytical vocabulary used to read them. The case set is deliberately selective rather than a complete corpus.
+The repository does not currently require a universal `object type` taxonomy or the paper's object-instability conditions on every case. Those concepts remain part of the conceptual research record rather than a mandatory case field.
+
+Likewise, values such as `dispute`, `amendment`, and `enactment` are not treated as a universal event taxonomy. They may be useful as case-level characterizations when the analysis produces them, but they are not required inputs.
+
+## Case library
+
+The previous case YAML records are retained temporarily as source material; the current case-page layout does not render their old fields.
+
+The current case pages are intentionally **frame-only** while the case records are being rebuilt. Their visual structure is retained so the analytical vocabulary can be revised without prematurely locking in case content.
 
 ## Research record
 
-The repository sits alongside three working papers that developed different parts of the inquiry:
-
-- *How Regulation Becomes Firm-Level Exposure: The Gap Between Exposure and the Cost of Servicing It* (July 2026)
-- *When Governance Cannot Hold Its Object: AI Across Compute, Biotechnology, and Frontier Models* (August 2026)
-- *The Cloud Compute Question in U.S. Export Controls, 2009–2026* (August 2026)
-
-The papers and the repository framework are related research outputs, not a one-to-one mapping.
+The repository sits alongside the working papers that developed different parts of the inquiry. The papers and the repository framework are related research outputs, not a one-to-one mapping.
