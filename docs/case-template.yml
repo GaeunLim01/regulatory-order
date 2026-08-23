@@ -1,86 +1,23 @@
-# Framework r5. Copy to _data/cases/<slug>.yml and fill.
-# null           = applies, not documented   → renders "not documented"
-# not_applicable = branch never reaches it   → renders ", "
+# Framework template — current analytical frame
+# Case-specific content is intentionally open while the case library is being rebuilt.
 
 id:
 title:
-status: draft            # draft | complete
-period: { from: , to: }
-jurisdiction:
-actors: []
+status: draft
 
-# --- Layer A, Classification ------------------------------------------------
-layer_a:
-  object_type:                    # capability | access_data | physical_goods | relational
-  instability_conditions:         # always considered. may end up blank, see below.
-    # - id: jurisdictional_overlap    # | speed_mismatch | category_practice_mismatch
-    #   side_a:
-    #   side_b:
-  conditions_blank_reason:        # required only if the block above is blank (R3)
+# Shared analytical lenses. A case may use each lens at a different depth.
+ordering:
+  summary:
+  markers: []
 
-# --- Layer B, Formation history -----------------------------------------------
-# Independent of Layer A. Do not infer one from the other.
-layer_b:
-  event_type:                     # enactment | dispute | amendment
-  formation_trace:                # set to `not_applicable` if event_type == enactment
-    summary:
-    order_began_operating:
-    markers:
-      # - { date: , note: , source: }
+manifestation:
+  observations: []
 
-# --- Layer C, Manifestation ---------------------------------------------------
-# Parallel manifestation values recorded for the case.
-# back into "firm traces" vs "transmission channels".
-layer_c:
-  manifestation: []               # boundary_drift | definitional_contest | competing_clocks | recurring_reset
-                                  # | classification_decision | deadlines | contractual_relations
-                                  # | documentation_systems | supply_chain_position | access_restriction
+distribution:
+  source:
+  bearer:
+  mechanisms: []
 
-# --- Layer D, Distribution -----------------------------------------------------
-layer_d:
-  distribution:
-    source:
-    bearer:
-    bearer_type:                  # firm | diffuse
-    leverage:                     # low | contested | high
-    mechanisms: []                # burden_displacement | downstream_propagation | enforcement_amplification
-
-# --- Layer E, Re-formation ------------------------------------------------------
-layer_e:
-  reformation:
-    responses: []
-    narrative:
-    contextual_amplification: []
-
-# --- Measured fields (template 4c) ------------------------------------------
-# Omit anything undocumented. Every value needs a source ref.
-measured:
-  numeric:
-    # deadline_gap: { value: , source: }
-    # time_to_response: { value: , source: }
-    # enforcement_amplification_events: { value: , source: }
-  narrative:
-    # financial_exposure: { text: , source: }
-    # downstream_reach: { text: , source: }
-
-# --- Deviations --------------------------------------------------------------
-# Where the case does not fit the vocabulary, the case is right and the vocabulary
-# is provisional. Record the misfit here. Do not stretch an existing value to cover
-# it, and do not invent a new one, a value not in schema.yml is flagged, not
-# rejected, so write what the case actually shows.
-# Reviewed in batches once several cases are in, never one case at a time.
-deviations:
-  # - field:                     # e.g. "layer_a instability_conditions" or "R5"
-  #   observed:
-  #   why_it_does_not_fit:
-  #   workaround:
-
-# --- Record ------------------------------------------------------------------
-# Everything the case is traced through. One entry per document, so any tag or
-# marker above can be followed back to where it came from.
-sources:
-  # - id: s1
-  #   kind:                       # rule | gazette | consultation | filing | statement | press
-  #   citation:
-  #   url:
-  #   date:
+# Optional case-level characterization, only when analytically useful.
+# This is an output of analysis, not a required event taxonomy.
+case_character:
