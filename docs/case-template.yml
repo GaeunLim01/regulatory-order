@@ -1,23 +1,32 @@
 # Framework template — current analytical frame
-# Case-specific content is intentionally open while the case library is being rebuilt.
+# Case-specific content is intentionally open.
 
 id:
 title:
 status: draft
+regulatory_subject:
 
 # Shared analytical lenses. A case may use each lens at a different depth.
 ordering:
-  summary:
-  markers: []
+  open_question: >
+    How is the jurisdictional or use boundary of this order drawn, and where
+    is it tested, strained, or reconfigured?
+  notes:
 
 manifestation:
-  observations: []
+  open_question: >
+    Through what instruments does the order operate, and where do operational
+    limits or gaps between design and value-chain realities appear?
+  notes:
 
 distribution:
-  source:
-  bearer:
-  mechanisms: []
+  open_question: >
+    How do informational requirements and responsibility burdens created by
+    this order move across actors?
+  notes:
 
-# Optional case-level characterization, only when analytically useful.
-# This is an output of analysis, not a required event taxonomy.
+# Cross-case pattern position (optional)
+cycle_emphasis:
+
+# Optional case-level characterization
 case_character:
