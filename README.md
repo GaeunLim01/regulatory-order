@@ -1,29 +1,44 @@
 # AI Governance / Regulatory Order
 
-A research repository for studying AI governance through **regulatory order**, using three recurring analytical lenses across selected cases.
+A research repository for studying AI governance through **regulatory order**, using three parallel analytical lenses and a recurring cross-case cycle.
 
 ## Three analytical lenses
 
 Each case may be read through:
 
-- **Ordering:** how the regulatory order is configured and changes over time
-- **Manifestation:** how the order becomes operational in concrete measures, obligations, restrictions, technical implementations, or practices
-- **Distribution:** how norms, information, documents, authority, obligations, or burdens move across actors
+- **Ordering** — how the regulatory order is configured and changes over time (jurisdictional or use boundaries, lineage, points of strain or reconfiguration)
+- **Manifestation** — how the order becomes operational in concrete instruments and mechanisms, and where design meets value-chain or enforcement limits
+- **Distribution** — how norms, information, documents, authority, and burdens move across actors (information asymmetry and responsibility allocation)
 
-The lenses are **parallel analytical views, not a fixed sequence**. A case may make one lens central and leave another at background level.
+The lenses are **parallel analytical views, not a fixed sequence**. A case may make one lens central and leave another at background level. Each lens is guided by an open question rather than a fixed checklist of sub-fields.
 
-## What is not a universal classification
+## Regulatory order cycle (cross-case pattern)
 
-The repository does not currently require a universal `object type` taxonomy or the paper's object-instability conditions on every case. Those concepts remain part of the conceptual research record rather than a mandatory case field.
+A recurring dynamic observed across cases:
 
-Likewise, values such as `dispute`, `amendment`, and `enactment` are not treated as a universal event taxonomy. They may be useful as case-level characterizations when the analysis produces them, but they are not required inputs.
+1. Technological change  
+2. Category mismatch / ambiguity with existing regulatory categories  
+3. Boundary-setting by administrative or policy authorities  
+4. Transmission and translation into the value chain  
+5. Application in the field  
+6. Breakdowns (control failure, circumvention, responsibility mismatch, user friction)  
+7. Limits of the existing boundary become visible  
+8. Reconfiguration of rules, clauses, institutions, or jurisdiction  
+
+The cycle is a comparative frame, not a mandatory eight-field template for every case.
 
 ## Case library
 
-The previous case YAML records are retained temporarily as source material; the current case-page layout does not render their old fields.
+Five cases are currently staged:
 
-The current case pages are intentionally **frame-only** while the case records are being rebuilt. Their visual structure is retained so the analytical vocabulary can be revised without prematurely locking in case content.
+01 Super Micro — EAR–FDPR order  
+02 RASA — Remote access boundary  
+03 Anthropic–DoW — Use boundary  
+04 Fable / Mythos — Model access control  
+05 Watermarking — EU Art. 50 transparency  
+
+Case pages are being rebuilt from analytical drafts into the shared frame.
 
 ## Research record
 
-The repository sits alongside the working papers that developed different parts of the inquiry. The papers and the repository framework are related research outputs, not a one-to-one mapping.
+The repository sits alongside working papers that developed different parts of the inquiry. The papers and the repository framework are related research outputs, not a one-to-one mapping.
