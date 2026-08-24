@@ -15,8 +15,8 @@
   --plate:       #FFFFFF;
   --plate-sunk:  #ECEFEC;
   --ink:         #17211F;
-  --ink-soft:    #3D4946;
-  --muted:       #69736F;
+  --ink-soft:    #2A3331;
+  --muted:       #4F5B57;
   --rule:        #CDD4D0;
   --rule-faint:  #E1E5E2;
 
@@ -1250,4 +1250,80 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .frame-blank {
   min-height: 0;
   display: none;
+}
+
+/* ---- Cover: cycle entry (stronger path to full pattern) ---- */
+.cycle-entry {
+  display: block;
+  border: 1px solid var(--rule);
+  background: var(--plate);
+  color: inherit;
+  text-decoration: none;
+  padding: clamp(1.15rem, 2.5vw, 1.6rem);
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.cycle-entry:hover,
+.cycle-entry:focus-visible {
+  background: var(--plate-sunk);
+  border-color: var(--accent);
+}
+.cycle-entry__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+.cycle-entry__label {
+  font: 600 0.68rem/1 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.cycle-entry__cta {
+  font: 600 0.75rem/1 var(--mono);
+  color: var(--accent);
+  white-space: nowrap;
+}
+.cycle-entry__title {
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.55rem);
+  font-weight: 500;
+  margin: 0 0 0.65rem;
+  color: var(--ink);
+}
+.cycle-entry__desc {
+  margin: 0 0 1.15rem;
+  max-width: 58ch;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+.cycle-entry__steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.cycle-entry__step {
+  background: var(--plate);
+  padding: 0.7rem 0.75rem;
+  min-height: 3.6rem;
+}
+.cycle-entry__step strong {
+  display: block;
+  font: 600 0.72rem/1.2 var(--mono);
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+.cycle-entry__step span {
+  font: 500 0.7rem/1.3 var(--mono);
+  color: var(--muted);
+}
+@media (max-width: 900px) {
+  .cycle-entry__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .cycle-entry__steps { grid-template-columns: 1fr; }
+  .cycle-entry__top { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
 }
