@@ -1146,3 +1146,108 @@ details[open] > summary { margin-bottom: 0.6rem; }
   .framework-guide__grid { grid-template-columns: 1fr; }
   .framework-guide__head { align-items: flex-start; flex-direction: column; }
 }
+
+/* ==========================================================================
+   v6 refinements — open-question case pages + cycle
+   ========================================================================== */
+
+/* Case body prose */
+.case-frame p {
+  max-width: 62ch;
+  color: var(--ink-soft);
+}
+.case-frame p + p {
+  margin-top: 0.85em;
+}
+.case-frame .frame-heading {
+  margin-bottom: 0.35rem;
+}
+
+/* Open-question callout already uses display font inline; keep measure tight */
+.case-frame .eyebrow {
+  margin-bottom: 0.4rem;
+}
+
+/* Narrative lede on case pages */
+.case-hero .standfirst {
+  max-width: 58ch;
+}
+
+/* Timeline tables — reuse qtable language, slightly denser */
+.timeline-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 0.5rem;
+  font-size: 0.9rem;
+  max-width: 52rem;
+}
+.timeline-table th,
+.timeline-table td {
+  border-top: 1px solid var(--rule-faint);
+  padding: 0.55rem 0.75rem 0.55rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+.timeline-table th {
+  font: 600 0.68rem/1.3 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: none;
+  padding-top: 0;
+}
+.timeline-table td:first-child {
+  font: 500 0.8rem/1.45 var(--mono);
+  color: var(--ink);
+  white-space: nowrap;
+  width: 11rem;
+  padding-right: 1.25rem;
+}
+.timeline-table td:last-child {
+  color: var(--ink-soft);
+}
+
+@media (max-width: 640px) {
+  .timeline-table td:first-child {
+    white-space: normal;
+    width: auto;
+    display: block;
+    padding-bottom: 0.15rem;
+  }
+  .timeline-table td:last-child {
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0.85rem;
+  }
+  .timeline-table tr {
+    border-top: 1px solid var(--rule-faint);
+  }
+  .timeline-table th {
+    display: none;
+  }
+}
+
+/* Cycle page: 2-col stage grid collapses cleanly */
+@media (max-width: 900px) {
+  .framework-detail .layer-overview {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Index cycle strip: 4 chips → 2 on tablet, 1 on narrow */
+@media (max-width: 900px) {
+  #cycle .case-grid-preview {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 640px) {
+  #cycle .case-grid-preview {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Soften unused blank placeholder (no longer primary) */
+.frame-blank {
+  min-height: 0;
+  display: none;
+}
