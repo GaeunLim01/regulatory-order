@@ -1,6 +1,73 @@
 ---
 layout: case
-title: Claude output marking under EU AI Act Article 50
+title: Claude Output Marking and EU AI Act Article 50
 permalink: /cases/claude-watermarking/
-case_id: claude-watermarking-2026
+case_id: 05
+regulatory_subject: The EU AI Act’s transparency obligations for AI-generated content (Article 50), and the global operationalization of that requirement by a major provider.
+cycle_emphasis: "③ → ④ → ⑤ → ⑥ (boundary → transmission → application → friction)"
 ---
+
+<section class="section section--tight">
+  <div class="shell">
+    <p class="eyebrow">Case narrative</p>
+    <p class="lede">Article 50 of the EU AI Act requires providers of generative AI systems to ensure outputs are marked in a machine-readable format. After signing the related Code of Practice, Anthropic began embedding imperceptible text watermarks and provenance metadata in Claude outputs worldwide. The implementation met user criticism and questions about technical robustness.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="shell">
+    <p class="eyebrow">Timeline</p>
+    <table class="timeline-table">
+      <thead><tr><th>Period</th><th>Event</th></tr></thead>
+      <tbody>
+        <tr><td>2024</td><td>EU AI Act adopted; Article 50 establishes transparency obligations.</td></tr>
+        <tr><td>2025 – mid-2026</td><td>Code of Practice developed; major providers become signatories.</td></tr>
+        <tr><td>2 August 2026</td><td>Core Article 50 obligations become applicable.</td></tr>
+        <tr><td>August 2026</td><td>Anthropic applies output marking worldwide; user discussion follows.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section case-frame" id="ordering">
+  <div class="shell">
+    <div class="frame-heading"><span>01</span><h2>Ordering</h2></div>
+    <p class="eyebrow" style="margin-top:0.75rem;">Open question</p>
+    <p style="font-family:var(--display);font-size:1.1rem;color:var(--ink-soft);max-width:62ch;margin-bottom:1.25rem;">How is the jurisdictional or use boundary of this order drawn, and where is it tested, strained, or reconfigured?</p>
+    <div style="max-width:62ch;">
+      <p>Article 50 draws the boundary around the <em>output</em> of generative systems rather than around model weights or compute infrastructure. The obligation is formally tied to the EU market, yet Anthropic’s technical implementation was global—extending the practical reach of the boundary beyond its formal jurisdictional perimeter through provider decision.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section case-frame" id="manifestation">
+  <div class="shell">
+    <div class="frame-heading"><span>02</span><h2>Manifestation</h2></div>
+    <p class="eyebrow" style="margin-top:0.75rem;">Open question</p>
+    <p style="font-family:var(--display);font-size:1.1rem;color:var(--ink-soft);max-width:62ch;margin-bottom:1.25rem;">Through what instruments does the order operate, and where do operational limits or gaps between design and value-chain realities appear?</p>
+    <div style="max-width:62ch;">
+      <p>Instruments: statutory obligation (Article 50), voluntary Code of Practice, and provider-level technical measures (statistical / imperceptible text watermarking intended to survive light editing, plus provenance metadata).</p>
+      <p>Limits: user resistance to forced disclosure; technical questions about robustness (watermarks can be degraded or removed by further processing or passage through unmarked models); and scope ambiguities (short outputs, code, lightly edited text). The gap is between a design that assumes reliable, detectable marking and the realities of how generated content circulates and is modified.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section case-frame" id="distribution">
+  <div class="shell">
+    <div class="frame-heading"><span>03</span><h2>Distribution</h2></div>
+    <p class="eyebrow" style="margin-top:0.75rem;">Open question</p>
+    <p style="font-family:var(--display);font-size:1.1rem;color:var(--ink-soft);max-width:62ch;margin-bottom:1.25rem;">How do informational requirements and responsibility burdens created by this order move across actors?</p>
+    <div style="max-width:62ch;">
+      <p>The primary legal obligation falls on the provider. By choosing global implementation, the company extended the practical burden of marking to all users. End-users receive outputs carrying machine-readable signals of AI origin; detection tools are asymmetrically available. Responsibility for the transparency goal is shifted downstream in operational terms, while the technical and policy decision remains upstream with the provider.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="shell">
+    <p class="eyebrow">Cross-cutting observation</p>
+    <div class="changebar">
+      <p>The regulatory object shifts from chips, remote access, and model weights to the outputs of generative systems. A legislative boundary is transmitted through soft-law guidance and provider technical choices, then tested in everyday use. The recurring gap reappears between a design that treats marking as a stable signal and the fluid circulation of digital content.</p>
+    </div>
+  </div>
+</section>
