@@ -1,6 +1,73 @@
 ---
 layout: case
-title: Fable 5 and Mythos 5 export control directive
+title: Fable 5, Mythos 5 and the Temporary Export-Control Boundary
 permalink: /cases/fable-mythos/
-case_id: fable-mythos-2026
+case_id: 04
+regulatory_subject: Application of U.S. export-control authority to frontier model weights and foreign-national access, via an emergency Commerce Department directive.
+cycle_emphasis: "Compressed ② → ③ → ⑤ → ⑥ → ⑦ (partial ⑧)"
 ---
+
+<section class="section section--tight">
+  <div class="shell">
+    <p class="eyebrow">Case narrative</p>
+    <p class="lede">Days after Anthropic released Fable 5 and Mythos 5, the Commerce Department issued an export-control directive requiring suspension of access by any foreign national, citing national-security risk of diversion to foreign military-intelligence users. Because nationality could not be verified in real time, the models were disabled globally. Restrictions were lifted within weeks after additional safeguards.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="shell">
+    <p class="eyebrow">Timeline</p>
+    <table class="timeline-table">
+      <thead><tr><th>Period</th><th>Event</th></tr></thead>
+      <tbody>
+        <tr><td>9 June 2026</td><td>Anthropic releases Fable 5 and Mythos 5.</td></tr>
+        <tr><td>12 June 2026</td><td>Commerce issues export-control directive restricting foreign-national access.</td></tr>
+        <tr><td>12–13 June 2026</td><td>Global suspension of both models.</td></tr>
+        <tr><td>30 June 2026</td><td>Restrictions lifted after additional safeguards; models redeployed.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section case-frame" id="ordering">
+  <div class="shell">
+    <div class="frame-heading"><span>01</span><h2>Ordering</h2></div>
+    <p class="eyebrow" style="margin-top:0.75rem;">Open question</p>
+    <p style="font-family:var(--display);font-size:1.1rem;color:var(--ink-soft);max-width:62ch;margin-bottom:1.25rem;">How is the jurisdictional or use boundary of this order drawn, and where is it tested, strained, or reconfigured?</p>
+    <div style="max-width:62ch;">
+      <p>Export-control authorities under the Export Control Reform Act framework were applied to model weights and their accessibility. The boundary was drawn emergently: foreign-national access to the specific models was treated as a controlled transaction on national-security grounds—an administrative boundary asserted in response to perceived capability and diversion risk, without ordinary prior classification of the models under the Commerce Control List.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section case-frame" id="manifestation">
+  <div class="shell">
+    <div class="frame-heading"><span>02</span><h2>Manifestation</h2></div>
+    <p class="eyebrow" style="margin-top:0.75rem;">Open question</p>
+    <p style="font-family:var(--display);font-size:1.1rem;color:var(--ink-soft);max-width:62ch;margin-bottom:1.25rem;">Through what instruments does the order operate, and where do operational limits or gaps between design and value-chain realities appear?</p>
+    <div style="max-width:62ch;">
+      <p>Instrument: immediate Commerce directive requiring suspension of foreign-national access, with threat of civil and criminal penalties. Because real-time nationality verification was not feasible, the only compliant action was global suspension.</p>
+      <p>Limits: the directive achieved rapid restriction at the cost of over-breadth; it exposed the difficulty of enforcing a nationality-based access boundary on a globally deployed, API-accessible model; and it left residual uncertainty about the precise legal theory linking model weights and remote inference to traditional export-control triggers. The boundary was temporary and later lifted after safeguards.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section case-frame" id="distribution">
+  <div class="shell">
+    <div class="frame-heading"><span>03</span><h2>Distribution</h2></div>
+    <p class="eyebrow" style="margin-top:0.75rem;">Open question</p>
+    <p style="font-family:var(--display);font-size:1.1rem;color:var(--ink-soft);max-width:62ch;margin-bottom:1.25rem;">How do informational requirements and responsibility burdens created by this order move across actors?</p>
+    <div style="max-width:62ch;">
+      <p>Authority to impose the access boundary sat with Commerce. The compliance burden fell immediately on the provider, which had to choose between imperfect nationality screening and total suspension. Users—including U.S. persons—experienced sudden loss of access. Information about the underlying risk assessment remained asymmetrically held by the government. Responsibility for preventing potential foreign-intelligence misuse was shifted, in operational terms, onto the provider’s ability to segment its user base in real time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="shell">
+    <p class="eyebrow">Cross-cutting observation</p>
+    <div class="changebar">
+      <p>Export-control logic applied directly to frontier model access. A national-security boundary was asserted; the technical architecture of globally reachable model weights made fine-grained enforcement difficult; the provider absorbed the operational burden; and the limits of the instrument became visible almost instantly. A compressed loop rather than a long-gestating legislative redesign.</p>
+    </div>
+  </div>
+</section>
