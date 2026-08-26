@@ -3,10 +3,8 @@
 #
 # CITATION.cff has to repeat these values — it is a static file GitHub parses on
 # its own and cannot read _data/. Change both together.
-
 name: Gaeun Lim
 title: Independent researcher
-
 links:
   - label: ORCID
     url: https://orcid.org/0009-0001-1332-9206
