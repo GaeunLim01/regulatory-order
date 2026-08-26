@@ -1,44 +1,58 @@
 # AI Governance / Regulatory Order
 
-A research repository for studying AI governance through **regulatory order**, using three parallel analytical lenses and a recurring cross-case cycle.
+A small research site on how export-control and national-security rules try to
+hold a new technology, and where that grip slips. Five cases are read through
+the documents they leave behind.
 
-## Three analytical lenses
+## The axis
 
-Each case may be read through:
+When a new technology comes to be treated as a matter of national security, it
+sets a body of law in motion: export controls, procurement rules, access
+restrictions. That law was built for things that stay in place, and a new
+technology does not. So before it can act, the law has to decide what it is
+even holding: a chip, an act of access, a nationality, a file. The site reads
+recent cases for where that grip holds and where it slips.
 
-- Ordering: how the regulatory order is configured and changes over time (jurisdictional or use boundaries, lineage, points of strain or reconfiguration)
-- Manifestation: how the order becomes operational in concrete instruments and mechanisms, and where design meets value-chain or enforcement limits
-- Distribution: how norms, information, documents, authority, and burdens move across actors (information asymmetry and responsibility allocation)
+## Two axes of reading
 
-The lenses are parallel analytical views, not a fixed sequence. A case may make one lens central and leave another at background level. Each lens is guided by an open question rather than a fixed checklist of sub-fields.
+**The cycle (when).** Read in sequence, the cases move through the same four
+stages, entered in a different order and at a different pace each time:
 
-## Regulatory order cycle (cross-case pattern)
+1. Trigger — a technology appears, or comes to be treated as a security matter
+2. Focus — the law draws a line to catch it
+3. Friction — the line meets the field and bends
+4. Re-response — a new line follows, or the matter is left open
 
-A recurring dynamic observed across cases:
+**The lenses (who / what / how).** Look inside any one stage, case by case, and
+it splits three ways:
 
-1. Technological change  
-2. Category mismatch / ambiguity with existing regulatory categories  
-3. Boundary-setting by administrative or policy authorities  
-4. Transmission and translation into the value chain  
-5. Application in the field  
-6. Breakdowns (control failure, circumvention, responsibility mismatch, user friction)  
-7. Limits of the existing boundary become visible  
-8. Reconfiguration of rules, clauses, institutions, or jurisdiction  
+- Ordering (upper layer) — who draws the line and what they fix it on
+- Manifestation (upper layer) — through what instrument it operates
+- Distribution (lower layer) — how the weight moves, and onto whom
 
-The cycle is a comparative frame, not a mandatory eight-field template for every case.
+The cycle is the horizontal axis; the lenses are the vertical one. They are
+orthogonal: the cycle is shared across cases, while the lenses vary from case
+to case.
 
 ## Case library
 
-Five cases are currently staged:
+- 01 Super Micro — servers diverted around export control
+- 02 Remote Access Security Act — is remote use of compute an export?
+- 03 Anthropic and the Department of War — a contested limit on how a model is used
+- 04 Fable / Mythos — who is allowed to access a model
+- 05 Claude watermarking — marking AI content under EU rules
 
-01 Super Micro · EAR–FDPR order  
-02 RASA · Remote access boundary  
-03 Anthropic–DoW · Use boundary  
-04 Fable / Mythos · Model access control  
-05 Watermarking · EU Art. 50 transparency  
+Each case page carries a mini path through the four stages, set in its front
+matter via a `trace` field (for example: `Focus, Friction*, Re-response`, where
+`*` marks a stage the case dwelled in and `!` marks one left open).
 
-Case pages are being rebuilt from analytical drafts into the shared frame.
+## Working papers
 
-## Research record
+The site sits alongside working papers that developed parts of the inquiry:
+*When Governance Cannot Hold Its Object*, *The Cloud Compute Question in U.S.
+Export Controls*, and *How Regulation Becomes Firm-Level Exposure*.
 
-The repository sits alongside working papers that developed different parts of the inquiry. The papers and the repository framework are related research outputs, not a one-to-one mapping.
+## Build
+
+A Jekyll site for GitHub Pages. Styles live in `assets/css/main.css`; the case
+mini-trace is rendered by `_layouts/case.html` from each case's front matter.
