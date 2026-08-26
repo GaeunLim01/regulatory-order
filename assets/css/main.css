@@ -1493,14 +1493,14 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .cov-lens__note { color: var(--muted); font-size: 0.9rem; }
 
 /* block 5 — perspective */
-.cov-persp { max-width: 100%; }
+.cov-persp { max-width: 100%; text-align: center; }
 .cov-persp p {
   font-family: var(--display);
   font-size: clamp(1.35rem, 1.1rem + 1vw, 1.9rem);
   line-height: 1.32;
   color: var(--ink);
-  margin: 0;
-  max-width: 30ch;
+  margin: 0 auto;
+  max-width: 48ch;
 }
 
 /* block 6 — papers */
@@ -1578,13 +1578,11 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .cyc-read b { font-family: var(--display); font-weight: 500; font-size: 1.05rem; }
 .cyc-read span { color: var(--muted); font-size: 0.92rem; }
 
+.cyc-turn { text-align: center; }
 .cyc-turn p {
-  font-family: var(--display); font-size: clamp(1.15rem, 1rem + 0.7vw, 1.4rem);
-  line-height: 1.4; max-width: 54ch; margin: 0 0 1rem;
+  font-family: var(--display); font-size: clamp(1.2rem, 1rem + 0.8vw, 1.55rem);
+  line-height: 1.42; max-width: 60ch; margin: 0 auto;
 }
-.cyc-turn__go { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
-.cyc-turn__go a { font: 500 0.9rem/1 var(--mono); color: var(--accent); text-decoration: none; padding-block: 0.3rem; border-bottom: 2px solid transparent; }
-.cyc-turn__go a:hover { border-bottom-color: var(--accent-soft); }
 
 /* nudge serif tracking so 'rn' clusters (Anthropic) don't read as 'm' */
 .cyc-read b, .cyc-st__k, .cyc-name { letter-spacing: 0.006em; }
