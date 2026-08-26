@@ -1,38 +1,50 @@
 ---
 layout: default
 title: Distribution
-description: A recurring analytical lens for tracing the movement of norms, information, documents, authority, and burden.
+description: How the weight of the order moves, and onto whom. A lens on where duty, information, and burden land as an order travels down the chain.
 ---
-<section class="hero case-hero">
-  <div class="shell">
-    <span class="eyebrow eyebrow--accent">Analytical lens · 03</span>
-    <h1>Distribution</h1>
-    <p class="standfirst">How norms, information, documents, authority, and regulatory burden move across actors.</p>
-  </div>
-</section>
 
-<section class="section section--tight framework-detail">
-  <div class="shell">
-    <div class="framework-detail__intro">
-      <span class="eyebrow">The frame</span>
-      <p>Trace how a regulatory order reaches different actors, through which channels, and with what allocation of authority, information, obligations, or burden. Information asymmetry and responsibility allocation are central observations under this lens.</p>
-    </div>
+<section class="lens">
+  <div class="lens__shell">
 
-    <div class="framework-guide">
-      <div class="framework-guide__head">
-        <span>Open question</span>
-        <small>A prompt for reading the case, not a required field.</small>
+    <div class="lens-eyebrow">LENS 03 <span>·</span> <em>LOWER LAYER</em></div>
+    <h1 class="lens-title">Distribution</h1>
+    <p class="lens-dek">How the weight of the order moves, and onto whom.</p>
+
+    <div class="lens-map" aria-label="Where this lens sits. The cycle is the horizontal axis; the lenses look inside any one of its stages.">
+      <div class="lens-map__cycle"><span>THE CYCLE — WHEN</span><span class="lens-map__dots" aria-hidden="true"></span></div>
+      <div class="lens-map__drop"><svg width="12" height="20" viewBox="0 0 12 20" aria-hidden="true"><line x1="6" y1="0" x2="6" y2="15" stroke="var(--muted)" stroke-width="1"/><path d="M2 12 L6 17 L10 12" fill="none" stroke="var(--muted)" stroke-width="1"/></svg>look inside a stage</div>
+      <div class="lens-map__layer">
+        <span class="lens-map__tag">UPPER</span>
+        <div class="lens-map__chips">
+          <a class="lens-chip" href="{{ '/framework/ordering/' | relative_url }}">Ordering</a>
+          <a class="lens-chip" href="{{ '/framework/manifestation/' | relative_url }}">Manifestation</a>
+        </div>
       </div>
-      <div class="plate" style="margin-top:1rem;">
-        <p style="margin:0;max-width:62ch;font-family:var(--display);font-size:1.15rem;line-height:1.45;color:var(--ink-soft);">
-          How do informational requirements and responsibility burdens created by this order move across actors?
-        </p>
+      <div class="lens-map__layer">
+        <span class="lens-map__tag">LOWER</span>
+        <div class="lens-map__chips">
+          <a class="lens-chip" href="{{ '/framework/distribution/' | relative_url }}" aria-current="page">Distribution</a>
+        </div>
       </div>
     </div>
 
-    <div style="margin-top:2.5rem;max-width:62ch;">
-      <p class="eyebrow">What this lens typically surfaces</p>
-      <p>Who issues, receives, interprets, or bears the order; the documentary and institutional channels through which it travels; where formal requirements land versus where operational knowledge concentrates; and how compliance costs, discretion, and accountability are redistributed. In cycle terms, Distribution is most closely tied to transmission into the value chain and to the asymmetric allocation of burdens that follows breakdowns.</p>
+    <div class="lens-q">
+      <span>Reading question</span>
+      <p>How do the informational demands and the burden of this order move across the actors it reaches?</p>
     </div>
+
+    <div class="lens-body">
+      <h2>What it looks at</h2>
+      <p>Distribution follows how the order travels outward: who issues, receives, interprets, or carries it; where formal duty lands versus where the operational knowledge actually sits; and how cost, discretion, and accountability get redistributed as it moves down the chain. Information asymmetry and where responsibility settles are the recurring things it surfaces.</p>
+      <p class="lens-cycle">In the cycle, Distribution sits where the line is carried outward, and where the weight settles after it bends: <a href="{{ '/framework/cycle/' | relative_url }}">transmission, and the burden that follows Friction</a>.</p>
+    </div>
+
+    <nav class="lens-nav" aria-label="Other lenses">
+      <a href="{{ '/framework/ordering/' | relative_url }}">Ordering &#8594;</a>
+      <a href="{{ '/framework/manifestation/' | relative_url }}">Manifestation &#8594;</a>
+      <a class="is-back" href="{{ '/framework/cycle/' | relative_url }}">Back to the cycle</a>
+    </nav>
+
   </div>
 </section>
