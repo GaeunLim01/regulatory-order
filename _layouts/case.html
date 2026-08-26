@@ -17,11 +17,14 @@ layout: default
         {% assign path = page.trace | split: "," %}
         {% for s in stages %}
           {% assign key = s | strip %}
+          {% assign dwellkey = key | append: "*" %}
+          {% assign openkey = key | append: "!" %}
           {% assign state = "off" %}
-          {% for p in path %}{% assign pp = p | strip %}
+          {% for p in path %}
+            {% assign pp = p | strip %}
             {% if pp == key %}{% assign state = "on" %}{% endif %}
-            {% if pp == key | append: "*" %}{% assign state = "dwell" %}{% endif %}
-            {% if pp == key | append: "!" %}{% assign state = "open" %}{% endif %}
+            {% if pp == dwellkey %}{% assign state = "dwell" %}{% endif %}
+            {% if pp == openkey %}{% assign state = "open" %}{% endif %}
           {% endfor %}
           <span class="ctrace__node ctrace__node--{{ state }}">{{ key }}</span>
           {% unless forloop.last %}<span class="ctrace__link"></span>{% endunless %}
