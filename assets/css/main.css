@@ -1493,13 +1493,14 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .cov-lens__note { color: var(--muted); font-size: 0.9rem; }
 
 /* block 5 — perspective */
-.cov-persp { max-width: 56ch; }
+.cov-persp { max-width: 100%; }
 .cov-persp p {
   font-family: var(--display);
-  font-size: clamp(1.2rem, 1.05rem + 0.7vw, 1.5rem);
-  line-height: 1.4;
+  font-size: clamp(1.35rem, 1.1rem + 1vw, 1.9rem);
+  line-height: 1.32;
   color: var(--ink);
   margin: 0;
+  max-width: 30ch;
 }
 
 /* block 6 — papers */
@@ -1537,16 +1538,17 @@ details[open] > summary { margin-bottom: 0.6rem; }
    ========================================================================== */
 .cyc { padding-block: clamp(2.5rem, 6vw, 4.5rem) 0; }
 .cyc__shell { max-width: var(--shell); margin-inline: auto; padding-inline: var(--gutter); }
-.cyc-lede { max-width: 40ch; }
+.cyc-lede { max-width: 100%; }
+.cyc-lede .cov-title { max-width: 22ch; }
 .cyc-lede .cov-standfirst { max-width: 60ch; }
 
 .cyc-field {
   margin-top: clamp(1.75rem, 4vw, 2.75rem);
   border: 1px solid var(--rule);
   background: var(--plate);
-  padding: clamp(1rem, 2.5vw, 1.75rem);
+  padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1rem, 2.5vw, 2rem);
 }
-.cyc-field svg { display: block; width: 100%; height: auto; }
+.cyc-field svg { display: block; width: 100%; max-width: 780px; height: auto; margin-inline: auto; }
 .cyc-stage { font-size: 0.66rem; letter-spacing: 0.14em; fill: var(--ink); opacity: 0.75; }
 .cyc-substage { font: 400 0.58rem/1 var(--body); fill: var(--muted); font-style: italic; }
 .cyc-name { font: 500 0.72rem/1 var(--mono); fill: var(--ink-soft); }
