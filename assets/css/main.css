@@ -1384,7 +1384,7 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .cov__shell { max-width: var(--shell); margin-inline: auto; padding-inline: var(--gutter); }
 
 /* block 1 — title + axis */
-.cov-lede { max-width: 34ch; }
+.cov-lede { max-width: 100%; }
 .cov-eyebrow {
   font: 500 0.75rem/1 var(--mono);
   letter-spacing: 0.22em;
@@ -1396,10 +1396,11 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .cov-title {
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(2.1rem, 1.4rem + 3.2vw, 3.5rem);
-  line-height: 1.06;
-  letter-spacing: -0.01em;
+  font-size: clamp(2.4rem, 1.5rem + 4vw, 4.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
   margin: 0;
+  max-width: 20ch;
 }
 .cov-standfirst {
   font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
