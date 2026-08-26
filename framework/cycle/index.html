@@ -1,88 +1,119 @@
 ---
 layout: default
 title: Regulatory Order Cycle
-description: Cross-case pattern of boundary-setting, transmission, breakdown, and reconfiguration.
+description: The four stages a case moves through, and how each of the five cases runs them at a different entry point and pace.
 ---
 
-<section class="hero case-hero">
-  <div class="shell">
-    <span class="eyebrow eyebrow--accent">Cross-case pattern</span>
-    <h1>Regulatory order cycle</h1>
-    <p class="standfirst">A recurring dynamic observed across the cases. It is a comparative frame, not a mandatory template for every case.</p>
-  </div>
-</section>
+<section class="cyc">
+  <div class="cyc__shell">
 
-<section class="section section--tight">
-  <div class="shell">
-    <div class="framework-detail__intro">
-      <span class="eyebrow">The pattern</span>
-      <p>Technological or distributional change creates pressure on an existing regulatory category. Authorities clarify or redraw a boundary. The boundary is transmitted into the value chain. Application reveals gaps between design and reality. Limits become visible. Reconfiguration may follow.</p>
+    <!-- head -->
+    <div class="cyc-lede">
+      <span class="cov-eyebrow">THE SHAPE THEY SHARE</span>
+      <h1 class="cov-title">Four stages, run in a different order each time.</h1>
+      <p class="cov-standfirst">Read in sequence, the five cases move through the same four stages. Where each one enters, and where it slows, is what differs. The heavier a line runs, the longer the case sat in that stage.</p>
     </div>
-  </div>
-</section>
 
-<section class="section section--tight">
-  <div class="shell">
-    <p class="eyebrow">Stages</p>
-    <div class="layer-overview" style="grid-template-columns:repeat(2,minmax(0,1fr));">
-      <div class="layer-overview__item"><span class="layer-overview__num">01</span><span class="layer-overview__label">Technological change</span><span class="layer-overview__value">New capabilities, distribution methods, or usage patterns</span></div>
-      <div class="layer-overview__item"><span class="layer-overview__num">02</span><span class="layer-overview__label">Category mismatch</span><span class="layer-overview__value">Uneasy fit with existing classifications or jurisdictional assumptions</span></div>
-      <div class="layer-overview__item"><span class="layer-overview__num">03</span><span class="layer-overview__label">Boundary-setting</span><span class="layer-overview__value">Rules, advisories, guidance, designations, or legislation</span></div>
-      <div class="layer-overview__item"><span class="layer-overview__num">04</span><span class="layer-overview__label">Transmission</span><span class="layer-overview__value">Compliance programs, contracts, internal policies, documentary requirements</span></div>
-      <div class="layer-overview__item"><span class="layer-overview__num">05</span><span class="layer-overview__label">Field application</span><span class="layer-overview__value">Actors apply the boundary in transactions, deployments, or use</span></div>
-      <div class="layer-overview__item"><span class="layer-overview__num">06</span><span class="layer-overview__label">Breakdowns</span><span class="layer-overview__value">Circumvention, over-breadth, responsibility mismatch, user friction</span></div>
-      <div class="layer-overview__item"><span class="layer-overview__num">07</span><span class="layer-overview__label">Limits visible</span><span class="layer-overview__value">Gap between design and value-chain or enforcement realities</span></div>
-      <div class="layer-overview__item"><span class="layer-overview__num">08</span><span class="layer-overview__label">Reconfiguration</span><span class="layer-overview__value">New rules, clauses, institutions, or jurisdictional claims</span></div>
-    </div>
-  </div>
-</section>
+    <!-- big trace-field -->
+    <div class="cyc-field">
+      <svg viewBox="0 0 900 480" role="img" aria-label="Four stages, Trigger, Focus, Friction, Re-response, with five named case paths. Line weight shows how long each case stayed in a stage.">
+        <!-- stage guides + labels -->
+        <g>
+          <line class="tf-guide" x1="200" y1="95" x2="200" y2="438"/>
+          <line class="tf-guide" x1="420" y1="95" x2="420" y2="438"/>
+          <line class="tf-guide" x1="630" y1="95" x2="630" y2="438"/>
+          <line class="tf-guide" x1="820" y1="95" x2="820" y2="438"/>
+          <text class="tf-stage cyc-stage" x="200" y="78" text-anchor="middle">TRIGGER</text>
+          <text class="tf-stage cyc-stage" x="420" y="78" text-anchor="middle">FOCUS</text>
+          <text class="tf-stage cyc-stage" x="630" y="78" text-anchor="middle">FRICTION</text>
+          <text class="tf-stage cyc-stage" x="820" y="78" text-anchor="middle">RE-RESPONSE</text>
+          <text class="cyc-substage" x="200" y="456" text-anchor="middle">a technology appears</text>
+          <text class="cyc-substage" x="420" y="456" text-anchor="middle">a line is drawn</text>
+          <text class="cyc-substage" x="630" y="456" text-anchor="middle">the line bends in use</text>
+          <text class="cyc-substage" x="820" y="456" text-anchor="middle">or left open</text>
+        </g>
 
-<section class="section section--tight">
-  <div class="shell">
-    <p class="eyebrow">Cycle position by case</p>
-    <div class="case-list">
-      <div class="case-row" style="cursor:default;">
-        <span class="case-row__id">01</span>
-        <div><h2>Super Micro</h2><p>⑤ → ⑥ → ⑦ · field application of an existing order reveals visibility and enforcement limits</p></div>
-      </div>
-      <div class="case-row" style="cursor:default;">
-        <span class="case-row__id">02</span>
-        <div><h2>RASA</h2><p>② → ③ → ⑦ → ⑧ · long-standing interpretive boundary recognized as inadequate; legislative reconfiguration attempted</p></div>
-      </div>
-      <div class="case-row" style="cursor:default;">
-        <span class="case-row__id">03</span>
-        <div><h2>Anthropic–DoW</h2><p>② → ③ → ⑥ → ⑦ · contested use-boundary triggers strong instruments; limits of those instruments become visible</p></div>
-      </div>
-      <div class="case-row" style="cursor:default;">
-        <span class="case-row__id">04</span>
-        <div><h2>Fable / Mythos</h2><p>Compressed ② → ③ → ⑤ → ⑥ → ⑦ (partial ⑧) · rapid administrative boundary asserted, then relaxed</p></div>
-      </div>
-      <div class="case-row" style="cursor:default;">
-        <span class="case-row__id">05</span>
-        <div><h2>Watermarking</h2><p>③ → ④ → ⑤ → ⑥ · legislative transparency boundary transmitted into technical implementation; user and robustness friction</p></div>
-      </div>
+        <!-- 01 Super Micro: Focus -> Friction (dwell) -> Re-response -->
+        <g class="tf-trace" data-case="1">
+          <text class="cyc-name" x="420" y="123">01 Super Micro</text>
+          <line class="cyc-seg" x1="420" y1="138" x2="630" y2="138" stroke-width="6"/>
+          <line class="cyc-seg" x1="630" y1="138" x2="820" y2="138" stroke-width="2"/>
+          <circle class="tf-node" cx="420" cy="138" r="4.5"/>
+          <circle class="tf-node--end" cx="820" cy="138" r="4.5"/>
+        </g>
+        <!-- 02 RASA: Trigger -> Focus (long dwell) -> Re-response -->
+        <g class="tf-trace" data-case="2">
+          <text class="cyc-name" x="200" y="193">02 Remote Access Security Act</text>
+          <line class="cyc-seg" x1="200" y1="208" x2="420" y2="208" stroke-width="2"/>
+          <line class="cyc-seg" x1="420" y1="208" x2="630" y2="208" stroke-width="7"/>
+          <line class="cyc-seg" x1="630" y1="208" x2="820" y2="208" stroke-width="2"/>
+          <circle class="tf-node" cx="200" cy="208" r="4.5"/>
+          <circle class="tf-node--end" cx="820" cy="208" r="4.5"/>
+        </g>
+        <!-- 03 Anthropic-DoW: Trigger -> Focus -> Friction (unresolved) -->
+        <g class="tf-trace" data-case="3">
+          <text class="cyc-name" x="200" y="263">03 Anthropic and the Dept. of War</text>
+          <line class="cyc-seg" x1="200" y1="278" x2="420" y2="278" stroke-width="2"/>
+          <line class="cyc-seg" x1="420" y1="278" x2="630" y2="278" stroke-width="4"/>
+          <circle class="tf-node" cx="200" cy="278" r="4.5"/>
+          <circle class="tf-node--flag" cx="630" cy="278" r="6"/>
+          <circle class="tf-node--flagdot" cx="630" cy="278" r="2"/>
+          <text class="tf-flaglabel cyc-flag" x="648" y="282">unresolved in court</text>
+        </g>
+        <!-- 05 Watermarking: Focus -> Friction (dwell) -> open -->
+        <g class="tf-trace" data-case="5">
+          <text class="cyc-name" x="420" y="333">05 Claude watermarking</text>
+          <line class="cyc-seg" x1="420" y1="348" x2="630" y2="348" stroke-width="2"/>
+          <line class="cyc-seg" x1="630" y1="348" x2="820" y2="348" stroke-width="6"/>
+          <circle class="tf-node" cx="420" cy="348" r="4.5"/>
+          <circle class="tf-node--flag" cx="820" cy="348" r="6"/>
+          <circle class="tf-node--flagdot" cx="820" cy="348" r="2"/>
+        </g>
+        <!-- 04 Fable/Mythos: all four, compressed (thin throughout) -->
+        <g class="tf-trace" data-case="4">
+          <text class="cyc-name" x="200" y="403">04 Fable / Mythos</text>
+          <text class="cyc-compress" x="560" y="403">three weeks, end to end</text>
+          <line class="cyc-seg" x1="200" y1="418" x2="820" y2="418" stroke-width="2"/>
+          <circle class="tf-node" cx="200" cy="418" r="4.5"/>
+          <circle class="tf-node--end" cx="420" cy="418" r="3"/>
+          <circle class="tf-node--end" cx="630" cy="418" r="3"/>
+          <circle class="tf-node--end" cx="820" cy="418" r="4.5"/>
+        </g>
+      </svg>
     </div>
-  </div>
-</section>
 
-<section class="section section--tight">
-  <div class="shell">
-    <p class="eyebrow">Core gap by case</p>
-    <div style="max-width:68ch;">
-      <p><strong>Super Micro</strong>: design ↔ value-chain visibility. Item-based controls and knowledge standards presuppose informational access that intermediary structures can reduce.</p>
-      <p><strong>RASA</strong>: design ↔ delivery model. Item-based export controls (plus the 2009 interpretive boundary) do not capture remote use of the same controlled hardware.</p>
-      <p><strong>Anthropic–DoW</strong>: desired use-boundary ↔ available instruments. Government seeks broad lawful-use rights; available tools are relatively blunt and contestable.</p>
-      <p><strong>Fable / Mythos</strong>: access rule ↔ distribution architecture. Nationality-based restriction collides with global, API-mediated model access.</p>
-      <p><strong>Watermarking</strong>: marking design ↔ content circulation. Assumption of stable, detectable marks meets editing, remixing, and multi-model pipelines.</p>
+    <!-- four stages explained -->
+    <div class="cyc-block">
+      <p class="cov-block__head">The four stages</p>
+      <div class="cyc-stages">
+        <div class="cyc-st"><span class="cyc-st__k">Trigger</span><p>A technology surfaces, or comes to be treated as a matter of national security. The moment a rule now has something new to account for.</p></div>
+        <div class="cyc-st"><span class="cyc-st__k">Focus</span><p>The law draws a line to catch it, inside existing rules where it can, through a new article where it cannot.</p></div>
+        <div class="cyc-st"><span class="cyc-st__k">Friction</span><p>The line meets the field and bends: circumvention, conflict over what it covers, resistance from the people it lands on.</p></div>
+        <div class="cyc-st"><span class="cyc-st__k">Re-response</span><p>Something follows the friction, a redrawn line that restarts the sequence, or an end left open.</p></div>
+      </div>
     </div>
-  </div>
-</section>
 
-<section class="section section--tight">
-  <div class="shell">
-    <p class="eyebrow">Synthesized pattern</p>
-    <div class="changebar">
-      <p>Across the cases: technological or distributional change pressures an existing boundary; authorities assert or redraw it; the boundary is transmitted into the relevant value chain or user base; application exposes a gap between design and how the controlled capability actually moves or is used; that gap produces circumvention, over-breadth, responsibility mismatches, or legitimacy friction; information remains asymmetrically distributed, shaping how burdens are allocated; in some cases visible limits trigger further reconfiguration.</p>
+    <!-- reading each case -->
+    <div class="cyc-block">
+      <p class="cov-block__head">Reading each path</p>
+      <div class="cyc-reads">
+        <a class="cyc-read" href="{{ '/cases/supermicro/' | relative_url }}"><b>01 Super Micro</b><span>Enters where the line already exists, then sits in friction as the diversion runs, before a late re-response in the indictments.</span></a>
+        <a class="cyc-read" href="{{ '/cases/remote-access-security-act/' | relative_url }}"><b>02 Remote Access Security Act</b><span>Years of focus, the boundary redrawn again and again inside old categories, until a new article is written.</span></a>
+        <a class="cyc-read" href="{{ '/cases/anthropic-dow/' | relative_url }}"><b>03 Anthropic and the Dept. of War</b><span>Reaches friction as a contest over what the model may be used for, and stays there, unresolved in court.</span></a>
+        <a class="cyc-read" href="{{ '/cases/fable-mythos/' | relative_url }}"><b>04 Fable / Mythos</b><span>All four stages compressed into about three weeks, from restriction to staged restoration.</span></a>
+        <a class="cyc-read" href="{{ '/cases/claude-watermarking/' | relative_url }}"><b>05 Claude watermarking</b><span>Starts at focus with the legislation itself, then holds a long friction as the mark is edited away downstream.</span></a>
+      </div>
     </div>
+
+    <!-- layer link -->
+    <div class="cyc-block cyc-turn">
+      <p>This cycle is the <b>when</b>: the order events run in. Look inside any one stage, case by case, and it splits into who draws the line, through what, and onto whom.</p>
+      <div class="cyc-turn__go">
+        <a href="{{ '/framework/ordering/' | relative_url }}">Ordering &#8594;</a>
+        <a href="{{ '/framework/manifestation/' | relative_url }}">Manifestation &#8594;</a>
+        <a href="{{ '/framework/distribution/' | relative_url }}">Distribution &#8594;</a>
+      </div>
+    </div>
+
   </div>
 </section>
