@@ -1,35 +1,42 @@
 ---
 layout: default
 ---
-<section class="hero case-hero">
-  <div class="shell">
-    <span class="eyebrow eyebrow--accent">Selected case · {{ page.case_id | default: "draft" }}</span>
-    <h1>{{ page.title | default: "Case study" }}</h1>
+<section class="chero">
+  <div class="chero__shell">
+    <span class="chero__id">CASE {{ page.case_id | default: "—" }}</span>
+    <h1 class="chero__title">{{ page.title | default: "Case study" }}</h1>
     {% if page.regulatory_subject %}
-    <p class="standfirst">{{ page.regulatory_subject }}</p>
+    <p class="chero__subject">{{ page.regulatory_subject }}</p>
     {% endif %}
-  </div>
-</section>
 
-<section class="section section--tight case-overview">
-  <div class="shell">
-    <div class="layer-strip layer-strip--three" aria-label="Three analytical lenses">
-      <a class="layer-strip__item" href="#ordering"><span>01</span><b>Ordering</b><small>Boundary + change</small></a>
-      <a class="layer-strip__item" href="#manifestation"><span>02</span><b>Manifestation</b><small>Instruments + limits</small></a>
-      <a class="layer-strip__item" href="#distribution"><span>03</span><b>Distribution</b><small>Information + burden</small></a>
-    </div>
-    {% if page.cycle_emphasis %}
-    <p class="layer-strip__note">Cycle emphasis: {{ page.cycle_emphasis }}</p>
-    {% else %}
-    <p class="layer-strip__note">Shared analytical lenses; not a fixed sequence.</p>
+    {% if page.trace %}
+    <a class="ctrace" href="{{ '/framework/cycle/' | relative_url }}" aria-label="This case's path through the four stages. Open the full pattern.">
+      <span class="ctrace__cap">PATH THROUGH THE CYCLE</span>
+      <span class="ctrace__lane">
+        {% assign stages = "Trigger,Focus,Friction,Re-response" | split: "," %}
+        {% assign path = page.trace | split: "," %}
+        {% for s in stages %}
+          {% assign key = s | strip %}
+          {% assign state = "off" %}
+          {% for p in path %}{% assign pp = p | strip %}
+            {% if pp == key %}{% assign state = "on" %}{% endif %}
+            {% if pp == key | append: "*" %}{% assign state = "dwell" %}{% endif %}
+            {% if pp == key | append: "!" %}{% assign state = "open" %}{% endif %}
+          {% endfor %}
+          <span class="ctrace__node ctrace__node--{{ state }}">{{ key }}</span>
+          {% unless forloop.last %}<span class="ctrace__link"></span>{% endunless %}
+        {% endfor %}
+      </span>
+      {% if page.trace_note %}<span class="ctrace__note">{{ page.trace_note }}</span>{% endif %}
+    </a>
     {% endif %}
   </div>
 </section>
 
 {{ content }}
 
-<section class="section">
-  <div class="shell">
-    <p class="frame-footer"><a href="{{ '/cases/' | relative_url }}">Case library →</a></p>
+<section class="csection">
+  <div class="chero__shell">
+    <p class="case-lib"><a href="{{ '/cases/' | relative_url }}">&#8592; Case library</a></p>
   </div>
 </section>
