@@ -1,117 +1,188 @@
 ---
 layout: default
 title: Overview
-description: AI governance examined through regulatory order.
+description: How export-control and national-security rules try to hold a new technology, and where that grip slips. Five cases read through the documents they leave behind.
 ---
 
-<section class="hero hero--overview" id="overview">
-  <div class="shell">
-    <div class="hero-kicker">
-      <span>AI GOVERNANCE</span>
-      <span class="hero-kicker__slash">×</span>
-      <span>REGULATORY ORDER</span>
+<section class="cov">
+  <div class="cov__shell">
+
+    <!-- 1 · title + axis -->
+    <div class="cov-lede">
+      <span class="cov-eyebrow">AI GOVERNANCE <span>×</span> REGULATORY ORDER</span>
+      <h1 class="cov-title">The law has to decide what it is even holding.</h1>
     </div>
-    <h1>How regulatory boundaries are drawn, and who ends up carrying them.</h1>
-    <p class="standfirst">Before a rule can be enforced, it has to decide what it governs, and in deciding, it settles who carries the cost. This project traces that through the documents regulation leaves behind. Selected cases are examined through three parallel lenses, with a recurring cycle of boundary-setting and reconfiguration running across them.</p>
+    <p class="cov-standfirst">When a new technology becomes a matter of national security, I read recent cases for where that grip holds and where it slips.</p>
+
+    <!-- 2 · signature: the trace-field (links to cycle) -->
+    <div class="cov-block">
+      <p class="cov-block__head">The shape they share</p>
+      <a class="cov-field" href="{{ '/framework/cycle/' | relative_url }}" aria-label="One sequence, entered in a different order each time. Open the full pattern.">
+        <span class="cov-field__cap">
+          <b>ONE SEQUENCE, DIFFERENT ORDER EACH TIME</b>
+          <span class="cov-field__go">Open the pattern →</span>
+        </span>
+        <svg viewBox="0 0 760 250" role="img" aria-label="Four stages, Trigger, Focus, Friction, Re-response, with five case paths running across them at different entry points.">
+          <!-- stage guides -->
+          <g>
+            <line class="tf-guide" x1="70"  y1="40" x2="70"  y2="226"/>
+            <line class="tf-guide" x1="280" y1="40" x2="280" y2="226"/>
+            <line class="tf-guide" x1="490" y1="40" x2="490" y2="226"/>
+            <line class="tf-guide" x1="690" y1="40" x2="690" y2="226"/>
+            <text class="tf-stage" x="70"  y="28" text-anchor="middle">TRIGGER</text>
+            <text class="tf-stage" x="280" y="28" text-anchor="middle">FOCUS</text>
+            <text class="tf-stage" x="490" y="28" text-anchor="middle">FRICTION</text>
+            <text class="tf-stage" x="690" y="28" text-anchor="middle">RE-RESPONSE</text>
+          </g>
+          <!-- lane labels -->
+          <g>
+            <text class="tf-lane" x="22" y="63">01</text>
+            <text class="tf-lane" x="22" y="101">02</text>
+            <text class="tf-lane" x="22" y="139">03</text>
+            <text class="tf-lane" x="22" y="177">05</text>
+            <text class="tf-lane" x="22" y="215">04</text>
+          </g>
+          <!-- traces -->
+          <g class="tf-trace" data-case="1">
+            <polyline points="280,60 490,60 690,60"/>
+            <circle class="tf-node" cx="280" cy="60" r="4"/>
+            <circle class="tf-node--end" cx="490" cy="60" r="3"/>
+            <circle class="tf-node--end" cx="690" cy="60" r="4"/>
+          </g>
+          <g class="tf-trace" data-case="2">
+            <polyline points="70,98 280,98 490,98 690,98"/>
+            <circle class="tf-node" cx="70" cy="98" r="4"/>
+            <circle class="tf-node--end" cx="280" cy="98" r="3"/>
+            <circle class="tf-node--end" cx="690" cy="98" r="4"/>
+          </g>
+          <g class="tf-trace" data-case="3">
+            <polyline points="70,136 280,136 490,136"/>
+            <circle class="tf-node" cx="70" cy="136" r="4"/>
+            <circle class="tf-node--end" cx="280" cy="136" r="3"/>
+            <circle class="tf-node--flag" cx="490" cy="136" r="5"/>
+            <circle class="tf-node--flagdot" cx="490" cy="136" r="1.6"/>
+            <text class="tf-flaglabel" x="505" y="140">unresolved</text>
+          </g>
+          <g class="tf-trace" data-case="5">
+            <polyline points="280,174 490,174 690,174"/>
+            <circle class="tf-node" cx="280" cy="174" r="4"/>
+            <circle class="tf-node--end" cx="490" cy="174" r="3"/>
+            <circle class="tf-node--end" cx="690" cy="174" r="4"/>
+          </g>
+          <g class="tf-trace" data-case="4">
+            <polyline points="70,212 280,212 490,212 690,212"/>
+            <circle class="tf-node" cx="70" cy="212" r="4"/>
+            <circle class="tf-node--end" cx="280" cy="212" r="3"/>
+            <circle class="tf-node--end" cx="490" cy="212" r="3"/>
+            <circle class="tf-node--end" cx="690" cy="212" r="4"/>
+          </g>
+        </svg>
+      </a>
+    </div>
+
+    <!-- 3 · five cases -->
+    <div class="cov-block">
+      <p class="cov-block__head">Five cases</p>
+      <div class="cov-cases">
+        <a class="cov-case" data-case="1" href="{{ '/cases/supermicro/' | relative_url }}">
+          <span class="cov-case__num">01</span>
+          <span class="cov-case__name">Super Micro</span>
+          <span class="cov-case__note">servers diverted around export control</span>
+          <span class="cov-case__go">&#8594;</span>
+        </a>
+        <a class="cov-case" data-case="2" href="{{ '/cases/remote-access-security-act/' | relative_url }}">
+          <span class="cov-case__num">02</span>
+          <span class="cov-case__name">Remote Access Security Act</span>
+          <span class="cov-case__note">is remote use of compute an export?</span>
+          <span class="cov-case__go">&#8594;</span>
+        </a>
+        <a class="cov-case" data-case="3" href="{{ '/cases/anthropic-dow/' | relative_url }}">
+          <span class="cov-case__num">03</span>
+          <span class="cov-case__name">Anthropic and the Dept. of War</span>
+          <span class="cov-case__note">a contested limit on how a model is used</span>
+          <span class="cov-case__go">&#8594;</span>
+        </a>
+        <a class="cov-case" data-case="4" href="{{ '/cases/fable-mythos/' | relative_url }}">
+          <span class="cov-case__num">04</span>
+          <span class="cov-case__name">Fable / Mythos</span>
+          <span class="cov-case__note">who is allowed to access a model</span>
+          <span class="cov-case__go">&#8594;</span>
+        </a>
+        <a class="cov-case" data-case="5" href="{{ '/cases/claude-watermarking/' | relative_url }}">
+          <span class="cov-case__num">05</span>
+          <span class="cov-case__name">Claude watermarking</span>
+          <span class="cov-case__note">marking AI content under EU rules</span>
+          <span class="cov-case__go">&#8594;</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 4 · three lenses -->
+    <div class="cov-block">
+      <p class="cov-block__head">Three ways of looking in</p>
+      <div class="cov-lenses">
+        <a class="cov-lens" href="{{ '/framework/ordering/' | relative_url }}">
+          <span class="cov-lens__name">Ordering <span>&#8594;</span></span>
+          <span class="cov-lens__note">who draws the line and what they fix it on</span>
+        </a>
+        <a class="cov-lens" href="{{ '/framework/manifestation/' | relative_url }}">
+          <span class="cov-lens__name">Manifestation <span>&#8594;</span></span>
+          <span class="cov-lens__note">through what instrument it operates</span>
+        </a>
+        <a class="cov-lens" href="{{ '/framework/distribution/' | relative_url }}">
+          <span class="cov-lens__name">Distribution <span>&#8594;</span></span>
+          <span class="cov-lens__note">how the weight of it moves across the people it reaches</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 5 · perspective -->
+    <div class="cov-block cov-persp">
+      <p>The shape that runs across all five is easier to see from outside than from inside any one of them. Why it recurs is what I want to follow.</p>
+    </div>
+
+    <!-- 6 · working papers -->
+    <div class="cov-block">
+      <p class="cov-block__head">Working papers</p>
+      <div class="cov-papers">
+        <a class="cov-paper" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7035179" target="_blank" rel="noreferrer">
+          <span class="cov-paper__t">When Governance Cannot Hold Its Object<span class="cov-paper__s">AI across compute, biotechnology, and frontier models</span></span>
+          <span class="cov-paper__go">&#8599;</span>
+        </a>
+        <a class="cov-paper" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7242040" target="_blank" rel="noreferrer">
+          <span class="cov-paper__t">The Cloud Compute Question in U.S. Export Controls<span class="cov-paper__s">Documentary tracing, 2009 to 2026</span></span>
+          <span class="cov-paper__go">&#8599;</span>
+        </a>
+        <a class="cov-paper" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7035280" target="_blank" rel="noreferrer">
+          <span class="cov-paper__t">How Regulation Becomes Firm-Level Exposure<span class="cov-paper__s">Regulatory exposure and exposure formation</span></span>
+          <span class="cov-paper__go">&#8599;</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section class="section section--tight" id="framework">
-  <div class="shell">
-    <div class="layer-overview-head">
-      <div>
-        <span class="eyebrow">Analytical lens</span>
-        <h2>Three recurring views.</h2>
-      </div>
-      <p class="layer-overview-note">The lenses are shared across cases, but no case is required to fill every one at the same depth.</p>
-    </div>
-
-    <div class="layer-overview layer-overview--three" aria-label="Three analytical lenses">
-      <a class="layer-overview__item layer-overview__item--a" href="{{ '/framework/ordering/' | relative_url }}">
-        <span class="layer-overview__num">01</span>
-        <span class="layer-overview__label">Ordering</span>
-        <span class="layer-overview__value">Configuration and change of regulatory order</span>
-      </a>
-      <a class="layer-overview__item layer-overview__item--b" href="{{ '/framework/manifestation/' | relative_url }}">
-        <span class="layer-overview__num">02</span>
-        <span class="layer-overview__label">Manifestation</span>
-        <span class="layer-overview__value">How the order becomes operational</span>
-      </a>
-      <a class="layer-overview__item layer-overview__item--c" href="{{ '/framework/distribution/' | relative_url }}">
-        <span class="layer-overview__num">03</span>
-        <span class="layer-overview__label">Distribution</span>
-        <span class="layer-overview__value">Movement of norms, information, documents, authority, and burden</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section section--tight" id="cycle">
-  <div class="shell">
-    <div class="layer-overview-head" style="margin-bottom:1rem;">
-      <div>
-        <span class="eyebrow">Cross-case pattern</span>
-        <h2>How the order moves.</h2>
-      </div>
-      <p class="layer-overview-note">A recurring cycle sits above the three lenses. Open the full pattern for stage-by-stage mapping across cases.</p>
-    </div>
-
-    <a class="cycle-entry" href="{{ '/framework/cycle/' | relative_url }}">
-      <div class="cycle-entry__top">
-        <span class="cycle-entry__label">Regulatory order cycle</span>
-        <span class="cycle-entry__cta">Open full pattern →</span>
-      </div>
-      <h3 class="cycle-entry__title">Boundary-setting, transmission, breakdown, reconfiguration.</h3>
-      <p class="cycle-entry__desc">Technological change creates category mismatch; authorities set or clarify a boundary; the boundary is transmitted into the value chain; application reveals gaps; limits become visible; reconfiguration may follow.</p>
-      <div class="cycle-entry__steps" aria-hidden="true">
-        <div class="cycle-entry__step"><strong>01–02</strong><span>Change → mismatch</span></div>
-        <div class="cycle-entry__step"><strong>03–04</strong><span>Boundary → transmission</span></div>
-        <div class="cycle-entry__step"><strong>05–06</strong><span>Application → breakdown</span></div>
-        <div class="cycle-entry__step"><strong>07–08</strong><span>Limits → reconfiguration</span></div>
-      </div>
-    </a>
-  </div>
-</section>
-
-<section class="section section--tight" id="cases">
-  <div class="shell">
-    <div class="compact-head">
-      <div>
-        <span class="eyebrow">Selected cases</span>
-        <h2>Research material</h2>
-      </div>
-      <a href="{{ '/cases/' | relative_url }}">View cases →</a>
-    </div>
-
-    <div class="case-grid-preview">
-      <a href="{{ '/cases/supermicro/' | relative_url }}" class="case-chip"><strong>01 Super Micro</strong><span>EAR–FDPR order</span></a>
-      <a href="{{ '/cases/remote-access-security-act/' | relative_url }}" class="case-chip"><strong>02 RASA</strong><span>Remote access boundary</span></a>
-      <a href="{{ '/cases/anthropic-dow/' | relative_url }}" class="case-chip"><strong>03 Anthropic–DoW</strong><span>Use boundary</span></a>
-      <a href="{{ '/cases/fable-mythos/' | relative_url }}" class="case-chip"><strong>04 Fable / Mythos</strong><span>Model access control</span></a>
-      <a href="{{ '/cases/claude-watermarking/' | relative_url }}" class="case-chip"><strong>05 Watermarking</strong><span>EU Art. 50 transparency</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="section section--tight">
-  <div class="shell">
-    <div class="compact-head">
-      <div>
-        <span class="eyebrow">Research record</span>
-        <h2>Working papers</h2>
-      </div>
-    </div>
-
-    <div class="paper-list">
-      <a class="paper-row" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7035280" target="_blank" rel="noreferrer">
-        <div><span class="paper-row__kicker">July 2026 · Conceptual note</span><h3>How Regulation Becomes Firm-Level Exposure</h3><p>Regulatory exposure and exposure formation.</p></div><span class="paper-row__arrow">↗</span>
-      </a>
-      <a class="paper-row" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7035179" target="_blank" rel="noreferrer">
-        <div><span class="paper-row__kicker">August 2026 · Working paper</span><h3>When Governance Cannot Hold Its Object</h3><p>AI governance and regulatory object formation.</p></div><span class="paper-row__arrow">↗</span>
-      </a>
-      <a class="paper-row" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7242040" target="_blank" rel="noreferrer">
-        <div><span class="paper-row__kicker">August 2026 · Working paper</span><h3>The Cloud Compute Question in U.S. Export Controls</h3><p>Documentary tracing of cloud-compute regulation.</p></div><span class="paper-row__arrow">↗</span>
-      </a>
-    </div>
-  </div>
-</section>
+<script>
+(function () {
+  var field = document.querySelector('.cov-field');
+  if (!field) return;
+  var traces = field.querySelectorAll('.tf-trace');
+  var rows = document.querySelectorAll('.cov-case[data-case]');
+  function light(c) {
+    traces.forEach(function (t) {
+      var on = t.getAttribute('data-case') === c;
+      t.classList.toggle('is-on', on);
+      t.classList.toggle('is-dim', c !== null && !on);
+    });
+  }
+  function clear() { traces.forEach(function (t) { t.classList.remove('is-on', 'is-dim'); }); }
+  rows.forEach(function (row) {
+    var c = row.getAttribute('data-case');
+    row.addEventListener('mouseenter', function () { light(c); });
+    row.addEventListener('mouseleave', clear);
+    row.addEventListener('focus', function () { light(c); });
+    row.addEventListener('blur', clear);
+  });
+})();
+</script>
