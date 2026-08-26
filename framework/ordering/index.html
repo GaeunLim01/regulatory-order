@@ -1,38 +1,50 @@
 ---
 layout: default
 title: Ordering
-description: A recurring analytical lens for tracing the configuration and change of regulatory order.
+description: Who draws the line, and what they fix it on. A lens on how a regulatory order is assembled and where its boundary is drawn and redrawn.
 ---
-<section class="hero case-hero">
-  <div class="shell">
-    <span class="eyebrow eyebrow--accent">Analytical lens · 01</span>
-    <h1>Ordering</h1>
-    <p class="standfirst">How regulatory order is configured and changes over time.</p>
-  </div>
-</section>
 
-<section class="section section--tight framework-detail">
-  <div class="shell">
-    <div class="framework-detail__intro">
-      <span class="eyebrow">The frame</span>
-      <p>Trace how a regulatory order is assembled, how its jurisdictional or use boundaries are drawn, and where those boundaries are tested or reconfigured. This is not limited to formal enactment or rulemaking.</p>
-    </div>
+<section class="lens">
+  <div class="lens__shell">
 
-    <div class="framework-guide">
-      <div class="framework-guide__head">
-        <span>Open question</span>
-        <small>A prompt for reading the case, not a required field.</small>
+    <div class="lens-eyebrow">LENS 01 <span>·</span> UPPER LAYER</div>
+    <h1 class="lens-title">Ordering</h1>
+    <p class="lens-dek">Who draws the line, and what they fix it on.</p>
+
+    <div class="lens-map" aria-label="Where this lens sits. The cycle is the horizontal axis; the lenses look inside any one of its stages.">
+      <div class="lens-map__cycle"><span>THE CYCLE — WHEN</span><span class="lens-map__dots" aria-hidden="true"></span></div>
+      <div class="lens-map__drop"><svg width="12" height="20" viewBox="0 0 12 20" aria-hidden="true"><line x1="6" y1="0" x2="6" y2="15" stroke="var(--muted)" stroke-width="1"/><path d="M2 12 L6 17 L10 12" fill="none" stroke="var(--muted)" stroke-width="1"/></svg>look inside a stage</div>
+      <div class="lens-map__layer">
+        <span class="lens-map__tag">UPPER</span>
+        <div class="lens-map__chips">
+          <a class="lens-chip" href="{{ '/framework/ordering/' | relative_url }}" aria-current="page">Ordering</a>
+          <a class="lens-chip" href="{{ '/framework/manifestation/' | relative_url }}">Manifestation</a>
+        </div>
       </div>
-      <div class="plate" style="margin-top:1rem;">
-        <p style="margin:0;max-width:62ch;font-family:var(--display);font-size:1.15rem;line-height:1.45;color:var(--ink-soft);">
-          How is the jurisdictional or use boundary of this order drawn, and where is it tested, strained, or reconfigured?
-        </p>
+      <div class="lens-map__layer">
+        <span class="lens-map__tag">LOWER</span>
+        <div class="lens-map__chips">
+          <a class="lens-chip" href="{{ '/framework/distribution/' | relative_url }}">Distribution</a>
+        </div>
       </div>
     </div>
 
-    <div style="margin-top:2.5rem;max-width:62ch;">
-      <p class="eyebrow">What this lens typically surfaces</p>
-      <p>Lineage of the order, the formal instruments that set its boundary, the authorities that claim power to define or alter it, and the points at which technological or distributional change puts pressure on that boundary. In cycle terms, Ordering is most closely tied to stages of boundary-setting and later reconfiguration.</p>
+    <div class="lens-q">
+      <span>Reading question</span>
+      <p>How is the boundary of this order drawn, and where is it tested or redrawn?</p>
     </div>
+
+    <div class="lens-body">
+      <h2>What it looks at</h2>
+      <p>Ordering follows how a regulatory order is assembled: how its jurisdictional or use boundary gets drawn, who claims the authority to set it, and where technological or distributional change puts that boundary under pressure. It reaches past formal rulemaking to the advisories, designations, and quieter moves through which a line actually gets fixed.</p>
+      <p class="lens-cycle">In the cycle, Ordering sits where the line is first drawn and later redrawn: the <a href="{{ '/framework/cycle/' | relative_url }}">Focus and Re-response stages</a>.</p>
+    </div>
+
+    <nav class="lens-nav" aria-label="Other lenses">
+      <a href="{{ '/framework/manifestation/' | relative_url }}">Manifestation &#8594;</a>
+      <a href="{{ '/framework/distribution/' | relative_url }}">Distribution &#8594;</a>
+      <a class="is-back" href="{{ '/framework/cycle/' | relative_url }}">Back to the cycle</a>
+    </nav>
+
   </div>
 </section>
