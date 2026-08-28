@@ -1689,8 +1689,7 @@ details[open] > summary { margin-bottom: 0.6rem; }
 /* lenses on a case */
 .clens { border-top: 1px solid var(--rule); }
 .clens__row { display: grid; grid-template-columns: 12rem 1fr; gap: 0.5rem 2rem; padding: 1.4rem 0; border-bottom: 1px solid var(--rule-faint); }
-.clens__name { font-family: var(--display); font-size: 1.2rem; color: var(--accent); text-decoration: none; align-self: start; }
-.clens__name:hover { text-decoration: underline; text-underline-offset: 3px; }
+.clens__name { font-family: var(--display); font-size: 1.2rem; color: var(--ink); align-self: start; }
 .clens__obs p { margin: 0; font-size: 1.02rem; line-height: 1.6; }
 .case-lib a { font: 500 0.85rem/1 var(--mono); color: var(--muted); text-decoration: none; }
 .case-lib a:hover { color: var(--accent); }
