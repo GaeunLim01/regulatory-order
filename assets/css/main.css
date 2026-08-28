@@ -1475,22 +1475,29 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .cov-case__note { color: var(--muted); font-size: 0.95rem; }
 .cov-case__go { color: var(--accent); font-size: 1.1rem; }
 
-/* block 4 — lenses */
-.cov-lenses { display: grid; gap: 1px; background: var(--rule-faint); border: 1px solid var(--rule-faint); }
-@media (min-width: 640px) { .cov-lenses { grid-template-columns: repeat(3, 1fr); } }
-.cov-lens {
-  background: var(--paper);
-  padding: 1.15rem 1.25rem;
-  text-decoration: none;
-  color: inherit;
-  display: flex; flex-direction: column; gap: 0.4rem;
-  transition: background 0.15s ease;
+/* block 3 — mechanics preview (single link, mirrors the trace-field's weight) */
+.cov-mech {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  padding: clamp(1.25rem, 3.5vw, 2.25rem) 0 clamp(0.75rem, 2vw, 1.25rem);
 }
-.cov-lens:hover, .cov-lens:focus-visible { background: var(--plate); outline: none; }
-.cov-lens:focus-visible { box-shadow: inset 0 3px 0 var(--accent); }
-.cov-lens__name { font-family: var(--display); font-size: 1.15rem; display: flex; justify-content: space-between; }
-.cov-lens__name span { color: var(--accent); }
-.cov-lens__note { color: var(--muted); font-size: 0.9rem; }
+.cov-mech__item {
+  flex: 1 1 13rem;
+  min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.cov-mech__num { font: 500 0.68rem/1 var(--mono); letter-spacing: 0.12em; color: var(--accent); }
+.cov-mech__name { font-family: var(--display); font-size: clamp(1.3rem, 1rem + 1.2vw, 1.65rem); }
+.cov-mech__note { color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
+.cov-mech__arrow { align-self: center; color: var(--rule); font-size: 1.2rem; }
+@media (max-width: 639px) { .cov-mech__arrow { display: none; } }
 
 /* block 5 — perspective */
 .cov-persp { max-width: 100%; }
@@ -1538,7 +1545,7 @@ details[open] > summary { margin-bottom: 0.6rem; }
 /* ==========================================================================
    CYCLE page — large weighted trace-field + stages. Scoped .cyc-*.
    ========================================================================== */
-.cyc { padding-block: clamp(2.5rem, 6vw, 4.5rem) 0; }
+.cyc { padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(3rem, 8vw, 6rem); }
 .cyc__shell { max-width: var(--shell); margin-inline: auto; padding-inline: var(--gutter); }
 .cyc-lede { max-width: 100%; }
 .cyc-lede .cov-title { max-width: 22ch; }
@@ -1579,13 +1586,6 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .cyc-read:hover, .cyc-read:focus-visible { background: var(--plate); outline: none; }
 .cyc-read b { font-family: var(--display); font-weight: 500; font-size: 1.05rem; }
 .cyc-read span { color: var(--muted); font-size: 0.92rem; }
-
-.cyc-turn { margin-bottom: clamp(3rem, 8vw, 6rem); }
-.cyc-turn p {
-  font-family: var(--display); font-size: clamp(1.2rem, 1rem + 0.8vw, 1.55rem);
-  line-height: 1.42; max-width: 72ch; margin: 0;
-  text-align: justify; text-justify: inter-word;
-}
 
 /* nudge serif tracking so 'rn' clusters (Anthropic) don't read as 'm' */
 .cyc-read b, .cyc-st__k, .cyc-name { letter-spacing: 0.006em; }
