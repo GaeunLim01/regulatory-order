@@ -35,9 +35,9 @@ through time.
 in the cycle, three mechanics read how the actors around a regulation
 (regulators, providers, courts, users) interact with it as a shared object:
 
-- Ordering (upper layer) — who draws the line and what they fix it on
-- Manifestation (upper layer) — through what instrument it operates
-- Distribution (lower layer) — how the weight moves, and onto whom
+- Ordering — who draws the line and what they fix it on
+- Manifestation — through what instrument it operates
+- Distribution — how the weight moves, and onto whom
 
 Which mechanism is under the most strain shifts case by case, and can shift within
 a single case, independent of which cycle stage that case is in.
