@@ -7,32 +7,40 @@ the documents they leave behind.
 ## The axis
 
 When a new technology comes to be treated as a matter of national security, it
-sets a body of law in motion: export controls, procurement rules, access
-restrictions. That law was built for things that stay in place, and a new
-technology does not. So before it can act, the law has to decide what it is
+sets a body of regulation in motion: export controls, procurement rules, access
+restrictions. That regulation was built for things that stay in place, and a new
+technology does not. So before it can act, regulation has to decide what it is
 even holding: a chip, an act of access, a nationality, a file. The site reads
 recent cases for where that grip holds and where it slips.
 
-## Two axes of reading
+## Two independent layers of reading
 
-**The cycle (when).** Read in sequence, the cases move through the same four
-stages, entered in a different order and at a different pace each time:
+The site reads each case through two layers. They do not nest inside one
+another. Each answers a different question, and a case's position in one
+layer says nothing about its position in the other.
+
+**The cycle (regulation as subject).** Read in sequence, the cases move
+through the same four stages, entered in a different order and at a
+different pace each time:
 
 1. Trigger — a technology appears, or comes to be treated as a security matter
-2. Focus — the law draws a line to catch it
+2. Focus — regulation draws a line to catch it
 3. Friction — the line meets the field and bends
 4. Re-response — a new line follows, or the matter is left open
 
-**The lenses (who / what / how).** Look inside any one stage, case by case, and
-it splits three ways:
+This layer follows the regulation itself, as though it were the thing moving
+through time.
+
+**The lenses (actors around the object).** Regardless of where a case sits
+in the cycle, three lenses read how the actors around a regulation
+(regulators, providers, courts, users) interact with it as a shared object:
 
 - Ordering (upper layer) — who draws the line and what they fix it on
 - Manifestation (upper layer) — through what instrument it operates
 - Distribution (lower layer) — how the weight moves, and onto whom
 
-The cycle is the horizontal axis; the lenses are the vertical one. They are
-orthogonal: the cycle is shared across cases, while the lenses vary from case
-to case.
+Which lens is under the most strain shifts case by case, and can shift within
+a single case, independent of which cycle stage that case is in.
 
 ## Case library
 
