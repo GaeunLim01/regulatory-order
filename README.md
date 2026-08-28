@@ -26,7 +26,7 @@ different pace each time:
 1. Trigger — a technology appears, or comes to be treated as a security matter
 2. Boundary — regulation draws a line to catch it
 3. Friction — the line meets the field and bends
-4. Re-response — a new line follows, or the matter is left open
+4. Re-response — an enforcement action, a court ruling, or a regulatory change answers what the friction exposed
 
 This layer follows the regulation itself, as though it were the thing moving
 through time.
