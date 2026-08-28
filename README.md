@@ -24,22 +24,22 @@ through the same four stages, entered in a different order and at a
 different pace each time:
 
 1. Trigger — a technology appears, or comes to be treated as a security matter
-2. Focus — regulation draws a line to catch it
+2. Boundary — regulation draws a line to catch it
 3. Friction — the line meets the field and bends
 4. Re-response — a new line follows, or the matter is left open
 
 This layer follows the regulation itself, as though it were the thing moving
 through time.
 
-**The lenses (actors around the object).** Regardless of where a case sits
-in the cycle, three lenses read how the actors around a regulation
+**The mechanics (actors around the object).** Regardless of where a case sits
+in the cycle, three mechanics read how the actors around a regulation
 (regulators, providers, courts, users) interact with it as a shared object:
 
 - Ordering (upper layer) — who draws the line and what they fix it on
 - Manifestation (upper layer) — through what instrument it operates
 - Distribution (lower layer) — how the weight moves, and onto whom
 
-Which lens is under the most strain shifts case by case, and can shift within
+Which mechanism is under the most strain shifts case by case, and can shift within
 a single case, independent of which cycle stage that case is in.
 
 ## Case library
@@ -51,7 +51,7 @@ a single case, independent of which cycle stage that case is in.
 - 05 Claude watermarking — marking AI content under EU rules
 
 Each case page carries a mini path through the four stages, set in its front
-matter via a `trace` field (for example: `Focus, Friction*, Re-response`, where
+matter via a `trace` field (for example: `Boundary, Friction*, Re-response`, where
 `*` marks a stage the case dwelled in and `!` marks one left open).
 
 ## Working papers
