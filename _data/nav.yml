@@ -1,11 +1,7 @@
 - label: Overview
   url: /
-- label: Ordering
-  url: /framework/ordering/
-- label: Manifestation
-  url: /framework/manifestation/
-- label: Distribution
-  url: /framework/distribution/
+- label: Mechanics
+  url: /framework/mechanics/
 - label: Cycle
   url: /framework/cycle/
 - label: Cases
