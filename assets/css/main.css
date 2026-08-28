@@ -1605,22 +1605,19 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .lens-title { font-family: var(--display); font-weight: 500; font-size: clamp(2.2rem, 1.5rem + 3vw, 3.3rem); line-height: 1.05; margin: 0; }
 .lens-dek { font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem); color: var(--ink-soft); max-width: 46ch; margin: 1rem 0 0; }
 
-/* lens-map: cycle (when, its own axis) alongside the three lenses (who/how, an independent axis) */
-.lens-map {
+/* mech-chain: the three mechanics' own logical order (bound, then operated, then
+   distributed) — a different sequence from the cycle's timeline, shown once per
+   mechanic page with the current one marked. */
+.mech-chain {
   margin-top: clamp(2rem, 5vw, 3rem);
-  border: 1px solid var(--rule); background: var(--plate);
-  padding: clamp(1.1rem, 2.5vw, 1.6rem) clamp(1.1rem, 2.5vw, 1.8rem) clamp(1.3rem, 3vw, 2rem);
+  display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem;
 }
-.lens-map__cycle { display: flex; align-items: center; gap: 0.75rem; font: 500 0.66rem/1 var(--mono); letter-spacing: 0.16em; color: var(--muted); }
-.lens-map__dots { flex: 1; height: 1px; background: repeating-linear-gradient(90deg, var(--rule) 0 3px, transparent 3px 8px); position: relative; }
-.lens-map__dots::before, .lens-map__dots::after { content: ""; position: absolute; top: -2px; width: 5px; height: 5px; border-radius: 50%; background: var(--rule); }
-.lens-map__dots::before { left: 0; } .lens-map__dots::after { right: 0; }
-.lens-map__drop { display: flex; align-items: center; gap: 0.5rem; margin: 0.9rem 0 1rem; font: 400 0.7rem/1 var(--mono); color: var(--muted); }
-.lens-map__drop svg { display: block; }
-.lens-map__layer { display: grid; grid-template-columns: 4.5rem 1fr; gap: 0.5rem 0.9rem; align-items: center; }
-.lens-map__layer + .lens-map__layer { margin-top: 0.5rem; }
-.lens-map__tag { font: 500 0.62rem/1 var(--mono); letter-spacing: 0.12em; color: var(--muted); }
-.lens-map__chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.mech-chain__arrow { color: var(--rule); font-size: 0.9rem; }
+.mech-chain__note {
+  margin: 0.9rem 0 0; max-width: 52ch;
+  font: 400 0.85rem/1.55 var(--body); color: var(--muted);
+}
+
 .lens-chip {
   font: 500 0.8rem/1 var(--body); color: var(--ink-soft);
   border: 1px solid var(--rule); background: var(--paper);
@@ -1637,11 +1634,14 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .lens-q p { font-family: var(--display); font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.6rem); line-height: 1.35; margin: 0; max-width: 40ch; }
 
 .lens-body { margin-top: clamp(2rem, 4vw, 2.75rem); max-width: var(--measure); }
-.lens-body h2 { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.8rem; }
+.lens-body h2, .lens-body h3 { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.8rem; }
 .lens-body p { margin: 0; font-size: 1.05rem; line-height: 1.6; }
 .lens-cycle { margin-top: 1.75rem; }
 .lens-cycle a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
 .lens-cycle a:hover { border-bottom-color: var(--accent); }
+
+.lens-section { margin-top: clamp(3rem, 7vw, 5rem); padding-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--rule); }
+.lens-section:first-of-type { margin-top: clamp(2.5rem, 6vw, 4rem); }
 
 .lens-nav {
   margin-top: clamp(2.5rem, 6vw, 4rem); margin-bottom: clamp(3rem, 8vw, 6rem);
