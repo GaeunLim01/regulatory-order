@@ -13,7 +13,7 @@ layout: default
     <a class="ctrace" href="{{ '/framework/cycle/' | relative_url }}" aria-label="This case's path through the four stages. Open the full pattern.">
       <span class="ctrace__cap">PATH THROUGH THE CYCLE</span>
       <span class="ctrace__lane">
-        {% assign stages = "Trigger,Focus,Friction,Re-response" | split: "," %}
+        {% assign stages = "Trigger,Boundary,Friction,Re-response" | split: "," %}
         {% assign path = page.trace | split: "," %}
         {% for s in stages %}
           {% assign key = s | strip %}
