@@ -41,20 +41,17 @@ description: The four stages a case moves through, and how each of the five case
         </g>
         <g class="tf-trace" data-case="2">
           <text class="cyc-name" x="120" y="193">02 Remote Access Security Act</text>
-          <line class="cyc-seg" x1="120" y1="208" x2="333" y2="208" stroke-width="2"/>
-          <line class="cyc-seg" x1="333" y1="208" x2="547" y2="208" stroke-width="7"/>
-          <line class="cyc-seg" x1="547" y1="208" x2="760" y2="208" stroke-width="2"/>
+          <line class="cyc-seg" x1="120" y1="208" x2="333" y2="208" stroke-width="7"/>
           <circle class="tf-node" cx="120" cy="208" r="4.5"/>
-          <circle class="tf-node--end" cx="760" cy="208" r="4.5"/>
+          <circle class="tf-node--end" cx="333" cy="208" r="4.5"/>
         </g>
         <g class="tf-trace" data-case="3">
           <text class="cyc-name" x="120" y="263">03 Anthropic and the Dept. of War</text>
           <line class="cyc-seg" x1="120" y1="278" x2="333" y2="278" stroke-width="2"/>
           <line class="cyc-seg" x1="333" y1="278" x2="547" y2="278" stroke-width="4"/>
+          <line class="cyc-seg" x1="547" y1="278" x2="760" y2="278" stroke-width="3"/>
           <circle class="tf-node" cx="120" cy="278" r="4.5"/>
-          <circle class="tf-node--flag" cx="547" cy="278" r="6"/>
-          <circle class="tf-node--flagdot" cx="547" cy="278" r="2"/>
-          <text class="tf-flaglabel cyc-flag" x="565" y="282">unresolved in court</text>
+          <circle class="tf-node--end" cx="760" cy="278" r="4.5"/>
         </g>
         <g class="tf-trace" data-case="5">
           <text class="cyc-name" x="333" y="333">05 Claude watermarking</text>
@@ -83,7 +80,7 @@ description: The four stages a case moves through, and how each of the five case
         <div class="cyc-st"><span class="cyc-st__k">Trigger</span><p>A technology surfaces, or comes to be treated as a matter of national security. The moment a rule now has something new to account for.</p></div>
         <div class="cyc-st"><span class="cyc-st__k">Boundary</span><p>Regulation draws a line to catch it, inside existing rules where it can, through a new article where it cannot.</p></div>
         <div class="cyc-st"><span class="cyc-st__k">Friction</span><p>The line meets the field and bends: circumvention, conflict over what it covers, resistance from the people it lands on.</p></div>
-        <div class="cyc-st"><span class="cyc-st__k">Re-response</span><p>Something follows the friction: the existing rule gets amended, or a new regulation is enacted to catch what it missed.</p></div>
+        <div class="cyc-st"><span class="cyc-st__k">Re-response</span><p>Something follows the friction: an enforcement action, a court ruling, an amended rule, or a new regulation, whatever actually answers what the friction exposed.</p></div>
       </div>
     </div>
 
@@ -92,8 +89,8 @@ description: The four stages a case moves through, and how each of the five case
       <p class="cov-block__head">Reading each path</p>
       <div class="cyc-reads">
         <a class="cyc-read" href="{{ '/cases/supermicro/' | relative_url }}"><b>01 Super Micro</b><span>Enters where the line already exists, then sits in friction as the diversion runs, before a late re-response in the indictments.</span></a>
-        <a class="cyc-read" href="{{ '/cases/remote-access-security-act/' | relative_url }}"><b>02 Remote Access Security Act</b><span>Years redrawing the boundary again and again inside old categories, until a new article is written.</span></a>
-        <a class="cyc-read" href="{{ '/cases/anthropic-dow/' | relative_url }}"><b>03 Anthropic and the Dept. of War</b><span>Reaches friction as a contest over what the model may be used for, and stays there, unresolved in court.</span></a>
+        <a class="cyc-read" href="{{ '/cases/remote-access-security-act/' | relative_url }}"><b>02 Remote Access Security Act</b><span>Reaffirmed at the same boundary for over a decade, until a rewritten article cleared the House again and now awaits the Senate.</span></a>
+        <a class="cyc-read" href="{{ '/cases/anthropic-dow/' | relative_url }}"><b>03 Anthropic and the Dept. of War</b><span>Reaches friction as a contest over what the model may be used for; a court ruled for the company in August, though a separate appeal continues.</span></a>
         <a class="cyc-read" href="{{ '/cases/fable-mythos/' | relative_url }}"><b>04 Fable / Mythos</b><span>All four stages compressed into about three weeks, from restriction to staged restoration.</span></a>
         <a class="cyc-read" href="{{ '/cases/claude-watermarking/' | relative_url }}"><b>05 Claude watermarking</b><span>Starts at the boundary stage with the legislation itself, then holds a long friction as the mark is edited away downstream.</span></a>
       </div>
