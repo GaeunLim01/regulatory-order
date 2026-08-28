@@ -1605,7 +1605,7 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .lens-title { font-family: var(--display); font-weight: 500; font-size: clamp(2.2rem, 1.5rem + 3vw, 3.3rem); line-height: 1.05; margin: 0; }
 .lens-dek { font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem); color: var(--ink-soft); max-width: 46ch; margin: 1rem 0 0; }
 
-/* lens-map: horizontal cycle (when) + vertical look-inside into three lenses */
+/* lens-map: cycle (when, its own axis) alongside the three lenses (who/how, an independent axis) */
 .lens-map {
   margin-top: clamp(2rem, 5vw, 3rem);
   border: 1px solid var(--rule); background: var(--plate);
