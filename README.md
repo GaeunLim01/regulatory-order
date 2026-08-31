@@ -4,6 +4,11 @@ A small research site on how export-control and national-security rules try to
 hold a new technology, and where that grip slips. Five cases are read through
 the documents they leave behind.
 
+This set of five is a **sample**, not a rolling case archive: enough to show
+the two axes below working across a full range. The cases cluster in the U.S.
+and the EU because that is where this friction has been loudest recently, not
+because the axes are scoped to one jurisdiction.
+
 ## The axis
 
 When a new technology comes to be treated as a matter of national security, it
