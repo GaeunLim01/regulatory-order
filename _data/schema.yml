@@ -1,46 +1,42 @@
 # Current analytical frame
 #
-# Three parallel mechanics. Each is guided by an open question rather than a
-# fixed set of required sub-fields. Cases may use each mechanism at different depth.
-#
-# A higher-level cross-case pattern — the Regulatory Order Cycle — sits above
-# the mechanics and is not a mandatory case template.
+# Not a fixed model with named stages. Three questions recur across cases,
+# in roughly this order of attention, each guided by an open question rather
+# than a required set of sub-fields. A case may answer one at length and
+# another in a sentence — see docs/case-template.yml for the drafting prompts.
 
-ordering:
+design_vs_interpretation:
   note: >
-    How regulatory order is configured and changes over time. Focus on
-    jurisdictional or use boundaries, their lineage, and points of strain
-    or reconfiguration.
+    Who wrote the operative categories in general terms (usually a
+    legislature, usually before the case's situation existed), and who —
+    an agency, a regulator, a company reading its own obligations — only
+    gets to rule on whether a new situation fits inside them.
   open_question: >
-    How is the jurisdictional or use boundary of this order drawn, and where
-    is it tested, strained, or reconfigured?
+    What body designed the categories this case rests on, and what
+    different body only interprets them?
 
-manifestation:
+the_gap:
   note: >
-    How the order becomes operational in concrete instruments and mechanisms,
-    and where design meets value-chain or enforcement limits.
+    Where the design/interpretation split above left something new enough
+    that nobody had built a category for it yet.
   open_question: >
-    Through what instruments does the order operate, and where do operational
-    limits or gaps between design and value-chain realities appear?
+    What about this technology or use sits outside every existing category,
+    and since when?
 
-distribution:
+actors:
   note: >
-    How norms, information, documents, authority, and burdens move across
-    actors. Information asymmetry and responsibility allocation are central.
+    The one that usually earns the most space on a case page — a per-actor
+    table (what they meant to do / what happened instead) works better here
+    than a single paragraph.
   open_question: >
-    How do informational requirements and responsibility burdens created by
-    this order move across actors?
-
-cycle:
-  note: >
-    Cross-case pattern only. Not a required case field. Stages: technological
-    change → category mismatch → boundary-setting → transmission → field
-    application → breakdowns → visible limits → reconfiguration.
+    For each actor moving into the gap: what did they mean to do, and what
+    happened instead? Who ends up carrying a difference they didn't sign
+    up for?
 
 case_character:
   note: >
-    Optional analytical output (e.g. dispute, amendment, enactment). Not a
-    universal event taxonomy.
+    Optional, loose observation that doesn't need to be forced into one of
+    the three questions above.
 
 method_note:
   statement: >
