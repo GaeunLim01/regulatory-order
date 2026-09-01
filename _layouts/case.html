@@ -8,31 +8,6 @@ layout: default
     {% if page.regulatory_subject %}
     <p class="chero__subject">{{ page.regulatory_subject }}</p>
     {% endif %}
-
-    {% if page.trace %}
-    <a class="ctrace" href="{{ '/framework/cycle/' | relative_url }}" aria-label="This case's path through the four stages. Open the full pattern.">
-      <span class="ctrace__cap">PATH THROUGH THE CYCLE</span>
-      <span class="ctrace__lane">
-        {% assign stages = "Trigger,Boundary,Friction,Re-response" | split: "," %}
-        {% assign path = page.trace | split: "," %}
-        {% for s in stages %}
-          {% assign key = s | strip %}
-          {% assign dwellkey = key | append: "*" %}
-          {% assign openkey = key | append: "!" %}
-          {% assign state = "off" %}
-          {% for p in path %}
-            {% assign pp = p | strip %}
-            {% if pp == key %}{% assign state = "on" %}{% endif %}
-            {% if pp == dwellkey %}{% assign state = "dwell" %}{% endif %}
-            {% if pp == openkey %}{% assign state = "open" %}{% endif %}
-          {% endfor %}
-          <span class="ctrace__node ctrace__node--{{ state }}">{{ key }}</span>
-          {% unless forloop.last %}<span class="ctrace__link"></span>{% endunless %}
-        {% endfor %}
-      </span>
-      {% if page.trace_note %}<span class="ctrace__note">{{ page.trace_note }}</span>{% endif %}
-    </a>
-    {% endif %}
   </div>
 </section>
 
