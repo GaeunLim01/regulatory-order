@@ -4,18 +4,22 @@ title: Fable 5, Mythos 5 and the Temporary Access Boundary
 permalink: /cases/fable-mythos/
 case_id: "04"
 regulatory_subject: Export-control authority applied to frontier model weights and foreign-national access, through an emergency directive.
-trace: "Trigger, Boundary, Friction, Re-response"
-trace_note: "All four stages compressed into about three weeks, from restriction to staged restoration."
-description: A nationality-based limit on who may access a model. Read through boundary, instrument, and where the burden landed.
+description: A nationality-based limit on who may access a model. Read for why this could move in hours instead of years, and who ended up carrying the difference between the risk that was flagged and the shutdown that followed.
 ---
 
 <section class="csection">
   <div class="chero__shell">
-    <p class="ceyebrow">Narrative</p>
-    <div class="cbody">
-      <p>Days after Anthropic released Fable 5 and Mythos 5, the Commerce Department issued a directive requiring that access by any foreign national be suspended, citing the risk of diversion to foreign military-intelligence users. Because nationality could not be verified in real time, the models were switched off for everyone. Access was restored within weeks, in stages, after added safeguards.</p>
-      <p>The restriction was written around a category that is clear in law but nearly invisible in the running system. When a rule needs an identity check the infrastructure does not have, the only enforceable version is the broadest one.</p>
-    </div>
+    <p class="ceyebrow">What deemed export was already built to catch</p>
+    <p class="cbody" style="margin-bottom:0.75rem;">EAR's deemed-export rule already treats giving a foreign national access to controlled technology as an export to that person's home country — no new statute needed, unlike the compute-access gap RASA exists to close. That's what let Commerce act in hours: a letter from the Commerce Secretary to Anthropic's CEO, three days after release, ordering all foreign-national access cut off immediately.</p>
+    <table class="cgap">
+      <thead><tr><th>What</th><th>What actually happened</th></tr></thead>
+      <tbody>
+        <tr><td>Deemed export (existing doctrine)</td><td>Foreign-national access to controlled technology, in the U.S. or abroad, already counts as an export to that person's nationality — this predates the case.</td></tr>
+        <tr><td>Applied here to</td><td>API and hosted access to a frontier model's weights and outputs, not a lab visit or a technical briefing.</td></tr>
+        <tr><td>Why it could move so fast</td><td>No legislation needed — Commerce invoked existing authority directly, by letter, the same week the models shipped.</td></tr>
+      </tbody>
+    </table>
+    <p class="cbody" style="margin-top:1.1rem;">Anthropic released Claude Fable 5 on June 9, 2026, with the more capable Mythos 5 limited to Project Glasswing partners. Three days later, Commerce Secretary Howard Lutnick ordered all foreign-national access to both models suspended, citing a reported jailbreak flagged by Amazon and NSA reviewers. Unable to verify nationality in real time, Anthropic shut both models down for every customer worldwide. Access came back in stages over the following weeks.</p>
   </div>
 </section>
 
@@ -24,10 +28,12 @@ description: A nationality-based limit on who may access a model. Read through b
     <p class="ceyebrow">Timeline</p>
     <table class="ctimeline">
       <tbody>
-        <tr><th>9 June 2026</th><td>Anthropic releases Fable 5 and Mythos 5.</td></tr>
-        <tr><th>12 June 2026</th><td>Commerce issues a directive restricting foreign-national access.</td></tr>
-        <tr><th>12–13 June 2026</th><td>Both models are suspended globally.</td></tr>
-        <tr><th>30 June – 1 July 2026</th><td>Restrictions lifted after added safeguards; models redeployed.</td></tr>
+        <tr><th>9 June 2026</th><td>Anthropic releases Fable 5 publicly; Mythos 5 stays limited to Project Glasswing partners.</td></tr>
+        <tr><th>12 June 2026</th><td>Commerce Secretary Lutnick, citing a reported jailbreak flagged by Amazon and NSA reviewers, orders foreign-national access to both models cut off.</td></tr>
+        <tr><th>12–13 June 2026</th><td>Unable to verify nationality in real time, Anthropic suspends both models for every customer worldwide.</td></tr>
+        <tr><th>26 June 2026</th><td>Lutnick authorizes limited Mythos 5 access for vetted government and partner organizations, after BIS finds "appropriate safeguards" in place.</td></tr>
+        <tr><th>30 June 2026</th><td>Lutnick tells Anthropic a license is no longer required, citing the company's coordination commitments.</td></tr>
+        <tr><th>1 July 2026</th><td>Fable 5 access is restored globally, across Claude.ai, AWS, Google Cloud, and Microsoft Foundry.</td></tr>
       </tbody>
     </table>
   </div>
@@ -35,36 +41,40 @@ description: A nationality-based limit on who may access a model. Read through b
 
 <section class="csection">
   <div class="chero__shell">
-    <p class="ceyebrow">Three mechanics on this case</p>
-    <div class="clens">
-      <div class="clens__row" id="ordering">
-        <span class="clens__name">Ordering</span>
-        <div class="clens__obs">
-          <p>Export authority was applied to model weights and their accessibility. The boundary was drawn emergently: foreign-national access to these specific models was treated as a controlled transaction on security grounds, without the ordinary prior classification. A category clear in law was asserted over a system that could not see it.</p>
-        </div>
-      </div>
-      <div class="clens__row" id="manifestation">
-        <span class="clens__name">Manifestation</span>
-        <div class="clens__obs">
-          <p>The instrument was an immediate directive to suspend foreign-national access under threat of penalty. With no real-time nationality check, the only compliant action was total suspension. The rule achieved speed at the cost of over-breadth, and exposed how hard a nationality-based boundary is to enforce on a globally reachable, API-accessible model.</p>
-        </div>
-      </div>
-      <div class="clens__row" id="distribution">
-        <span class="clens__name">Distribution</span>
-        <div class="clens__obs">
-          <p>Authority sat with Commerce. The burden fell at once on the provider, forced to choose between imperfect screening and total suspension. Users, including U.S. persons, lost access without warning. The risk assessment stayed with the government; the operational responsibility for segmenting users in real time was pushed onto the provider.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="csection">
-  <div class="chero__shell">
-    <p class="ceyebrow">Where the three meet</p>
-    <div class="cbody cbody--close">
-      <p>A rule written for a few ended up landing on everyone, because the line it drew was one the system could not yet read. The provider absorbed the operational weight, and the limits of the instrument showed almost immediately. This was a compressed loop, the whole cycle in three weeks, not a slow legislative redesign.</p>
-    </div>
+    <p class="ceyebrow">Who meant what, and what happened instead</p>
+    <p class="cbody" style="margin-bottom:1rem;">A rule written for a narrow risk ended up landing on everyone, because the line it drew was one the running system couldn't read in real time.</p>
+    <table class="cgap">
+      <thead>
+        <tr><th>Actor</th><th>Meant to</th><th>What happened instead</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Amazon &amp; NSA reviewers</td>
+          <td>Flag one specific jailbreak vulnerability to Commerce.</td>
+          <td>Triggered a shutdown far broader than the vulnerability they'd actually reported.</td>
+        </tr>
+        <tr>
+          <td>Commerce Secretary Lutnick</td>
+          <td>Cut off foreign-national access to that specific risk within days of it being flagged.</td>
+          <td>Because nationality couldn't be checked in real time, took the model down for every customer worldwide, including domestic users and Anthropic's own staff.</td>
+        </tr>
+        <tr>
+          <td>Anthropic</td>
+          <td>Comply immediately and keep its other models running unaffected.</td>
+          <td>Absorbed 18 days without its two flagship models, refunded recent subscribers, and became the first company ordered to revoke access to specific model versions by user nationality.</td>
+        </tr>
+        <tr>
+          <td>Cybersecurity researchers</td>
+          <td>Use Fable 5 for legitimate defensive security work.</td>
+          <td>Lost access along with everyone else; over 100 researchers publicly objected that the ban was broader than the risk it named.</td>
+        </tr>
+        <tr>
+          <td>Commerce (again, late June)</td>
+          <td>Restore access in exchange for Anthropic's coordination commitments — proactive risk reporting, agreed release protocols.</td>
+          <td>Restored it in stages instead of all at once: Mythos 5 to vetted partners first, Fable 5 fully two weeks later.</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -74,6 +84,8 @@ description: A nationality-based limit on who may access a model. Read through b
     <table class="csources">
       <tbody>
         <tr><th>Official</th><td><a href="https://www.anthropic.com/news/fable-mythos-access">Anthropic, "Statement on the US government directive to suspend access to Fable 5 and Mythos 5"</a> (June 12, 2026)</td></tr>
+        <tr><th>Reporting</th><td><a href="https://www.forbes.com/sites/anishasircar/2026/06/16/anthropic-disabled-fable-5-and-mythos-5-after-a-us-export-control-order-heres-what-happened/">Forbes, "Anthropic Disabled Fable 5 And Mythos 5 After A U.S. Export-Control Order"</a> (June 16, 2026)</td></tr>
+        <tr><th>Reporting</th><td><a href="https://cybersecuritynews.com/export-controls-fable-5-and-mythos-5/">Cyber Security News, "U.S. Lifts Export Controls on Claude Fable 5 and Mythos 5"</a> (July 1, 2026)</td></tr>
         <tr><th>Reporting</th><td><a href="https://www.cnbc.com/2026/06/30/anthropic-says-trump-admin-has-lifted-export-controls-on-claude-fable-5-and-mythos-5.html">CNBC, "Anthropic says Trump admin has lifted export controls on Claude Fable 5 and Mythos 5"</a> (June 30, 2026)</td></tr>
         <tr><th>Analysis</th><td><a href="https://harvardlawreview.org/blog/2026/06/is-access-to-fable-an-export/">Harvard Law Review Blog, "Is Access to Fable an Export?"</a> (June 2026)</td></tr>
       </tbody>
