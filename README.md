@@ -5,11 +5,11 @@ hold a new technology, and where that grip slips. Five cases are read through
 the documents they leave behind.
 
 This set of five is a **sample**, not a rolling case archive: enough to show
-the two axes below working across a full range. The cases cluster in the U.S.
+the pattern below working across a full range. The cases cluster in the U.S.
 and the EU because that is where this friction has been loudest recently, not
-because the axes are scoped to one jurisdiction.
+because the pattern is scoped to one jurisdiction.
 
-## The axis
+## The premise
 
 When a new technology comes to be treated as a matter of national security, it
 sets a body of regulation in motion: export controls, procurement rules, access
@@ -18,34 +18,34 @@ technology does not. So before it can act, regulation has to decide what it is
 even holding: a chip, an act of access, a nationality, a file. The site reads
 recent cases for where that grip holds and where it slips.
 
-## Two independent layers of reading
+## How a case is read
 
-The site reads each case through two layers. They do not nest inside one
-another. Each answers a different question, and a case's position in one
-layer says nothing about its position in the other.
+Not a shared model with named stages — just what tends to be left once a
+case's outcome (a ban, a ruling, a seizure) stops being the interesting part.
+Three questions recur, in roughly this order of attention:
 
-**The cycle (regulation as subject).** Read in sequence, the cases move
-through the same four stages, entered in a different order and at a
-different pace each time:
+1. **Who designed the categories a case rests on, and who only gets to
+   interpret them?** Almost every case turns on a split between a body that
+   wrote the operative categories in general terms (usually a legislature) and
+   a different body that can only rule on whether a new situation fits inside
+   them (an agency, a regulator, a company reading its own obligations).
+2. **Where did that split leave a gap new enough that nobody had designed for
+   it?** New technology tends to sit outside whatever was designed, not from
+   oversight, but because designing for something before it exists isn't
+   really possible.
+3. **What did each actor do into that gap, and where does what they meant to
+   do come apart from what actually happened?** This is where a case actually
+   lives, and where it earns the most space: an agency races ahead of its own
+   authority, a company picks the cheaper global fix over the narrower legal
+   one, an individual routes a shipment through the seam between two
+   definitions — and almost none of them land the outcome they were aiming
+   for. Somebody, every time, ends up holding a difference they didn't sign
+   up for.
 
-1. Trigger — a technology appears, or comes to be treated as a security matter
-2. Boundary — regulation draws a line to catch it
-3. Friction — the line meets the field and bends
-4. Re-response — an enforcement action, a court ruling, or a regulatory change answers what the friction exposed
-
-This layer follows the regulation itself, as though it were the thing moving
-through time.
-
-**The mechanics (actors around the object).** Regardless of where a case sits
-in the cycle, three mechanics read how the actors around a regulation
-(regulators, providers, courts, users) interact with it as a shared object:
-
-- Ordering — who draws the line and what they fix it on
-- Manifestation — through what instrument it operates
-- Distribution — how the weight moves, and onto whom
-
-Which mechanism is under the most strain shifts case by case, and can shift within
-a single case, independent of which cycle stage that case is in.
+Each case page opens with question 1 (a short structural note plus a small
+table), folds question 2 into the same section as a plain sentence or two,
+and gives question 3 the bulk of the page as a "Who meant what, and what
+happened instead" table, one row per actor.
 
 ## Case library
 
@@ -55,10 +55,6 @@ a single case, independent of which cycle stage that case is in.
 - 04 Fable / Mythos — who is allowed to access a model
 - 05 Claude watermarking — marking AI content under EU rules
 
-Each case page carries a mini path through the four stages, set in its front
-matter via a `trace` field (for example: `Boundary, Friction*, Re-response`, where
-`*` marks a stage the case dwelled in and `!` marks one left open).
-
 ## Working papers
 
 The site sits alongside working papers that developed parts of the inquiry:
@@ -67,5 +63,9 @@ Export Controls*, and *How Regulation Becomes Firm-Level Exposure*.
 
 ## Build
 
-A Jekyll site for GitHub Pages. Styles live in `assets/css/main.css`; the case
-mini-trace is rendered by `_layouts/case.html` from each case's front matter.
+A Jekyll site for GitHub Pages. Styles live in `assets/css/main.css`. The
+homepage (`index.html`) carries the premise, the three questions, the case
+list, and the working papers in one page — there is no separate framework
+subpage. Each case page uses `_layouts/case.html` and its own front matter
+(`case_id`, `regulatory_subject`, `description`); there is no `trace` field.
+
