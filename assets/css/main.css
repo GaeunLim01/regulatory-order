@@ -12,13 +12,13 @@
 :root {
   /* Ground: warm document stock, held a clear step off white so hairline
      rules and traces sit on a calm field rather than glare. */
-  --paper:       #E8E4DB;
-  --plate:       #F1EEE7;
-  --plate-sunk:  #DED8CC;
+  --paper:       #F3F0EA;
+  --plate:       #FAF8F4;
+  --plate-sunk:  #E4DFD4;
   --ink:         #1B1F24;
   --ink-soft:    #2C3238;
   --muted:       #5B6169;
-  --rule:        #C6C1B6;
+  --rule:        #B4AFA3;
   --rule-faint:  #DBD6CB;
 
   /* One accent. Muted blueprint teal, used for structure, traces, and links. */
@@ -1412,10 +1412,10 @@ details[open] > summary { margin-bottom: 0.6rem; }
 /* generic block scaffolding */
 .cov-block { margin-top: clamp(2.75rem, 6vw, 4.5rem); }
 .cov-block__head {
-  font: 600 0.75rem/1 var(--mono);
-  letter-spacing: 0.16em;
+  font: 700 0.84rem/1.2 var(--mono);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent-strong);
+  color: var(--ink);
   margin: 0 0 1.1rem;
 }
 
@@ -1728,8 +1728,8 @@ details[open] > summary { margin-bottom: 0.6rem; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  border: 1px solid var(--rule);
-  background: var(--plate);
+  border: 1px solid var(--ink);
+  background: #FFFcf7;
   margin: 0;
 }
 .dfour__cell {
@@ -1740,10 +1740,10 @@ details[open] > summary { margin-bottom: 0.6rem; }
 .dfour__cell:nth-child(2n) { border-right: none; }
 .dfour__cell:nth-last-child(-n+2) { border-bottom: none; }
 .dfour__k {
-  font: 600 0.68rem/1.3 var(--mono);
-  letter-spacing: 0.1em;
+  font: 700 0.72rem/1.3 var(--mono);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent-strong);
+  color: var(--ink);
   margin: 0 0 0.45rem;
 }
 .dfour__v {
