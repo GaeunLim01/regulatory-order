@@ -42,18 +42,20 @@ Three questions recur, in roughly this order of attention:
    for. Somebody, every time, ends up holding a difference they didn't sign
    up for.
 
-Each case page opens with question 1 (a short structural note plus a small
-table), folds question 2 into the same section as a plain sentence or two,
-and gives question 3 the bulk of the page as a "Who meant what, and what
-happened instead" table, one row per actor.
+Each case page opens with four cells — the object held, where it started
+to move, where cost arrives first, and the difference carried — then
+question 1 (a short structural note plus a small table), folds question 2
+into the same section as a plain sentence or two, and gives question 3
+the bulk of the page as a "Who meant what, and what happened instead"
+table, one row per actor.
 
 ## Case library
 
-- 01 Super Micro — servers diverted around export control
-- 02 Remote Access Security Act — is remote use of compute an export?
-- 03 Anthropic and the Department of War — a contested limit on how a model is used
-- 04 Fable / Mythos — who is allowed to access a model
-- 05 Claude watermarking — marking AI content under EU rules
+- 01 Super Micro — the rule was built to see the firm; the difference landed on individuals
+- 02 Remote Access Security Act — the line Congress meant to redraw is still not the line in force
+- 03 Anthropic and the Department of War — a foreign-adversary label was pointed at a domestic policy refusal
+- 04 Fable / Mythos — a nationality line the system could not read took every customer down
+- 05 Claude watermarking — a one-market duty became the default everywhere because matching it cost more
 
 ## Working papers
 
