@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://gaeunlim01.github.io/regulatory-order/sitemap.xml
