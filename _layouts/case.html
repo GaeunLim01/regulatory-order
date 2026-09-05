@@ -3,7 +3,7 @@ layout: default
 ---
 <section class="chero">
   <div class="chero__shell">
-    <span class="chero__id">CASE {{ page.case_id | default: "—" }}</span>
+    <span class="chero__id">CASE {{ page.case_id | default: "N/A" }}</span>
     <h1 class="chero__title">{{ page.title | default: "Case study" }}</h1>
     {% if page.regulatory_subject %}
     <p class="chero__subject">{{ page.regulatory_subject }}</p>
