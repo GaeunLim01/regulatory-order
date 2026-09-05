@@ -1,32 +1,37 @@
-# Framework template — current analytical frame
-# Case-specific content is intentionally open.
+# Case template — current analytical frame
+# Case-specific content is intentionally open. These are prompts for drafting,
+# not fields to fill in mechanically — a case may answer one at length and
+# another in a sentence.
 
 id:
 title:
 status: draft
 regulatory_subject:
 
-# Shared analytical mechanics. A case may use each mechanism at a different depth.
-ordering:
+# 1. Who designed the categories this rests on, and who only interprets them?
+design_vs_interpretation:
   open_question: >
-    How is the jurisdictional or use boundary of this order drawn, and where
-    is it tested, strained, or reconfigured?
+    What body wrote the operative categories in general terms, usually before
+    this situation existed? What different body only gets to rule on whether
+    a new situation fits inside them?
   notes:
 
-manifestation:
+# 2. Where did that split leave a gap nobody had designed for?
+the_gap:
   open_question: >
-    Through what instruments does the order operate, and where do operational
-    limits or gaps between design and value-chain realities appear?
+    What about this technology or use sits outside every existing category,
+    and since when?
   notes:
 
-distribution:
+# 3. What did each actor do into that gap, and where did intent and outcome
+#    come apart? (This is the one that usually earns the most space — a
+#    per-actor table works better here than a single paragraph.)
+actors:
   open_question: >
-    How do informational requirements and responsibility burdens created by
-    this order move across actors?
+    For each actor: what did they mean to do, and what happened instead? Who
+    ends up carrying a difference they didn't sign up for?
   notes:
 
-# Cross-case pattern position (optional)
-cycle_emphasis:
-
-# Optional case-level characterization
+# Optional case-level characterization — a loose observation that doesn't
+# need to be forced into one of the three questions above.
 case_character:
