@@ -1763,7 +1763,6 @@ details[open] > summary { margin-bottom: 0.6rem; }
 }
 .dfour td { font-size: 0.98rem; line-height: 1.5; color: var(--ink); }
 .dfour__k { font-weight: 700; width: 17%; }
-.dfour__v { width: 41.5%; }
 .dfour__h { width: 41.5%; }
 @media (max-width: 719px) {
   .dfour thead { display: none; }
