@@ -1746,6 +1746,7 @@ details[open] > summary { margin-bottom: 0.6rem; }
   border-collapse: collapse;
   border: 1px solid var(--ink);
   background: #FFFcf7;
+  table-layout: fixed;
 }
 .dfour th, .dfour td {
   border: 1px solid var(--ink);
@@ -1761,8 +1762,9 @@ details[open] > summary { margin-bottom: 0.6rem; }
   background: var(--paper);
 }
 .dfour td { font-size: 0.98rem; line-height: 1.5; color: var(--ink); }
-.dfour__k { font-weight: 700; width: 190px; }
-.dfour__v { width: 34%; }
+.dfour__k { font-weight: 700; width: 17%; }
+.dfour__v { width: 41.5%; }
+.dfour__h { width: 41.5%; }
 @media (max-width: 719px) {
   .dfour thead { display: none; }
   .dfour, .dfour tbody, .dfour tr, .dfour td { display: block; width: auto; }
