@@ -42,6 +42,16 @@ Three questions recur, in roughly this order of attention:
    for. Somebody, every time, ends up holding a difference they didn't sign
    up for.
 
+Questions 2 and 3 turn on a distinction the read tries to keep sharp: a
+case can sit in a gap nobody had written yet, or it can sit past a warning
+the design already gave in writing, aimed at the same excuse, before the
+shipment or the request ever moved. Both can end in the same outcome — the
+same diversion, the same access, the same headline — but they are not the
+same failure. A category nobody had built yet asks the design to catch up.
+A category already built, and still not held, asks whether writing a
+better rule was ever the fix that mattered. The read checks which one a
+case is before it checks how the case ended.
+
 Each case page opens with four cells — the object held, where it started
 to move, where cost arrives first, and the difference carried — then
 question 1 (a short structural note plus a small table), folds question 2
