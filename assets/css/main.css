@@ -1410,14 +1410,6 @@ details[open] > summary { margin-bottom: 0.6rem; }
   max-width: 52ch;
   margin: 1.5rem 0 0;
 }
-.cov-note {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
-  color: #1D3557;
-  max-width: 52ch;
-  margin: 1rem 0 0;
-}
 
 /* generic block scaffolding */
 .cov-block { margin-top: clamp(2.75rem, 6vw, 4.5rem); }
@@ -1750,38 +1742,31 @@ details[open] > summary { margin-bottom: 0.6rem; }
    Decision layer — four cells. Cover + case pages.
    -------------------------------------------------------------------------- */
 .dfour {
-  display: block;
+  width: 100%;
+  border-collapse: collapse;
   border: 1px solid var(--ink);
   background: #FFFcf7;
-  margin: 0;
 }
-.dfour__row {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 1.25rem;
-  padding: 1rem 1.15rem;
-  border-bottom: 1px solid var(--rule);
+.dfour th, .dfour td {
+  border: 1px solid var(--ink);
+  padding: 0.85rem 1.05rem;
+  vertical-align: top;
+  text-align: left;
 }
-.dfour__row:last-child { border-bottom: none; }
-.dfour__k {
-  font: 700 0.78rem/1.4 var(--mono);
-  letter-spacing: 0.01em;
-  color: #1D3557;
-  margin: 0;
-}
-.dfour__v {
-  margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.5;
-  color: var(--ink);
-  max-width: none;
-}
-.dfour-note {
-  margin: 0.85rem 0 0;
-  font-size: 0.95rem;
+.dfour th {
+  font: 700 0.72rem/1.2 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--muted);
-  max-width: 62ch;
+  background: var(--paper);
 }
-@media (max-width: 639px) {
-  .dfour__row { grid-template-columns: 1fr; gap: 0.35rem; }
+.dfour td { font-size: 0.98rem; line-height: 1.5; color: var(--ink); }
+.dfour__k { font-weight: 700; width: 190px; }
+.dfour__v { width: 34%; }
+@media (max-width: 719px) {
+  .dfour thead { display: none; }
+  .dfour, .dfour tbody, .dfour tr, .dfour td { display: block; width: auto; }
+  .dfour__k { border-bottom: none; padding-bottom: 0.35rem; }
+  .dfour__v { padding: 0 1.05rem 0.35rem; border-bottom: none; }
+  .dfour__h { padding-top: 0; }
 }
